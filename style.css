@@ -1,0 +1,252 @@
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+/* Pause animation on hover so they can easily click a logo */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+/* Futuristic Clock Section Styling */
+.futuristic-clock-section {
+  background-color: #030305;
+  color: #ffffff;
+  padding: 80px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.fcs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styling */
+.fcs-header {
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.fcs-header h2 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #f0f0f0;
+  margin-bottom: 16px;
+}
+
+.fcs-header p {
+  font-size: 1rem;
+  color: #8a8a93;
+  line-height: 1.6;
+}
+
+/* Main Layout Grid */
+.fcs-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Clock Container & Glow Effect */
+.fcs-clock-wrapper {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-outer-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.08), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.clock {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #111216 0%, #08080a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9), 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Dial Numbers Positioning */
+.num {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #a0a0ab;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+
+.num-12 { top: 12px; left: 50%; transform: translateX(-50%); }
+.num-1  { top: 32px; right: 80px; }
+.num-2  { top: 80px; right: 32px; }
+.num-3  { top: 50%; right: 12px; transform: translateY(-50%); }
+.num-4  { bottom: 80px; right: 32px; }
+.num-5  { bottom: 32px; right: 80px; }
+.num-6  { bottom: 12px; left: 50%; transform: translateX(-50%); }
+.num-7  { bottom: 32px; left: 80px; }
+.num-8  { bottom: 80px; left: 32px; }
+.num-9  { top: 50%; left: 12px; transform: translateY(-50%); }
+.num-10 { top: 80px; left: 32px; }
+.num-11 { top: 32px; left: 80px; }
+
+/* Inner Ring Markings */
+.inner-dial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 230px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+/* Clock Needles */
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+.hour-hand {
+  width: 4px;
+  height: 80px;
+  background: #ffffff;
+  margin-left: -2px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.minute-hand {
+  width: 3px;
+  height: 115px;
+  background: #e0e0e0;
+  margin-left: -1.5px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.second-hand {
+  width: 1.5px;
+  height: 130px;
+  background: #ffffff;
+  margin-left: -0.75px;
+  opacity: 0.8;
+}
+
+/* Center Badge with K&S */
+.center-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  background: #18191e;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.center-badge span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Right Content Styling */
+.fcs-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 540px;
+}
+
+.fcs-content h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  color: #e4e4e7;
+  margin-bottom: 20px;
+}
+
+.fcs-content p {
+  color: #90909a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.transformation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.transformation-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.subtext {
+  font-size: 0.8rem;
+  color: #60606a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fcs-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+  .fcs-header {
+    text-align: center;
+  }
+  .btn-group {
+    align-items: center;
+  }
+}

@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K&S info Desk - Next-Gen Brand Architects</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Space Grotesk -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Chart.js for Growth Graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .glass-btn:active {
+            transform: translateY(0px) scale(0.97);
+        }
+
+        .studio-card {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid white;
+            backdrop-filter: blur(10px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .studio-card:hover {
+            border-color: white;
+            box-shadow: 0 10px 40px rgba(245, 185, 40, 0.15);
+        }
+
+        .philosophy-box {
+            background: rgba(10, 10, 10, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9);
+        }
+
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.75);
+            transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
+        }
+
+        .outline-text:hover {
+            color: rgba(255, 215, 0, 0.2);
+            -webkit-text-stroke: 1.5px rgba(255, 215, 0, 0.9);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+@keyframes moveGrid {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(3.5rem);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-20px) translateX(15px);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1.03);
+            }
+        }
+        @keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+/* Pause animation on hover so they can easily click a logo */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes moveGrid {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(4rem);
+    }
+}@keyframes moveGrid {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(4rem);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    50% {
+        transform: translateY(-20px) translateX(15px);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white-500 selection:text-black">
+
+    <!-- Hero Background Animation Layer -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+        <div
+            class="absolute w-[350px] h-[350px] sm:w-[550px] sm:h-[550px] lg:w-[750px] lg:h-[750px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.22)_0%,_rgba(200,130,20,0.08)_45%,_transparent_75%)] blur-3xl animate-pulse-slow">
+        </div>
+        <canvas id="particleCanvas" class="absolute inset-0 w-full h-full opacity-60"></canvas>
+    </div>
+
+   <header class="relative z-50 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+    <a href="index.html" class="flex items-center group focus:outline-none">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
+            <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+            </svg>
+        </div>
+    </a>
+
+    <nav class="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm font-medium text-gray-300">
+        <a href="index.html" class="text-white hover:text-white transition-colors">Home</a>
+        <a href="services.html" class="hover:text-white transition-colors">Services</a>
+        <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
+        <a href="contact.html" class="hover:text-white transition-colors">Contact Us</a>
+    </nav>
+
+    <div class="flex items-center space-x-4">
+        <a href="contact.html" class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
+            <span>Let's Talk</span>
+            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
+        <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none z-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Drawer with Icons, Underline Effect, and White Text Glow -->
+<div id="mobileMenu" 
+     class="fixed inset-x-0 top-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center pt-14 pb-6 rounded-b-3xl border-b border-white/15 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-full opacity-0 pointer-events-none md:hidden">
+    
+    
+    
+    <div class="w-full flex flex-col items-stretch px-8">
+        <!-- Home -->
+        <a href="index.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-white border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span class="relative text-lg font-medium tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                Home
+                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </span>
+        </a>
+
+        <!-- Services -->
+        <a href="services.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                Services
+                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </span>
+        </a>
+
+        <!-- Projects -->
+        <a href="projects.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                Projects
+                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </span>
+        </a>
+
+        <!-- Contact Us -->
+        <a href="contact.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-b border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                Contact Us
+                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </span>
+        </a>
+    </div>
+</div>
+
+    <!-- Interactive Contact Us Modal / Page View -->
+    <div id="contactModal"
+        class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl overflow-y-auto transition-all duration-300 opacity-0 pointer-events-none flex flex-col">
+        <!-- Modal Header -->
+        <div
+            class="sticky top-0 z-20 w-full bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white-400">
+                    <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                        <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                    </svg>
+                </div>
+                <span class="font-display font-bold text-lg text-white uppercase tracking-wider">K&S info Desk — CONTACT
+                    US</span>
+            </div>
+            <button onclick="closeContactModal()"
+                class="glass-btn p-2 rounded-xl text-gray-300 hover:text-white cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Modal Content - Contact Us Page Replica -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full space-y-16">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs uppercase tracking-[0.35em] text-white-400 font-semibold mb-3 inline-block">GET IN
+                    TOUCH</span>
+                <h2 class="text-3xl sm:text-5xl font-display font-bold text-white uppercase tracking-wide mb-4">LET'S
+                    START A CONVERSATION</h2>
+                <p class="text-gray-400 text-sm sm:text-base font-light">Have a project in mind or want to explore how
+                    we can elevate your brand? Fill out the form below or reach out directly.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto w-full">
+                <!-- Contact Info Sidebar -->
+                <div class="lg:col-span-5 studio-card rounded-3xl p-8 space-y-8">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-white-400 font-semibold block mb-2">DIRECT
+                            CONTACT</span>
+                        <h3 class="font-display font-bold text-xl text-white">We're Ready to Build Your Vision</h3>
+                    </div>
+
+                    <div class="space-y-6 text-sm text-gray-300">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white-400 shrink-0">
+                                ✉</div>
+                            <div>
+                                <span class="block text-xs uppercase text-gray-400 tracking-wider">Email Us</span>
+                                <a href="mailto:info@K&Sinfotech.com"
+                                    class="text-white font-medium hover:text-white-400 transition-colors">info@K&Sinfotech.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white-400 shrink-0">
+                                ☎</div>
+                            <div>
+                                <span class="block text-xs uppercase text-gray-400 tracking-wider">Call /
+                                    WhatsApp</span>
+                                <span class="text-white font-medium">+1 (555) 382-4847</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white-400 shrink-0">
+                                📍</div>
+                            <div>
+                                <span class="block text-xs uppercase text-gray-400 tracking-wider">Studio
+                                    Headquarters</span>
+                                <span class="text-white font-medium">Next-Gen Brand Architecture Hub</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-white/10">
+                        <span class="text-xs uppercase tracking-widest text-gray-400 block mb-3">Follow Our
+                            Channels</span>
+                        <div class="flex items-center space-x-3">
+                            <div
+                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
+                                f</div>
+                            <div
+                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
+                                in</div>
+                            <div
+                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
+                                ig</div>
+                            <div
+                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
+                                x</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7 studio-card rounded-3xl p-8 sm:p-10">
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Your Name
+                                    *</label>
+                                <input type="text" required placeholder="John Doe"
+                                    class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Email Address
+                                    *</label>
+                                <input type="email" required placeholder="john@example.com"
+                                    class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Phone
+                                    Number</label>
+                                <input type="tel" placeholder="+1 (555) 000-0000"
+                                    class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Service
+                                    Interested In</label>
+                                <select
+                                    class="w-full bg-zinc-900 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white transition-colors">
+                                    <option>Custom Website Design</option>
+                                    <option>Branding Essentials</option>
+                                    <option>Social Media Management</option>
+                                    <option>Conversion & Growth Suite</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Project Details
+                                *</label>
+                            <textarea rows="4" required placeholder="Tell us about your business goals and vision..."
+                                class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors resize-none"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="glass-btn w-full py-4 rounded-xl text-center text-sm font-medium text-white-400 border-white/40 bg-white/10 hover:bg-white/20 transition-all cursor-pointer">
+                            Send Message →
+                        </button>
+
+                        <div id="formSuccessMsg"
+                            class="hidden p-4 rounded-xl bg-white/10 border border-white/30 text-white-300 text-xs text-center">
+                            Thank you! Your message has been sent successfully. We will get back to you shortly.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Projects Modal / Page View -->
+    <div id="projectsModal"
+        class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl overflow-y-auto transition-all duration-300 opacity-0 pointer-events-none flex flex-col">
+        <!-- Modal Header -->
+        <div
+            class="sticky top-0 z-20 w-full bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white-400">
+                    <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                        <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                    </svg>
+                </div>
+                <span class="font-display font-bold text-lg text-white uppercase tracking-wider">K&S info Desk —
+                    PROJECTS PORTAL</span>
+            </div>
+            <button onclick="closeProjectsModal()"
+                class="glass-btn p-2 rounded-xl text-gray-300 hover:text-white cursor-pointer">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Modal Content - Full Projects Page -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full space-y-16">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs uppercase tracking-[0.35em] text-white-400 font-semibold mb-3 inline-block">OUR
+                    WORK</span>
+                <h2 class="text-3xl sm:text-5xl font-display font-bold text-white uppercase tracking-wide mb-4">PROJECTS
+                    ARCHIVE</h2>
+                <p class="text-gray-400 text-sm sm:text-base font-light">Explore our complete collection of digital
+                    builds, brand transformations, and immersive experiences crafted for global category leaders.</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="studio-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                        <img src="car.webp" alt="Crystal Pro"
+                            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                            onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                            <span
+                                class="text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 text-gray-300">Crystal
+                                Pro
+                                Design</span>
+                            <span class="text-xs font-medium text-white-400">UI/UX & Web</span>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-white">Crystal ProArchitectural Studio</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-light">High-end minimalism web platform
+                            showcasing modern architectural concepts with fluid grid animations.</p>
+                        <button onclick="closeProjectsModal(); openContactModal();"
+                            class="inline-block text-xs text-white-400 font-medium hover:underline pt-2 bg-transparent border-none cursor-pointer p-0">Discuss
+                            similar project →</button>
+                    </div>
+                </div>
+
+                <div class="studio-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                        <img src="vale.webp" alt="Phantom Pro Studio"
+                            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                            onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                            <span
+                                class="text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 text-gray-300">Phantom
+                                Pro</span>
+                            <span class="text-xs font-medium text-white-400">Branding & Web</span>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-white">Phantom Pro Automotive</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-light">Aggressive dark-mode digital
+                            experience for high-performance supercar customizers.</p>
+                        <button onclick="closeProjectsModal(); openContactModal();"
+                            class="inline-block text-xs text-white-400 font-medium hover:underline pt-2 bg-transparent border-none cursor-pointer p-0">Discuss
+                            similar project →</button>
+                    </div>
+                </div>
+
+                <div class="studio-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                        <img src="https://placehold.co/800x600/1e1e1e/f5b928?text=Alpha+Fitness" alt="Alpha Fitness"
+                            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                            onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                            <span
+                                class="text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 text-gray-300">Alpha
+                                Fitness</span>
+                            <span class="text-xs font-medium text-white-400">Growth & App</span>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-display font-bold text-lg text-white">Alpha Performance Gym</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed font-light">Conversion-optimized membership
+                            portal and streamlined customer onboarding funnel.</p>
+                        <button onclick="closeProjectsModal(); openContactModal();"
+                            class="inline-block text-xs text-white-400 font-medium hover:underline pt-2 bg-transparent border-none cursor-pointer p-0">Discuss
+                            similar project →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Services Modal / Page View -->
+    <div id="servicesModal"
+        class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl overflow-y-auto transition-all duration-300 opacity-0 pointer-events-none flex flex-col">
+        <!-- Modal Header -->
+        <div
+            class="sticky top-0 z-20 w-full bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white-400">
+                    <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                        <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                    </svg>
+                </div>
+                <span class="font-display font-bold text-lg text-white uppercase tracking-wider">K&S info Desk —
+                    SERVICES PORTAL</span>
+            </div>
+            <button onclick="closeServicesModal()" class="glass-btn p-2 rounded-xl text-gray-300 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Modal Content - Full Services Page Replica -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full space-y-24">
+            <!-- Services Hero Subtitle -->
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-xs uppercase tracking-[0.35em] text-white-400 font-semibold mb-3 inline-block">OUR
+                    CAPABILITIES</span>
+                <h2 class="text-3xl sm:text-5xl font-display font-bold text-white uppercase tracking-wide mb-4">SERVICES
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base font-light">This page lays out the capabilities that power
+                    our process. Everything here is built to support brands with clarity, direction and execution that
+                    holds up over time.</p>
+            </div>
+
+            <!-- Section 1: The Web Development Suite -->
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">The Web Development Suite
+                    </h3>
+                    <p class="text-gray-400 text-xs sm:text-sm">Here's everything we offer under web development — from
+                        thoughtful UI/UX work to full-scale ecommerce builds. Each service is designed to help brands
+                        look sharp and perform well online.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">UI/UX
+                                Strategy</span>
+                            <h4 class="font-display font-bold text-base text-white mb-2">Structuring Journeys That Lead
+                                To Results</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Thoughtful Wireframes Crafted With
+                                Purpose. We design websites that are fast, intuitive, & tailored to your brand.</p>
+                        </div>
+                        <a href="#projects.html" 
+                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
+                    </div>
+                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Landing
+                                Page Frameworks</span>
+                            <h4 class="font-display font-bold text-base text-white mb-2">Clear Messaging That Drives
+                                Confident Buying</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Structure Designed Around User
+                                Psychology. We build structured landing page frameworks optimized for conversions.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
+                    </div>
+                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Modern
+                                Portfolio Website</span>
+                            <h4 class="font-display font-bold text-base text-white mb-2">A Refined Identity For Your
+                                Digital Presence</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Multi Page Portfolio That Builds
+                                Trust. Your portfolio is crafted like a high-value agency showcase.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
+                    </div>
+                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Product
+                                Catalog Website</span>
+                            <h4 class="font-display font-bold text-base text-white mb-2">Catalog Sites Crafted For Real
+                                Impact</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Shaping Catalogs Into Clear Digital
+                                Frameworks. Designed around how buyers explore your offerings.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
+                    </div>
+                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Ecommerce
+                                Strategy</span>
+                            <h4 class="font-display font-bold text-base text-white mb-2">Building Digital Stores That
+                                Truly Perform</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Decisions Backed By Research. We dive
+                                into your funnel story, analyze competitors, and convert visitors.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Environment Setup -->
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Environment Setup</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm">A smooth digital experience begins with the essentials.
+                        We handle the full environment setup so you never worry about the backend.</p>
+                </div>
+                <div
+                    class="studio-card rounded-2xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-3">
+                        <span class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block">Hosting
+                            and Domain Setup</span>
+                        <h4 class="font-display font-bold text-xl text-white">High Performance Hosting Paired With
+                            Seamless Domain Integration</h4>
+                        <p class="text-gray-400 text-xs sm:text-sm max-w-2xl font-light">A Reliable Backend Environment
+                            That Supports All Web Functions Smoothly. We configure your hosting plan and domain settings
+                            for maximum uptime.</p>
+                    </div>
+                    <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                        class="glass-btn px-6 py-3 rounded-xl text-xs font-medium text-white-400 border-white/40 bg-white/10 whitespace-nowrap">Get
+                        a custom plan →</a>
+                </div>
+            </div>
+
+            <!-- Section 3: The Conversion And Growth Hub -->
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">The Conversion And Growth Hub
+                    </h3>
+                    <p class="text-gray-400 text-xs sm:text-sm">This is where your brand expands through targeted
+                        marketing, smart content distribution, and consistent performance improvements.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Search
+                                Engine Optimization</span>
+                            <h4 class="font-display font-bold text-lg text-white mb-3">Make Your Brand Easier To Find
+                                Online</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Improve
+                                Visibility, Credibility, And Organic Reach With Focused SEO. Your website is optimized
+                                with smart keyword research.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Learn More →</a>
+                    </div>
+                    <div
+                        class="studio-card rounded-2xl p-8 flex flex-col justify-between border-white/40 shadow-[0_0_25px_rgba(245,185,40,0.15)]">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Ad
+                                Campaign Management</span>
+                            <h4 class="font-display font-bold text-lg text-white mb-3">Plan Launch And Scale High
+                                Converting Ad Campaigns</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Target The Right
+                                Audience and Optimize Every Step For Returns. Comprehensive ad strategy across Meta and
+                                Google.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Learn More →</a>
+                    </div>
+                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Social
+                                Media Care</span>
+                            <h4 class="font-display font-bold text-lg text-white mb-3">Keep Your Brand Active Across
+                                Every Social Platform</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Steady Content
+                                And Community Handling Built For Long Term Growth. From posts and captions to inbox
+                                management.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Brand Identity Basecamp -->
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Brand Identity Basecamp</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm">Your foundation for clear, confident branding. These
+                        services give you the assets and direction you need to show up consistently and professionally.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Signature
+                                Logo</span>
+                            <h4 class="font-display font-bold text-xl text-white mb-3">A Visual Anchor That Gives Your
+                                Brand Recognition</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">A Defined Mark
+                                Crafted From Strategy And Brand Understanding. We study your market and audience to
+                                shape an intentional mark.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Book a quick call →</a>
+                    </div>
+                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
+                        <div>
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Brand
+                                Identity Suite</span>
+                            <h4 class="font-display font-bold text-xl text-white mb-3">A Complete Brand Guide Shaped
+                                From Strategy & Vision</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">A Full Set Of
+                                Visual Rules That Strengthens Recognition Everywhere. We organize your brand into a
+                                structured identity.</p>
+                        </div>
+                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
+                            class="text-xs text-white-400 font-medium hover:underline">Book a quick call →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section id="home" class="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-90px)] text-center px-4 sm:px-6 max-w-7xl mx-auto py-12 overflow-hidden bg-black text-white selection:bg-white selection:text-black">
+
+    <!-- 1. Ambient Background Gradient Vignette -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none z-0"></div>
+
+    <!-- 2. Fixed Visible Moving Grid Lines Background -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-50">
+        <div class="absolute inset-[-100%] h-[300%] w-[300%] bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] animate-[moveGrid_20s_linear_infinite]"></div>
+    </div>
+
+    <!-- 3. Dynamic Interactive Glow & Floating Particle Simulators -->
+    <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden">
+        <!-- Center Pulsing Core Glow -->
+        <div class="w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-white/[0.04] rounded-full blur-[140px] animate-[pulse_6s_ease-in-out_infinite]"></div>
+        
+        <!-- Secondary Floating Drift Orb 1 -->
+        <div class="absolute w-[250px] h-[250px] bg-white/[0.03] rounded-full blur-[100px] animate-[float_10s_ease-in-out_infinite] -top-20 -left-20"></div>
+        
+        <!-- Tertiary Floating Drift Orb 2 -->
+        <div class="absolute w-[300px] h-[300px] bg-white/[0.02] rounded-full blur-[110px] animate-[float_12s_ease-in-out_infinite_reverse] -bottom-20 -right-20"></div>
+    </div>
+
+    <!-- 4. Top Badge -->
+    <div class="relative z-10 inline-block mb-4 sm:mb-6 animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:100ms]">
+        <div class="group relative p-[1px] rounded-full overflow-hidden bg-gradient-to-r from-transparent via-white/30 to-transparent">
+            <span class="relative flex items-center gap-2 text-[11px] sm:text-sm font-semibold uppercase tracking-[0.355em] text-gray-200 bg-black/80 px-6 py-2.5 rounded-full backdrop-blur-xl shadow-[0_0_25px_rgba(255,255,255,0.03)]">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                Next-Gen Authority
+            </span>
+        </div>
+    </div>
+
+    <!-- 5. Main Title -->
+    <h1 class="relative z-10 font-display font-black tracking-wider uppercase text-white drop-shadow-[0_15px_50px_rgba(255,255,255,0.2)] text-3xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] max-w-6xl mx-auto my-2 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:300ms]">
+        Brand <span class="bg-gradient-to-b from-white via-gray-200 to-gray-500 bg-clip-text text-transparent">Architects</span>
+    </h1>
+
+    <!-- 6. Catchy Subheading -->
+    <p class="relative z-10 text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-4 sm:mt-6 font-light tracking-wide leading-relaxed animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:500ms]">
+        We engineer dominant digital ecosystems that turn high-value attention into permanent market leadership. 
+        <span class="text-gray-200 font-normal">Transparent strategies, elite execution, measurable ROI.</span>
+    </p>
+
+    <!-- 7. Interactive Call to Action Button -->
+    <div class="relative z-10 mt-8 sm:mt-12 animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:700ms]">
+        <a href="services.html" class="group relative inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide overflow-hidden bg-white text-black shadow-[0_0_40px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:bg-black hover:text-white border border-transparent hover:border-white/40 transition-all duration-500 cursor-pointer active:scale-95">
+            
+            <!-- Shimmer Effect Layer -->
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-black/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+            <span class="relative z-10 font-medium flex items-center gap-2">
+                Let's Build Your 
+                <span class="font-bold underline underline-offset-4 decoration-1 decoration-white/60 group-hover:decoration-white">Digital Empire</span>
+            </span>
+
+            <svg class="w-4 h-4 text-black transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
+    </div>
+</section>
+
+
+
+    <!-- Projects Showcase Section with Properly Sized Mobile Slider -->
+    <section id="projects"
+        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black text-white overflow-hidden">
+
+        <!-- Background Elevated White Glow Effect -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-0">
+        </div>
+
+        <!-- Section Header -->
+        <div class="relative z-10 max-w-3xl">
+            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-4">
+                Selected Pieces From Our Studio
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
+                These pieces show how we turn raw concepts into polished experiences. We pay attention to movement,
+                layout, flow, and the feeling a website gives the moment someone lands on it. This is where you can see
+                how all those elements come together.
+            </p><br>
+        </div>
+
+        <!-- Mobile Slide Navigation Controls Header (Visible on small screens only) -->
+        <div class="flex md:hidden items-center justify-end gap-3 mb-4 z-20 relative">
+            <button onclick="scrollProjects('left')"
+                class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
+                aria-label="Slide Left">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button onclick="scrollProjects('right')"
+                class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
+                aria-label="Slide Right">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Projects Container: Properly Sized Cards for Mobile & Grid for Desktop -->
+        <div id="projectsSlider"
+            class="relative z-10 flex md:grid md:grid-cols-3 gap-5 lg:gap-8 items-center overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-4 md:pb-0">
+
+            <!-- Project Card 1: Crystal Pro -->
+            <div
+                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/30 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                    <img src="car.webp" alt="Crystal Pro"
+                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Crystal
+                            Pro
+                            Design</span>
+                       <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+    Explore <span class="text-base">&rarr;</span>
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2: Phantom Pro Studio -->
+            <div
+                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/30 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                    <img src="vale.webp" alt="Phantom Pro Studio"
+                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Phantom
+                            Pro Studio</span>
+                        <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+    Explore <span class="text-base">&rarr;</span>
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3: Alpha Fitness -->
+            <div
+                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/30 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                    <img src="shimmer-edited.webp" alt="Alpha Fitness"
+                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Alpha
+                            Fitness</span>
+                        <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+    Explore <span class="text-base">&rarr;</span>
+</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Action Controls Footer -->
+        <div class="relative z-10 mt-12 sm:mt-16 flex items-center justify-between">
+            <a href="#services"
+                class="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300">
+                <span>See More</span>
+                <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+
+            <a href="#home"
+                class="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- JavaScript for Slider Scroll -->
+    <script>
+        function scrollProjects(direction) {
+            const container = document.getElementById('projectsSlider');
+            const scrollAmount = 280; // Scroll by fixed card width length
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+    </script>
+
+    <style>
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+
+    <!-- Our Philosophy Section -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-black">
+        <div
+            class="relative rounded-3xl overflow-hidden p-8 sm:p-14 md:p-20 philosophy-box text-center border border-white/10 bg-zinc-950 shadow-[0_20px_50px_rgba(0,0,0,0.9)]">
+
+            <!-- Background Canvas & Pure White/Grey Glow Effect -->
+            <div
+                class="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center z-0 opacity-80">
+                <!-- Canvas Drawing -->
+                <canvas id="philosophyCanvas" class="w-full h-full absolute inset-0"></canvas>
+
+                <!-- Soft White & Grey Ambient Glows -->
+                <div class="absolute w-[600px] h-[600px] rounded-full bg-white/[0.05] blur-[140px]"></div>
+                <div
+                    class="absolute w-[350px] h-[350px] rounded-full bg-gray-200/[0.03] blur-[100px] -top-10 left-1/2 -translate-x-1/2 animate-pulse">
+                </div>
+            </div>
+
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <!-- Top Badge -->
+                <span
+                    class="text-xs sm:text-sm font-semibold uppercase tracking-[0.35em] text-gray-300 bg-white/[0.05] border border-white/15 px-5 py-2 rounded-full mb-6 inline-block backdrop-blur-md shadow-sm">
+                    Our Philosophy
+                </span>
+
+                <!-- Main Heading -->
+                <h3
+                    class="font-display font-black text-2xl sm:text-4xl md:text-5xl tracking-wide uppercase text-white mb-6 leading-tight drop-shadow-[0_10px_30px_rgba(255,255,255,0.15)]">
+                    Built To Last, Designed With Intention
+                </h3>
+
+                <!-- Description Paragraph -->
+                <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed mb-10 font-light">
+                    We're a team that treats websites like growth engines, not just online brochures. Every project
+                    starts with understanding what makes your business different. From there, we build seamless systems
+                    that connect strategy, design, and performance into one experience.
+                </p>
+
+                <!-- Call to Action Button -->
+                <a href="contact.html"
+    class="group inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300 cursor-pointer">
+    <span class="relative z-10 font-medium">Get In Touch</span>
+    <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1.5 relative z-10"
+        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for the Philosophy Canvas Animation (Converted to White/Silver/Grey) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("philosophyCanvas");
+            if (!canvas) return;
+            const ctx = canvas.getContext("2d");
+
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            resizeCanvas();
+            window.addEventListener("resize", resizeCanvas);
+
+            let t = 0;
+            function animatePhilosophy() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                ctx.save();
+                ctx.beginPath();
+
+                let width = canvas.width;
+                let height = canvas.height;
+
+                // Drawing an infinity/wave loop path
+                ctx.moveTo(width / 2, height / 2);
+                for (let x = 0; x < width; x += 5) {
+                    let y = height / 2 + Math.sin((x + t) * 0.015) * 50 * Math.sin(t * 0.005);
+                    ctx.lineTo(x, y);
+                }
+
+                // Updated stroke and shadow to pure white and silver gradients (No Yellow)
+                let gradient = ctx.createLinearGradient(0, 0, width, height);
+                gradient.addColorStop(0, "rgba(255, 255, 255, 0.8)");
+                gradient.addColorStop(0.5, "rgba(156, 163, 175, 0.5)"); // Soft gray
+                gradient.addColorStop(1, "rgba(255, 255, 255, 0.2)");
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2.5;
+                ctx.shadowColor = "rgba(255, 255, 255, 0.8)"; // White glow
+                ctx.shadowBlur = 12;
+                ctx.stroke();
+                ctx.restore();
+
+                t += 1.5;
+                requestAnimationFrame(animatePhilosophy);
+            }
+
+            animatePhilosophy();
+        });
+    </script>
+
+    <!-- Marquee Banner -->
+    <section class="relative z-10 overflow-hidden py-12 border-y border-white/10 bg-black/40 backdrop-blur-md">
+        <div class="flex whitespace-nowrap overflow-hidden">
+            <div
+                class="flex animate-marquee items-center space-x-12 text-3xl sm:text-5xl md:text-6xl font-display font-extrabold uppercase tracking-widest text-white">
+                <span class="outline-text px-4">Vision Turned Digital</span>
+                <span class="text-white-400 text-2xl">✦</span>
+                <span class="outline-text px-4">Next-Gen Brand Architects</span>
+                <span class="text-white-400 text-2xl">✦</span>
+            </div>
+            <div class="flex animate-marquee items-center space-x-12 text-3xl sm:text-5xl md:text-6xl font-display font-extrabold uppercase tracking-widest text-white"
+                aria-hidden="true">
+                <span class="outline-text px-4">Vision Turned Digital</span>
+                <span class="text-white-400 text-2xl">✦</span>
+                <span class="outline-text px-4">Next-Gen Brand Architects</span>
+                <span class="text-white-400 text-2xl">✦</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section id="services" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div class="max-w-3xl mb-14">
+            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-3">
+                What We Offer
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                Strategy, design, and execution built around what your business actually needs
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Card 1: Custom Website Design -->
+            <div onclick="openServicesModal()"
+                class="studio-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer border border-white/10 bg-zinc-950/50 hover:border-white/30 transition-all duration-300">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-xl glass-btn flex items-center justify-center text-white mb-6 bg-white/5 border border-white/10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-3 tracking-wide">CUSTOM WEBSITE
+                        DESIGN</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8">
+                        We design websites that are fast, intuitive, & tailored to your brand. Whether you need a
+                        digital storefront or a standout portfolio, we build experiences that look sharp and perform
+                        even better.
+                    </p>
+                </div>
+                <span
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-white group-hover:text-gray-300 transition-colors">
+                    <span>Learn More</span> →
+                </span>
+            </div>
+
+            <!-- Card 2: Branding Essentials -->
+            <div onclick="openServicesModal()"
+                class="studio-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer border border-white/10 bg-zinc-950/50 hover:border-white/30 transition-all duration-300">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-xl glass-btn flex items-center justify-center text-white mb-6 bg-white/5 border border-white/10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.5V21m0 0h2" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-3 tracking-wide">BRANDING
+                        ESSENTIALS</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8">
+                        We help you define how your brand shows up visually. From logo design to colors, fonts, and
+                        reference styles, we give you the basic branding tools you need to look sharp and stay
+                        consistent everywhere.
+                    </p>
+                </div>
+                <span
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-white group-hover:text-gray-300 transition-colors">
+                    <span>See More</span> →
+                </span>
+            </div>
+
+            <!-- Card 3: Social Media Management -->
+            <div onclick="openServicesModal()"
+                class="studio-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer border border-white/10 bg-zinc-950/50 hover:border-white/30 transition-all duration-300">
+                <div>
+                    <div
+                        class="w-12 h-12 rounded-xl glass-btn flex items-center justify-center text-white mb-6 bg-white/5 border border-white/10">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-3 tracking-wide">SOCIAL MEDIA
+                        MANAGEMENT</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8">
+                        We manage your social presence by planning post schedules, publishing content, replying to
+                        comments, managing DMs, and keeping your brand active across platforms.
+                    </p>
+                </div>
+                <span
+                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-white group-hover:text-gray-300 transition-colors">
+                    <span>See More</span> →
+                </span>
+            </div>
+        </div>
+
+        <!-- Bottom Explore Button -->
+        <div class="mt-16 text-center">
+           <a href="services.html"
+    class="glass-btn group inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium text-white bg-white/5 border border-white/15 hover:border-white/50 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+    <span>Explore All Services</span>
+    <svg class="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-1"
+        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+</a>
+        </div>
+    </section>
+    <!-- NEW DIGITAL GROWTH & BUSINESS UPSCALING GRAPH SECTION -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 space-y-6">
+                <span class="text-xs uppercase tracking-[0.3em] text-white font-semibold block">
+                    — SCALE YOUR REVENUE
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-3">
+                    Turn Visitors Into High-Paying Clients On Autopilot
+                </h2>
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                    Stuck with slow websites, high bounce rates, and missed leads? Without a custom high-performance
+                    digital asset, your business bleeds potential revenue every single day. We engineer battle-tested
+                    web systems and conversion architectures designed to aggressively scale your client acquisition and
+                    maximize your bottom line.
+                </p>
+                <div class="flex items-center gap-6 pt-2">
+                    <div>
+                        <span class="block text-3xl font-display font-bold text-green-400">+280%</span>
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Conversion Rate Boost</span>
+                    </div>
+                    <div class="w-px h-12 bg-white/10"></div>
+                    <div>
+                        <span class="block text-3xl font-display font-bold text-white">3.4x</span>
+                        <span class="text-xs text-gray-400 uppercase tracking-wider">Revenue Acceleration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Growth Graph Container -->
+            <div class="lg:col-span-7 studio-card rounded-3xl p-6 sm:p-8 border border-white bg-zinc-950/90">
+                <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+                    <span class="text-sm font-display font-semibold text-white tracking-wide">Revenue Growth Trajectory
+                        (Q1 - Q4)</span>
+                    <span
+                        class="text-xs px-3 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-400">Powered
+                        by K&S Desk</span>
+                </div>
+
+                <!-- Up/Down Stat indicators in Green and Red -->
+                <div class="grid grid-cols-2 gap-4 mb-6 p-4 rounded-2xl bg-zinc-900/60 border border-white/10">
+                    <div>
+                        <span class="block text-[10px] text-gray-400 uppercase tracking-wider">Without Agency
+                            System</span>
+                        <span class="text-[10px] font-bold text-red-400">−42% Lead Drop</span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] text-gray-400 uppercase tracking-wider">With Custom
+                            Architecture</span>
+                        <span class="text-[10px] font-bold text-green-400">+315% ROI Surge</span>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-[280px] sm:h-[320px]">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart.js Script configured strictly with White, Green, and Gray elements -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById('growthChart').getContext('2d');
+
+            // Create subtle green gradient fill for the growth line
+            const greenGradient = ctx.createLinearGradient(0, 0, 0, 300);
+            greenGradient.addColorStop(0, 'rgba(74, 222, 128, 0.35)');
+            greenGradient.addColorStop(1, 'rgba(74, 222, 128, 0.0)');
+
+            const growthChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [
+                        {
+                            label: 'With K&S Desk (Optimized)',
+                            data: [15000, 38000, 75000, 140000],
+                            borderColor: '#4ade80', // Green
+                            backgroundColor: greenGradient,
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: '#ffffff',
+                            pointBorderColor: '#4ade80',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 7
+                        },
+                        {
+                            label: 'Industry Average (Flat)',
+                            data: [12000, 14000, 15500, 16000],
+                            borderColor: '#71717a', // Gray
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            fill: false,
+                            tension: 0.2,
+                            pointBackgroundColor: '#71717a',
+                            pointRadius: 3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#d4d4d8',
+                                font: { size: 12, family: 'sans-serif' },
+                                boxWidth: 12
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#09090b',
+                            titleColor: '#ffffff',
+                            bodyColor: '#4ade80',
+                            borderColor: 'rgba(255,255,255,0.2)',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function (context) {
+                                    return ' Revenue: $' + context.raw.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#a1a1aa', font: { size: 11 } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: {
+                                color: '#a1a1aa',
+                                font: { size: 11 },
+                                callback: function (value) {
+                                    return '$' + (value / 1000) + 'k';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="max-w-4xl mx-auto md:mx-0 mb-14 text-center md:text-left">
+            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-3">Our Proven Process
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                No guesswork, no endless delays. We follow a streamlined, high-impact blueprint designed to turn your
+                vision into a high-converting digital asset on time and on budget.
+            </p>
+        </div>
+
+        <!-- Adaptive Container with Clean Border Glow -->
+        <div
+            class="w-full max-w-6xl mx-auto rounded-3xl p-5 sm:p-8 md:p-12 border border-white/15 bg-zinc-950/90 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(255,255,255,0.02)]">
+
+            <!-- Process Tabs Header: Yellow, White, and Gray Palette -->
+            <div
+                class="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar border-b border-white/10">
+                <button onclick="switchTab(0)" id="tab-0"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-white/50 bg-white/10 text-white cursor-pointer shadow-[0_0_15px_rgba(251,191,36,0.15)] shrink-0">1.
+                    Discovery & Audit</button>
+                <button onclick="switchTab(1)" id="tab-1"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">2.
+                    Architecture & UX</button>
+                <button onclick="switchTab(2)" id="tab-2"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">3.
+                    Rapid Development</button>
+                <button onclick="switchTab(3)" id="tab-3"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">4.
+                    Launch & Scale</button>
+            </div>
+
+            <!-- Process Content Display -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Image Wrapper with Smooth Hover Zoom-out effect -->
+                <div
+                    class="relative overflow-hidden aspect-[4/3] rounded-2xl bg-zinc-900 border border-white/15 shadow-xl group cursor-pointer">
+                    <img id="processImage" src="Wireframe-asset-ready-scaled.webp" alt="Process Illustration"
+                        class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 opacity-100">
+                </div>
+
+                <!-- Text Details with Smooth Fade-Slide Transition -->
+                <div id="processTextContent"
+                    class="space-y-3 transition-all duration-300 ease-out opacity-100 translate-y-0">
+                    <span id="processNumber"
+                        class="text-xs uppercase tracking-widest text-white font-semibold block">Phase 01</span>
+                    <h3 id="processTitle"
+                        class="font-display font-bold text-xl sm:text-2xl text-white uppercase tracking-wide">Discovery
+                        & Audit</h3>
+                    <p id="processDesc" class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                        We deep-dive into your business model, target audience, and core bottlenecks. By analyzing your
+                        goals upfront, we align our strategy entirely toward maximizing your ROI and conversion
+                        potential.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline CSS to hide scrollbars and handle custom smooth tab effects -->
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+
+    <!-- JavaScript for Instant Zero-Delay Smooth Tab Switching -->
+    <script>
+        const processData = [
+            {
+                num: "Phase 01",
+                title: "Discovery & Audit",
+                desc: "We deep-dive into your business model, target audience, and core bottlenecks. By analyzing your goals upfront, we align our strategy entirely toward maximizing your ROI and conversion potential.",
+                img: "Wireframe-asset-ready-scaled.webp"
+            },
+            {
+                num: "Phase 02",
+                title: "Architecture & UX",
+                desc: "We blueprint intuitive user journeys and high-converting layouts. Every structural choice is engineered to keep visitors engaged, reduce bounce rates, and guide them smoothly to checkout or inquiry.",
+                img: "Sitemap-image-ready-scaled.webp"
+            },
+            {
+                num: "Phase 03",
+                title: "Rapid Development",
+                desc: "Our engineering team brings the blueprint to life using clean, lightning-fast code, responsive interfaces, and secure backend integrations (payments, databases, APIs) built to scale effortlessly.",
+                img: "Code-scaled.webp"
+            },
+            {
+                num: "Phase 04",
+                title: "Launch & Scale",
+                desc: "We rigorously test performance, security, and cross-device compatibility before deploying to production. Post-launch, we monitor metrics and provide ongoing optimization to fuel continuous growth.",
+                img: "deployed-scaled.webp"
+            }
+        ];
+
+        let activeTab = 0;
+
+        function switchTab(index) {
+            if (activeTab === index) return;
+            activeTab = index;
+
+            // Update Tab Button Styles Instantly
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`tab-${i}`);
+                if (i === index) {
+                    btn.className = "process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-white/50 bg-white/10 text-white cursor-pointer shadow-[0_0_15px_rgba(251,191,36,0.15)] shrink-0";
+                } else {
+                    btn.className = "process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0";
+                }
+            }
+
+            const data = processData[index];
+            const imgEl = document.getElementById('processImage');
+            const textEl = document.getElementById('processTextContent');
+
+            // Fade out image and text simultaneously with zero delay
+            imgEl.style.opacity = '0';
+            textEl.style.opacity = '0';
+            textEl.style.transform = 'translateY(8px)';
+
+            // Quickly swap data and fade back in for an ultra-smooth crossfade
+            setTimeout(() => {
+                document.getElementById('processNumber').innerText = data.num;
+                document.getElementById('processTitle').innerText = data.title;
+                document.getElementById('processDesc').innerText = data.desc;
+                imgEl.src = data.img;
+
+                imgEl.style.opacity = '1';
+                textEl.style.opacity = '1';
+                textEl.style.transform = 'translateY(0)';
+            }, 150); // Snappy transition timing to prevent lagging
+        }
+    </script>
+
+
+   <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/10">
+        <!-- Partners Marquee Section -->
+        <div class="mb-24 overflow-hidden">
+            <h2 class="text-xl sm:text-2xl font-display font-bold tracking-wide text-white mb-3">Partners Who Built With Us</h2>
+            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-2xl mb-12">
+                Each partnership brought unique scaling challenges and high expectations. Working closely with these
+                industry leaders allowed us to engineer elite digital solutions built for conversion and long-term
+                growth.
+            </p>
+
+            <!-- Marquee Container with Gradient Fades on Edges -->
+            <div class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+                
+                <!-- Moving Track (Duplicated items for a seamless infinite loop) -->
+                <div class="flex w-max animate-marquee space-x-6 items-center">
+                    
+                    <!-- FIRST SET OF LOGOS -->
+                    <!-- Partner 1: AH -->
+                    <div onclick="manualSwitch(0)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 2: PM -->
+                    <div onclick="manualSwitch(1)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 3: HSOD -->
+                    <div onclick="manualSwitch(2)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/HSOD-1.webp" alt="HSOD"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 4: PHANTOM -->
+                    <div onclick="manualSwitch(3)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/phantom-auto.webp" alt="Phantom"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 5: YSSP -->
+                    <div onclick="manualSwitch(4)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/YSS-1.webp" alt="yssp"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 6: AMORA -->
+                    <div onclick="manualSwitch(5)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/amora-salon.webp" alt="Amora"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 7: CP -->
+                    <div onclick="manualSwitch(6)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+
+                    <!-- DUPLICATED SET FOR INFINITE LOOP EFFECT -->
+                    <div onclick="manualSwitch(0)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(1)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(2)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/HSOD-1.webp" alt="HSOD" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(3)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/phantom-auto.webp" alt="Phantom" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(4)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/YSS-1.webp" alt="yssp" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(5)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/amora-salon.webp" alt="Amora" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(6)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Display Area (Unchanged) -->
+        <div class="relative overflow-hidden pt-12">
+            <div class="absolute left-0 top-2 select-none pointer-events-none opacity-25 z-0">
+                <h2 class="text-6xl sm:text-8xl md:text-9xl font-display font-black uppercase tracking-wider text-transparent"
+                    style="-webkit-text-stroke: 1px whitesmoke;">TESTIMONIAL</h2>
+            </div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pt-16 sm:pt-24">
+                <div class="lg:col-span-7 pr-0 sm:pr-8">
+                    <div class="relative pt-2">
+                        <p id="testimonialText"
+                            class="text-gray-300 text-sm sm:text-base leading-relaxed font-light transition-opacity duration-300">
+                            "Working with K&S Desk was one of the best decisions we made for our business. They captured
+                            the essence of our traditional brand craftsmanship while giving us a modern digital presence
+                            that appeals to today's customers. The website feels elegant yet rooted in heritage, just
+                            like our brand. Their dedication and communication throughout the project were excellent."
+                        </p>
+                        <span class="text-5xl text-gray-500 font-serif absolute -bottom-10 right-4 select-none">“</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col items-start lg:items-end space-y-6">
+                    <div class="text-left lg:text-right space-y-1">
+                        <span class="text-xs uppercase tracking-widest text-white block">— TESTIMONIALS</span>
+                        <h3 class="text-xl sm:text-2xl font-display font-medium text-white">Clients Testimonials</h3>
+                    </div>
+
+                    <div class="text-left lg:text-right pt-4">
+                        <span id="testimonialSub" class="text-xs uppercase tracking-widest text-white block mb-1">—
+                            PYARE MIYAN ZARIWALA</span>
+                        <span id="testimonialRole" class="text-xs text-gray-400 font-normal">Fashion & Traditional Textile Craft</span>
+                    </div>
+
+                    <div id="testimonialBadgeContainer"
+                        class="w-28 h-28 rounded-full border border-white/20 bg-black/40 flex items-center justify-center p-3 shadow-2xl relative overflow-hidden">
+                        <img id="testimonialBadgeImg" src="assets/images/pm-logo.webp" alt="Badge"
+                            class="w-full h-full object-contain">
+                    </div>
+
+                    <div class="flex items-center space-x-2 pt-4">
+                        <button onclick="manualSwitch(0)" id="tDot-0" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(1)" id="tDot-1" class="w-6 h-2 rounded-full bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(2)" id="tDot-2" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(3)" id="tDot-3" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(4)" id="tDot-4" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(5)" id="tDot-5" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(6)" id="tDot-6" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+    <script>
+        const testimonialData = [
+            {
+                text: "K&S Desk delivered a rock-solid system architecture for our operations. Their technical depth and execution speed are unmatched.",
+                sub: "— AH MANAGEMENT",
+                role: "Enterprise & Solutions",
+                badgeImg: "assets/images/Alpha-sc-1.webp"
+            },
+            {
+                text: "Working with K&S Desk was one of the best decisions we made for our business. They captured the essence of our traditional brand craftsmanship while giving us a modern digital presence that appeals to today's customers. The website feels elegant yet rooted in heritage, just like our brand. Their dedication and communication throughout the project were excellent.",
+                sub: "— PYARE MIYAN ZARIWALA",
+                role: "Fashion & Traditional Textile Craft",
+                badgeImg: "assets/images/pmz-1.webp"
+            },
+            {
+                text: "K&S Desk understood exactly what a design school's website should communicate — creativity, clarity, and confidence. They delivered a platform that looks great and functions smoothly.",
+                sub: "— HSOD MANAGEMENT",
+                role: "Architecture & Education",
+                badgeImg: "assets/images/HSOD-1.webp"
+            },
+            {
+                text: "Their mastery of full-stack performance, clean UI/UX, and seamless payment integrations allowed us to scale our online store with zero downtime.",
+                sub: "— PHANTOM AUTO STUDIO",
+                role: "Automotive & E-Commerce",
+                badgeImg: "assets/images/phantom-auto.webp"
+            },
+            {
+                text: "Incredible attention to detail and lightning-fast delivery. They understood our business bottlenecks right away and built a robust web application.",
+                sub: "— YSSP PLATFORM",
+                role: "Software & Technology",
+                badgeImg: "assets/images/YSS-1.webp"
+            },
+            {
+                text: "Conversion rates shot up right after launch. The aesthetic appeal combined with heavy conversion-focused architecture made all the difference.",
+                sub: "— AMORA SALON",
+                role: "Lifestyle & Retail",
+                badgeImg: "assets/images/amora-salon.webp"
+            },
+            {
+                text: "An exceptional agency partner. From the initial discovery call to final deployment, every milestone was hit ahead of schedule.",
+                sub: "— CP GROUP",
+                role: "Corporate Ventures",
+                badgeImg: "assets/images/Crystal-Pro-1.webp"
+            }
+        ];
+
+        let currentIndex = 1;
+        let autoSlideInterval = setInterval(nextSlide, 4500);
+
+        function switchTestimonial(index) {
+            currentIndex = index;
+            for (let i = 0; i < 7; i++) {
+                const dot = document.getElementById(`tDot-${i}`);
+                if (dot) {
+                    if (i === index) {
+                        dot.className = "w-6 h-2 rounded-full bg-white transition-all cursor-pointer";
+                    } else {
+                        dot.className = "w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer";
+                    }
+                }
+            }
+
+            const data = testimonialData[index];
+            const textEl = document.getElementById('testimonialText');
+
+            textEl.style.opacity = 0;
+            setTimeout(() => {
+                textEl.innerText = `"${data.text}"`;
+                document.getElementById('testimonialSub').innerText = data.sub;
+                document.getElementById('testimonialRole').innerText = data.role;
+                document.getElementById('testimonialBadgeImg').src = data.badgeImg;
+                textEl.style.opacity = 1;
+            }, 200);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % testimonialData.length;
+            switchTestimonial(currentIndex);
+        }
+
+        function manualSwitch(index) {
+            clearInterval(autoSlideInterval);
+            switchTestimonial(index);
+            autoSlideInterval = setInterval(nextSlide, 4500);
+        }
+    </script>
+   
+        
+    <footer id="contact" class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-20 flex items-center justify-center">
+            <div
+                class="w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.15)_0%,_transparent_70%)] blur-3xl">
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                <!-- Brand & Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center shadow-lg">
+                            <svg viewBox="0 0 32 32" class="w-5 h-5 text-white fill-current"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                                <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                            </svg>
+                        </div>
+                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S info
+                            Desk</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">
+                        Next-Gen Brand Architects and Digital Experience Studio helping ambitious companies scale their
+                        revenue and dominate their market.
+                    </p>
+                    <div class="pt-2">
+                        <button onclick="openContactModal()"
+                            class="inline-flex items-center gap-2 text-sm text-white-400 hover:underline bg-transparent border-none cursor-pointer p-0">
+                            <span>✉</span> info@K&Sinfotech.com
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+             <div class="lg:col-span-3 space-y-4">
+    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
+    <ul class="space-y-2.5 text-sm text-gray-400">
+        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
+        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+    </ul>
+</div>
+
+                <!-- Socials & Callout -->
+                <div class="lg:col-span-4 space-y-4">
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Connect With Us
+                    </h4>
+                    <p class="text-gray-400 text-xs sm:text-sm font-light">Follow our latest design drops and industry
+                        insights across social networks.</p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <button onclick="openContactModal()"
+                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">f</button>
+                        <button onclick="openContactModal()"
+                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">in</button>
+                        <button onclick="openContactModal()"
+                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">ig</button>
+                        <button onclick="openContactModal()"
+                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">x</button>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 K&S info Desk | All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <button onclick="openContactModal()"
+                        class="hover:text-gray-300 transition-colors bg-transparent border-none cursor-pointer p-0 text-xs text-gray-500">Privacy
+                        Policy</button>
+                    <button onclick="openContactModal()"
+                        class="hover:text-gray-300 transition-colors bg-transparent border-none cursor-pointer p-0 text-xs text-gray-500">Terms
+                        & Conditions</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Bundle -->
+    <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMenu() {
+        const isOpen = mobileMenu.classList.contains('translate-y-0');
+
+        if (!isOpen) {
+            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            
+            mobileLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    link.classList.remove('translate-y-6', 'opacity-0');
+                    link.classList.add('translate-y-0', 'opacity-100');
+                }, 120 + (index * 90));
+            });
+        } else {
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+            
+            mobileLinks.forEach((link) => {
+                link.classList.remove('translate-y-0', 'opacity-100');
+                link.classList.add('translate-y-6', 'opacity-0');
+            });
+        }
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
+</script>
+
+    <script>
+
+        // Philosophy Canvas
+        const phiCanvas = document.getElementById('philosophyCanvas');
+        const phiCtx = phiCanvas.getContext('2d');
+        let pWidth, pHeight;
+        function resizePhi() {
+            pWidth = phiCanvas.width = phiCanvas.parentElement.clientWidth;
+            pHeight = phiCanvas.height = phiCanvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizePhi);
+        resizePhi();
+        let t = 0;
+        function animatePhilosophy() {
+            phiCtx.clearRect(0, 0, pWidth, pHeight);
+            phiCtx.save();
+            phiCtx.translate(pWidth / 2, pHeight / 2);
+            phiCtx.beginPath();
+            phiCtx.strokeStyle = 'rgba(245, 185, 40, 0.35)';
+            phiCtx.lineWidth = 2.5;
+            const scale = Math.min(pWidth, 500) / 3.5;
+            for (let i = 0; i < Math.PI * 2; i += 0.02) {
+                const angle = i + t;
+                const denom = 1 + Math.sin(angle) * Math.sin(angle);
+                const x = (scale * Math.cos(angle)) / denom;
+                const y = (scale * Math.sin(angle) * Math.cos(angle)) / denom;
+                if (i === 0) phiCtx.moveTo(x, y); else phiCtx.lineTo(x, y);
+            }
+            phiCtx.stroke();
+            phiCtx.restore();
+            t += 0.008;
+            requestAnimationFrame(animatePhilosophy);
+        }
+        animatePhilosophy();
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            document.querySelectorAll('.parallax-card').forEach(card => {
+                const speed = parseFloat(card.getAttribute('data-speed')) || 0.05;
+                const offset = (scrollY - card.offsetTop + 400) * speed;
+                card.style.transform = `translateY(${offset}px)`;
+            });
+        });
+
+      
+
+        // Contact Modal Control
+        function openContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('formSuccessMsg');
+            successMsg.classList.remove('hidden');
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+                document.getElementById('contactForm').reset();
+                closeContactModal();
+            }, 3000);
+        }
+
+        // Projects Modal Control
+        function openProjectsModal() {
+            const modal = document.getElementById('projectsModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectsModal() {
+            const modal = document.getElementById('projectsModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Services Modal Control
+        function openServicesModal() {
+            const modal = document.getElementById('servicesModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServicesModal() {
+            const modal = document.getElementById('servicesModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto';
+        }
+
+        const servicesData = {
+            web: [
+                { tier: "Tier 01", title: "High-Impact Landing Page", desc: "Custom designed, ultra-fast single page web app optimized for conversions, product launches, and brand authority.", features: ["Custom UI/UX Wireframing", "Advanced Smooth Animations", "Mobile & Tablet Responsive", "5-Day Fast Turnaround"], popular: false },
+                { tier: "Tier 02 — Popular", title: "Full Business Ecosystem", desc: "Multi-page corporate website or digital studio platform with integrated case studies, dynamic blogs, and client portals.", features: ["Up to 8 Custom Pages", "CMS Integration & SEO Setup", "Interactive Canvases & Charts", "Priority 24/7 Support"], popular: true },
+                { tier: "Tier 03", title: "Enterprise Web Application", desc: "Fully bespoke web application, interactive platform, or SaaS interface built with custom frontend architecture.", features: ["Unlimited Scalable Pages", "Custom 3D / WebGL Effects", "Secure Backend API Integration", "Dedicated Engineering Team"], popular: false }
+            ],
+            brand: [
+                { tier: "Tier 01", title: "Identity Starter Kit", desc: "Essential brand assets designed to position your early-stage venture with high professionalism.", features: ["Logo Concepts & Guidelines", "Typography & Color Palette", "Social Media Asset Templates", "Brand Book PDF"], popular: false },
+                { tier: "Tier 02 — Popular", title: "Complete Brand Re-Architecture", desc: "A comprehensive brand overhaul for scaling businesses ready to dominate their market niche.", features: ["Deep Brand Positioning Strategy", "Comprehensive Visual Identity System", "Custom Iconography & Illustrations", "Full Stationery & Pitch Deck Suite"], popular: true },
+                { tier: "Tier 03", title: "Global Enterprise Branding", desc: "International-grade brand architecture for established firms undergoing transition or market expansion.", features: ["Multi-Brand Subsystem Architecture", "Custom Typography Development", "Global Trademark Guidelines", "Ongoing Brand Governance"], popular: false }
+            ],
+            growth: [
+                { tier: "Tier 01", title: "Social Accelerator", desc: "Consistent, high-aesthetic content creation and management to keep your social channels active and engaging.", features: ["12 Custom Posts / Month", "Reels & Shorts Strategy", "Caption Copywriting & Hashtags", "Monthly Growth Analytics"], popular: false },
+                { tier: "Tier 02 — Popular", title: "Revenue Growth Suite", desc: "Full-funnel digital presence management combining social media, paid ads, and conversion optimization.", features: ["Full Content Production", "Paid Ad Campaign Management", "Lead Funnel Optimization", "Weekly Performance Reports"], popular: true },
+                { tier: "Tier 03", title: "Dominance CMO Partner", desc: "End-to-end outsourced marketing leadership and execution for rapid market scaling.", features: ["Dedicated Growth Team", "Omnichannel Ad Scaling", "Influencer Partnerships", "Daily Strategy Iterations"], popular: false }
+            ]
+        };
+
+        function switchServiceTab(category) {
+            ['web', 'brand', 'growth'].forEach(cat => {
+                const btn = document.getElementById(`srvTab-${cat}`);
+                if (cat === category) {
+                    btn.className = "srv-tab px-6 py-3 rounded-full text-xs sm:text-sm font-medium border border-white/50 bg-white/10 text-white-400 transition-all";
+                } else {
+                    btn.className = "srv-tab px-6 py-3 rounded-full text-xs sm:text-sm font-medium border border-white/10 bg-black/40 text-gray-400 hover:text-white transition-all";
+                }
+            });
+
+            const container = document.getElementById('serviceDetailContent');
+            container.style.opacity = '0';
+            setTimeout(() => {
+                const items = servicesData[category];
+                container.innerHTML = items.map(item => `
+                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between ${item.popular ? 'border-white/40 shadow-[0_0_30px_rgba(245,185,40,0.15)]' : ''}">
+                        <div>
+                            <span class="text-xs font-semibold text-white-400 uppercase tracking-widest block mb-2">${item.tier}</span>
+                            <h3 class="font-display font-bold text-xl text-white mb-3">${item.title}</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${item.desc}</p>
+                            <ul class="space-y-2 text-xs text-gray-300 mb-8">
+                                ${item.features.map(f => `<li class="flex items-center gap-2">✓ ${f}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <a href="#contact" onclick="closeServicesModal()" class="glass-btn w-full py-3 rounded-xl text-center text-xs font-medium ${item.popular ? 'text-white-400 border-white/40 bg-white/10 hover:bg-white/20' : 'text-white hover:border-white/40'} transition-all">Select Tier →</a>
+                    </div>
+                `).join('');
+                container.style.opacity = '1';
+            }, 150);
+        }
+
+        // Process Tabs
+        const processData = [
+            { number: "1.", title: "Discovery", desc: "We start by learning your world — how your business works, what you're aiming for, and what your audience actually needs.", image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" },
+            { number: "2.", title: "Strategy", desc: "We translate insights into a concrete blueprint. Every feature and design direction is planned to maximize engagement.", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" },
+            { number: "3.", title: "Creation", desc: "Our design and engineering teams bring the vision to life with immaculate attention to detail and smooth interactions.", image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80" },
+            { number: "4.", title: "Launch & Beyond", desc: "We deploy your digital experience seamlessly, perform rigorous testing, and provide ongoing optimization.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" }
+        ];
+        function switchTab(index) {
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`tab-${i}`);
+                if (i === index) btn.className = "process-tab text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all border border-white/50 bg-white/10 text-white-400";
+                else btn.className = "process-tab text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all border border-transparent text-gray-400 hover:text-white hover:bg-white/5";
+            }
+            const data = processData[index];
+            document.getElementById('processNumber').innerText = data.number;
+            document.getElementById('processTitle').innerText = data.title;
+            document.getElementById('processDesc').innerText = data.desc;
+            const imgEl = document.getElementById('processImage');
+            imgEl.style.opacity = '0';
+            setTimeout(() => { imgEl.src = data.image; imgEl.style.opacity = '1'; }, 150);
+        }
+
+        // Growth Chart initialization
+        const ctxGrowth = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctxGrowth, {
+            type: 'line',
+            data: {
+                labels: ['Month 1', 'Month 3', 'Month 6', 'Month 9', 'Month 12'],
+                datasets: [
+                    {
+                        label: 'Revenue Growth with K&S info Desk',
+                        data: [120, 240, 480, 780, 1250],
+                        borderColor: '#f5b928',
+                        backgroundColor: 'rgba(245, 185, 40, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        pointBackgroundColor: '#f5b928',
+                        pointBorderColor: '#ffffff',
+                        pointRadius: 5
+                    },
+                    {
+                        label: 'Standard Baseline Growth',
+                        data: [100, 115, 130, 145, 160],
+                        borderColor: 'rgba(255, 255, 255, 0.3)',
+                        borderDash: [5, 5],
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#d1d5db', font: { family: 'Inter', size: 11 } }
+                    }
+                },
+                scales: {
+                    x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } },
+                    y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } }
+                }
+            }
+        });
+
+        // Testimonials
+        const testimonialsData = [
+            { text: "\"K&S info Desk understood exactly what a design school's website should communicate — creativity, clarity, and confidence. They delivered a platform that looks great and functions smoothly.\"", sub: "— HSOD MANAGEMENT", role: "Architecture & Education", badge: "HSOD" },
+            { text: "\"Working with K&S info Desk transformed our digital footprint completely. The sleek aesthetics and smooth animations gave our studio the exact edge we needed.\"", sub: "— PHANTOM PRO STUDIO", role: "Automotive & Design", badge: "PHANTOM" },
+            { text: "\"The team's ability to translate complex brand requirements into an intuitive web interface was phenomenal. Our conversion rates jumped immediately after launch.\"", sub: "— ALPHA FITNESS", role: "Wellness & Performance", badge: "AH" }
+        ];
+        function switchTestimonial(index) {
+            for (let i = 0; i < 3; i++) {
+                const dot = document.getElementById(`tDot-${i}`);
+                if (i === index) dot.className = "w-6 h-1.5 rounded-full bg-white transition-all";
+                else dot.className = "w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all";
+            }
+            const data = testimonialsData[index];
+            const textEl = document.getElementById('testimonialText');
+            textEl.style.opacity = '0';
+            setTimeout(() => {
+                textEl.innerText = data.text;
+                document.getElementById('testimonialSub').innerText = data.sub;
+                document.getElementById('testimonialRole').innerText = data.role;
+                document.getElementById('testimonialBadge').innerText = data.badge;
+                textEl.style.opacity = '1';
+            }, 150);
+        }
+    </script>
+</body>
+
+</html>

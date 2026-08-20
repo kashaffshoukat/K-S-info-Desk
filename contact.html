@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K&S info Desk — Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        .glass-btn:active { transform: translateY(0px) scale(0.97); }
+
+        .studio-card {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid white;
+            backdrop-filter: blur(10px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .studio-card:hover {
+            border-color: white;
+            box-shadow: 0 10px 40px rgba(245, 185, 40, 0.15);
+        }
+
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.75);
+            transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
+        }
+        .outline-text:hover {
+            color: rgba(255, 215, 0, 0.2);
+            -webkit-text-stroke: 1.5px rgba(255, 215, 0, 0.9);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #444; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-15px) scale(1.03); } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        #loader {
+            position: fixed; inset: 0; z-index: 9999; background: #000;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.8); animation: loaderPulse 1.4s ease-in-out infinite; }
+        .loader-dot:nth-child(2) { animation-delay: 0.2s; }
+        .loader-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes loaderPulse { 0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1.1); } }
+
+        .interest-chip {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .interest-chip.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            color: #fff;
+        }
+        .form-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+        }
+        /* Futuristic Clock Section Styling */
+.futuristic-clock-section {
+  background-color: #030305;
+  color: #ffffff;
+  padding: 80px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.fcs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styling */
+.fcs-header {
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.fcs-header h2 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #f0f0f0;
+  margin-bottom: 16px;
+}
+
+.fcs-header p {
+  font-size: 1rem;
+  color: #8a8a93;
+  line-height: 1.6;
+}
+
+/* Main Layout Grid */
+.fcs-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Clock Container & Glow Effect */
+.fcs-clock-wrapper {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-outer-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.08), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.clock {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #111216 0%, #08080a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9), 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Dial Numbers Positioning */
+.num {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #a0a0ab;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+}
+
+.num-12 { top: 12px; left: 50%; transform: translateX(-50%); }
+.num-1  { top: 32px; right: 80px; }
+.num-2  { top: 80px; right: 32px; }
+.num-3  { top: 50%; right: 12px; transform: translateY(-50%); }
+.num-4  { bottom: 80px; right: 32px; }
+.num-5  { bottom: 32px; right: 80px; }
+.num-6  { bottom: 12px; left: 50%; transform: translateX(-50%); }
+.num-7  { bottom: 32px; left: 80px; }
+.num-8  { bottom: 80px; left: 32px; }
+.num-9  { top: 50%; left: 12px; transform: translateY(-50%); }
+.num-10 { top: 80px; left: 32px; }
+.num-11 { top: 32px; left: 80px; }
+
+/* Inner Ring Markings */
+.inner-dial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 230px;
+  height: 230px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+/* Clock Needles */
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 4px;
+  z-index: 5;
+}
+
+.hour-hand {
+  width: 4px;
+  height: 80px;
+  background: #ffffff;
+  margin-left: -2px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.minute-hand {
+  width: 3px;
+  height: 115px;
+  background: #e0e0e0;
+  margin-left: -1.5px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.second-hand {
+  width: 1.5px;
+  height: 130px;
+  background: #ffffff;
+  margin-left: -0.75px;
+  opacity: 0.8;
+}
+
+/* Center Badge with K&S */
+.center-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  background: #18191e;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.center-badge span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Right Content Styling */
+.fcs-content {
+  flex: 1;
+  min-width: 300px;
+  max-width: 540px;
+}
+
+.fcs-content h3 {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  color: #e4e4e7;
+  margin-bottom: 20px;
+}
+
+.fcs-content p {
+  color: #90909a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.transformation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.transformation-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.subtext {
+  font-size: 0.8rem;
+  color: #60606a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .fcs-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+  .fcs-header {
+    text-align: center;
+  }
+  .btn-group {
+    align-items: center;
+  }
+}
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white-500 selection:text-black">
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="flex items-center gap-2">
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="relative z-50 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+        <a href="index.html" class="flex items-center group focus:outline-none">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
+                <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                    <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                </svg>
+            </div>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm font-medium text-gray-300">
+            <a href="index.html" class="hover:text-white transition-colors">Home</a>
+            <a href="services.html" class="hover:text-white transition-colors">Services</a>
+            <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
+            <a href="contact.html" class="text-white hover:text-white transition-colors">Contact Us</a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <a href="contact.html" class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
+                <span>Let's Talk</span>
+                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+            <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-6 text-xl font-medium transition-all duration-300 opacity-0 pointer-events-none md:hidden">
+        <button id="closeMenu" class="absolute top-6 right-6 text-gray-400 hover:text-white p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="index.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Home</a>
+        <a href="services.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Services</a>
+        <a href="projects.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Projects</a>
+        <a href="contact.html" class="mobile-link text-white hover:text-white-400 transition-colors">Contact Us</a>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 text-center overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-0">
+            <div class="w-[300px] sm:w-[550px] h-[300px] sm:h-[550px] bg-white/[0.03] rounded-full blur-[120px] animate-pulse"></div>
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto">
+            <span class="text-xs uppercase tracking-[0.35em] text-white font-semibold mb-3 inline-block animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards]">GET IN TOUCH</span>
+            <h1 class="text-4xl sm:text-6xl font-display font-bold text-white uppercase tracking-wide mb-4 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards]">Contact</h1>
+            <p class="text-gray-400 text-sm sm:text-base font-light animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards]">Whether you're ready to start or want to discuss an idea, this is the place to begin. Share what you're looking for, and we'll get back to you with the next steps.</p>
+        </div>
+
+        <!-- Marquee -->
+         <div class="relative max-w-6xl mx-auto mt-10 flex justify-center gap-3 text-gray-500 text-sm uppercase tracking-[0.3em] font-display animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
+             <span class="text-white">We Can Handle Everything. <br> yes, everything</span>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+            <!-- Left Side: Info -->
+            <div class="space-y-10 reveal">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] text-white font-semibold block mb-4">• Connect with us!</span>
+                    <h2 class="text-2xl sm:text-4xl font-display font-bold text-white mb-4 leading-tight">Turn Your Vision Into an Experience That Lasts</h2>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed font-light">Tell us a bit about your project, your goals, or the idea you're shaping. We'll review it and respond with clear next steps on how we can help bring it to life.</p>
+                </div>
+
+                <!-- Contact Methods -->
+                <div class="space-y-4">
+                    <a href="mailto:info@fatirinfotech.com" class="studio-card rounded-2xl p-6 flex items-center gap-4 group block">
+                        <div class="w-12 h-12 rounded-xl glass-btn flex items-center justify-center text-white bg-white/5 border border-white/10">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-gray-400">Email Us</span>
+                            <span class="text-sm text-white font-medium">info@fatirinfotech.com</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Socials -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest text-gray-400 mb-4">Follow Us</h4>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" class="w-11 h-11 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors" aria-label="TikTok">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.05 1.17-.17 2.35-.66 3.44-.76 1.73-2.21 3.14-3.97 3.83-2.39.95-5.26.68-7.37-.86-1.85-1.33-2.84-3.59-2.83-5.85.02-2.34 1.27-4.58 3.23-5.86 1.28-.85 2.85-1.25 4.41-1.15.02 1.48-.01 2.96-.01 4.44-.71-.23-1.54-.17-2.17.24-.72.44-1.2 1.23-1.25 2.07-.07 1.07.47 2.16 1.42 2.7 1.02.6 2.41.43 3.24-.49.59-.62.8-1.5.79-2.35-.01-3.51 0-7.02 0-10.53z"/></svg>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors" aria-label="X">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" class="w-11 h-11 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Form -->
+            <div class="studio-card rounded-3xl p-6 sm:p-10 reveal">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-400 mb-3">I'm Interested in</label>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="interest-chip active px-5 py-2.5 rounded-full text-sm font-medium border border-white/15 text-gray-300" data-interest="Website Development">Website Development</span>
+                            <span class="interest-chip px-5 py-2.5 rounded-full text-sm font-medium border border-white/15 text-gray-300" data-interest="Marketing">Marketing</span>
+                            <span class="interest-chip px-5 py-2.5 rounded-full text-sm font-medium border border-white/15 text-gray-300" data-interest="Branding">Branding</span>
+                            <span class="interest-chip px-5 py-2.5 rounded-full text-sm font-medium border border-white/15 text-gray-300" data-interest="Something Else">Something Else</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="name" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name" class="form-input w-full rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com" class="form-input w-full rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Tell us more about your Project</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Share your idea, goals, timeline, or anything that helps us understand what you need..." class="form-input w-full rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-medium bg-white text-black hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300">
+                        <span>Send Message</span>
+                        <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+
+                    <p id="formSuccess" class="hidden text-center text-sm text-green-400 pt-2">Thanks for reaching out! We'll get back to you shortly.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+ <!-- Futuristic Clock Section -->
+<section class="futuristic-clock-section">
+  <div class="fcs-container">
+    
+    <!-- Top Header -->
+    <div class="fcs-header">
+      <h2>Reach Out And We'll Take It From There</h2>
+      <p>Whether you're planning something new or improving something that already exists you can start by sending us a short note. We'll review everything and come back with a plan that fits the direction you're aiming for.</p>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="fcs-grid">
+      
+      <!-- Left Column: Dynamic Clock -->
+      <div class="fcs-clock-wrapper">
+        <div class="clock-outer-glow"></div>
+        <div class="clock">
+          <!-- Dial Numbers -->
+          <span class="num num-12">12</span>
+          <span class="num num-1">1</span>
+          <span class="num num-2">2</span>
+          <span class="num num-3">3</span>
+          <span class="num num-4">4</span>
+          <span class="num num-5">5</span>
+          <span class="num num-6">6</span>
+          <span class="num num-7">7</span>
+          <span class="num num-8">8</span>
+          <span class="num num-9">9</span>
+          <span class="num num-10">10</span>
+          <span class="num num-11">11</span>
+
+          <!-- Inner Ring Ticks -->
+          <div class="inner-dial"></div>
+
+          <!-- Clock Hands -->
+          <div class="hand hour-hand" id="hourHand"></div>
+          <div class="hand minute-hand" id="minuteHand"></div>
+          <div class="hand second-hand" id="secondHand"></div>
+
+          <!-- Center Badge with K&S -->
+          <div class="center-badge">
+            <span>K&S</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: CTA Content -->
+      <div class="fcs-content">
+        <h3>TIME WON'T WAIT. YOUR GROWTH SHOULDN'T EITHER.</h3>
+        <p>If You're Ready To Stop Stalling And Start Scaling, This Is Your Moment. The Clock Is Already Moving. The Question Is... Are You?</p>
+        
+        <div class="btn-group">
+          <a href="contact.html" class="transformation-btn">
+            Start the Transformation <span class="arrow">&rarr;</span>
+          </a>
+          <span class="subtext">Your Next Big Leap Starts Now</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none opacity-20 flex items-center justify-center">
+            <div class="w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.15)_0%,_transparent_70%)] blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center shadow-lg">
+                            <svg viewBox="0 0 32 32" class="w-5 h-5 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                                <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                            </svg>
+                        </div>
+                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S info Desk</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Next-Gen Brand Architects and Digital Experience Studio helping ambitious companies scale their revenue and dominate their market.</p>
+                    <div class="pt-2">
+                        <a href="mailto:info@fatirinfotech.com" class="inline-flex items-center gap-2 text-sm text-white-400 hover:underline"><span>✉</span> info@fatirinfotech.com</a>
+                    </div>
+                </div>
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-white-400 transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white-400 transition-colors">Services</a></li>
+                        <li><a href="projects.html" class="hover:text-white-400 transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="hover:text-white-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-4 space-y-4">
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Connect With Us</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm font-light">Follow our latest design drops and industry insights across social networks.</p>
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">f</a>
+                        <a href="#" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">in</a>
+                        <a href="#" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">ig</a>
+                        <a href="#" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">x</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 K&S info Desk | All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300 transition-colors">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('opacity-0', 'pointer-events-none'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.add('opacity-0', 'pointer-events-none'));
+        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('opacity-0', 'pointer-events-none')));
+
+        // Interest chips
+        const chips = document.querySelectorAll('.interest-chip');
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chips.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+            });
+        });
+
+        // Form submit (front-end only, no backend)
+        const form = document.getElementById('contactForm');
+        const successMsg = document.getElementById('formSuccess');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            successMsg.classList.remove('hidden');
+            form.reset();
+            chips.forEach(c => c.classList.remove('active'));
+            chips[0].classList.add('active');
+            setTimeout(() => successMsg.classList.add('hidden'), 5000);
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) setTimeout(() => loader.classList.add('hidden'), 500);
+        });
+    </script>
+    <script>
+  function animateClock() {
+    const now = new Date();
+    
+    // Get time components with fractions for continuous smooth motion
+    const milliseconds = now.getMilliseconds();
+    const seconds = now.getSeconds() + milliseconds / 1000;
+    const minutes = now.getMinutes() + seconds / 60;
+    const hours = (now.getHours() % 12) + minutes / 60;
+
+    // Calculate rotation degrees
+    const secondDeg = seconds * 6; // 360 / 60
+    const minuteDeg = minutes * 6; // 360 / 60
+    const hourDeg = hours * 30;    // 360 / 12
+
+    // Apply rotations
+    const hourHand = document.getElementById('hourHand');
+    const minuteHand = document.getElementById('minuteHand');
+    const secondHand = document.getElementById('secondHand');
+
+    if (hourHand) hourHand.style.transform = `rotate(${hourDeg}deg)`;
+    if (minuteHand) minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+    if (secondHand) secondHand.style.transform = `rotate(${secondDeg}deg)`;
+
+    // Request next frame for smooth movement
+    requestAnimationFrame(animateClock);
+  }
+
+  // Start the animation
+  requestAnimationFrame(animateClock);
+</script>
+</body>
+
+</html>

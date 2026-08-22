@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K&S info Desk — Services</title>
+    <title>K&S Info Desk - Enterprise Engineering & Digital Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
     <script>
         tailwind.config = {
             theme: {
@@ -52,23 +53,13 @@
 
         .studio-card {
             background: rgba(20, 20, 20, 0.7);
-            border: 1px solid white;
+            border: 1px solid rgba(255, 255, 255, 0.18);
             backdrop-filter: blur(10px);
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .studio-card:hover {
-            border-color: white;
-            box-shadow: 0 10px 40px rgba(245, 185, 40, 0.15);
-        }
-
-        .outline-text {
-            color: transparent;
-            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.75);
-            transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
-        }
-        .outline-text:hover {
-            color: rgba(255, 215, 0, 0.2);
-            -webkit-text-stroke: 1.5px rgba(255, 215, 0, 0.9);
+            border-color: #ffffff;
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.12);
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -76,271 +67,198 @@
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #444; }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-15px) scale(1.03); } }
-
+        /* Smooth Onload & Scroll Reveal Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(35px);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Stagger Delays for Grid Elements */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
 
         #loader {
             position: fixed; inset: 0; z-index: 9999; background: #000;
             display: flex; align-items: center; justify-content: center;
             transition: opacity 0.6s ease, visibility 0.6s ease;
-        }  /* Futuristic Clock Section Styling */
-.futuristic-clock-section {
-  background-color: #030305;
-  color: #ffffff;
-  padding: 80px 20px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  overflow: hidden;
-}
-
-.fcs-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Header Styling */
-.fcs-header {
-  margin-bottom: 60px;
-  max-width: 900px;
-}
-
-.fcs-header h2 {
-  font-size: 2.2rem;
-  font-weight: 400;
-  letter-spacing: -0.5px;
-  color: #f0f0f0;
-  margin-bottom: 16px;
-}
-
-.fcs-header p {
-  font-size: 1rem;
-  color: #8a8a93;
-  line-height: 1.6;
-}
-
-/* Main Layout Grid */
-.fcs-grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-
-/* Clock Container & Glow Effect */
-.fcs-clock-wrapper {
-  position: relative;
-  width: 380px;
-  height: 380px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.clock-outer-glow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.08), inset 0 0 20px rgba(255, 255, 255, 0.05);
-  pointer-events: none;
-}
-
-.clock {
-  position: relative;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #111216 0%, #08080a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9), 0 10px 30px rgba(0, 0, 0, 0.8);
-}
-
-/* Dial Numbers Positioning */
-.num {
-  position: absolute;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #a0a0ab;
-  text-align: center;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-}
-
-.num-12 { top: 12px; left: 50%; transform: translateX(-50%); }
-.num-1  { top: 32px; right: 80px; }
-.num-2  { top: 80px; right: 32px; }
-.num-3  { top: 50%; right: 12px; transform: translateY(-50%); }
-.num-4  { bottom: 80px; right: 32px; }
-.num-5  { bottom: 32px; right: 80px; }
-.num-6  { bottom: 12px; left: 50%; transform: translateX(-50%); }
-.num-7  { bottom: 32px; left: 80px; }
-.num-8  { bottom: 80px; left: 32px; }
-.num-9  { top: 50%; left: 12px; transform: translateY(-50%); }
-.num-10 { top: 80px; left: 32px; }
-.num-11 { top: 32px; left: 80px; }
-
-/* Inner Ring Markings */
-.inner-dial {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 230px;
-  height: 230px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 1px dashed rgba(255, 255, 255, 0.12);
-}
-
-/* Clock Needles */
-.hand {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform-origin: bottom center;
-  border-radius: 4px;
-  z-index: 5;
-}
-
-.hour-hand {
-  width: 4px;
-  height: 80px;
-  background: #ffffff;
-  margin-left: -2px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.minute-hand {
-  width: 3px;
-  height: 115px;
-  background: #e0e0e0;
-  margin-left: -1.5px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-.second-hand {
-  width: 1.5px;
-  height: 130px;
-  background: #ffffff;
-  margin-left: -0.75px;
-  opacity: 0.8;
-}
-
-/* Center Badge with K&S */
-.center-badge {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
-  background: #18191e;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.1);
-}
-
-.center-badge span {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-
-/* Right Content Styling */
-.fcs-content {
-  flex: 1;
-  min-width: 300px;
-  max-width: 540px;
-}
-
-.fcs-content h3 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  letter-spacing: 1px;
-  line-height: 1.3;
-  color: #e4e4e7;
-  margin-bottom: 20px;
-}
-
-.fcs-content p {
-  color: #90909a;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.btn-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.transformation-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.transformation-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-.subtext {
-  font-size: 0.8rem;
-  color: #60606a;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .fcs-grid {
-    flex-direction: column;
-    text-align: center;
-  }
-  .fcs-header {
-    text-align: center;
-  }
-  .btn-group {
-    align-items: center;
-  }
-}
+        }
         #loader.hidden { opacity: 0; visibility: hidden; }
         .loader-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.8); animation: loaderPulse 1.4s ease-in-out infinite; }
         .loader-dot:nth-child(2) { animation-delay: 0.2s; }
         .loader-dot:nth-child(3) { animation-delay: 0.4s; }
         @keyframes loaderPulse { 0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1.1); } }
-    </style>
-</head>
 
-<body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white-500 selection:text-black">
+        /* Clock Styling */
+        .futuristic-clock-section {
+            background-color: #030305;
+            color: #ffffff;
+            padding: 80px 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+        }
+        .fcs-container { max-width: 1200px; margin: 0 auto; }
+        .fcs-header { margin-bottom: 60px; max-width: 900px; }
+        .fcs-header h2 { font-size: 2.2rem; font-weight: 400; letter-spacing: -0.5px; color: #f0f0f0; margin-bottom: 16px; }
+        .fcs-header p { font-size: 1rem; color: #8a8a93; line-height: 1.6; }
+        .fcs-grid { display: flex; align-items: center; justify-content: space-between; gap: 50px; flex-wrap: wrap; }
+        .fcs-clock-wrapper { position: relative; width: 380px; height: 380px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+        .clock-outer-glow { position: absolute; width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%); box-shadow: 0 0 50px rgba(255, 255, 255, 0.08), inset 0 0 20px rgba(255, 255, 255, 0.05); pointer-events: none; }
+        .clock { position: relative; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle at center, #111216 0%, #08080a 100%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9), 0 10px 30px rgba(0, 0, 0, 0.8); }
+        .num { position: absolute; font-size: 0.75rem; font-weight: 500; color: #a0a0ab; text-align: center; width: 20px; height: 20px; line-height: 20px; }
+        .num-12 { top: 12px; left: 50%; transform: translateX(-50%); }
+        .num-1  { top: 32px; right: 80px; }
+        .num-2  { top: 80px; right: 32px; }
+        .num-3  { top: 50%; right: 12px; transform: translateY(-50%); }
+        .num-4  { bottom: 80px; right: 32px; }
+        .num-5  { bottom: 32px; right: 80px; }
+        .num-6  { bottom: 12px; left: 50%; transform: translateX(-50%); }
+        .num-7  { bottom: 32px; left: 80px; }
+        .num-8  { bottom: 80px; left: 32px; }
+        .num-9  { top: 50%; left: 12px; transform: translateY(-50%); }
+        .num-10 { top: 80px; left: 32px; }
+        .num-11 { top: 32px; left: 80px; }
+        .inner-dial { position: absolute; top: 50%; left: 50%; width: 230px; height: 230px; transform: translate(-50%, -50%); border-radius: 50%; border: 1px dashed rgba(255, 255, 255, 0.12); }
+        .hand { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom center; border-radius: 4px; z-index: 5; }
+        .hour-hand { width: 4px; height: 80px; background: #ffffff; margin-left: -2px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+        .minute-hand { width: 3px; height: 115px; background: #e0e0e0; margin-left: -1.5px; box-shadow: 0 0 8px rgba(255, 255, 255, 0.3); }
+        .second-hand { width: 1.5px; height: 130px; background: #ffffff; margin-left: -0.75px; opacity: 0.8; }
+        .center-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; background: #18191e; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; z-index: 10; box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.1); }
+        .center-badge span { font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; color: #ffffff; text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+        .fcs-content { flex: 1; min-width: 300px; max-width: 540px; }
+        .fcs-content h3 { font-size: 1.8rem; font-weight: 300; letter-spacing: 1px; line-height: 1.3; color: #e4e4e7; margin-bottom: 20px; }
+        .fcs-content p { color: #90909a; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
+        .btn-group { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+        .transformation-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 24px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; backdrop-filter: blur(5px); }
+        .transformation-btn:hover { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+        .subtext { font-size: 0.8rem; color: #60606a; }
+
+        @media (max-width: 768px) {
+            .fcs-grid { flex-direction: column; text-align: center; }
+            .fcs-header { text-align: center; }
+            .btn-group { align-items: center; }
+        }
+        @keyframes dashFlow {
+    to {
+      stroke-dashoffset: -20;
+    }
+  }
+  .animate-dash-flow {
+    stroke-dasharray: 6 6;
+    animation: dashFlow 1.2s linear infinite;
+  }
+
+  /* Looping Step Pulse Animation */
+  @keyframes stepGlow {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+    15% {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    }
+    30% {
+      transform: scale(1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .step-loop {
+    animation: stepGlow 6s ease-in-out infinite;
+  }
+
+  /* Staggered Timings for Sequential Execution (Step 1 -> 2 -> 3 -> 4) */
+  .step-delay-1 { animation-delay: 0s; }
+  .step-delay-2 { animation-delay: 1.5s; }
+  .step-delay-3 { animation-delay: 3s; }
+  .step-delay-4 { animation-delay: 4.5s; }
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 20s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+    </style>
+
+    <!-- PASTE JSON-LD SCHEMA HERE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://ksinfodesk.com/#organization",
+          "name": "K&S Info Desk",
+          "url": "https://ksinfodesk.com",
+          "logo": "https://ksinfodesk.com/assets/logo.png",
+          "image": "https://ksinfodesk.com/assets/og-image.png",
+          "description": "Senior-engineered software applications, modern websites, custom admin dashboards, turn-key e-commerce platforms, and digital growth services.",
+          "telephone": "+923087441026",
+          "email": "kashafshoukat27@gmail.com",
+          "priceRange": "$$",
+          "knowsAbout": [
+            "Software Engineering",
+            "Web Application Development",
+            "Admin Dashboard Engineering",
+            "E-Commerce Platform Development",
+            "AI Agents & Automation",
+            "Search Engine Optimization (SEO)",
+            "Social Media Campaign Management"
+          ],
+          "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+923087441026",
+            "contactType": "customer support",
+            "email": "kashafshoukat27@gmail.com",
+            "availableLanguage": ["English", "Urdu"]
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Software & Web Application Engineering",
+          "provider": {
+            "@id": "https://ksinfodesk.com/#organization"
+          },
+          "serviceType": "Custom Software Development",
+          "description": "Engineering custom web applications, secure client portals, automated workflows, and high-performance system backends."
+        },
+        {
+          "@type": "Service",
+          "name": "Turnkey E-Commerce & Marketplace Execution",
+          "provider": {
+            "@id": "https://ksinfodesk.com/#organization"
+          },
+          "serviceType": "E-Commerce Development",
+          "description": "Complete e-commerce store setups including domain/hosting configuration, copywriting, AI visual generation, and unlimited catalog uploads."
+        },
+        {
+          "@type": "Service",
+          "name": "AI Automation & Workflow Integration",
+          "provider": {
+            "@id": "https://ksinfodesk.com/#organization"
+          },
+          "serviceType": "Artificial Intelligence Services",
+          "description": "Custom AI support chatbots, document parsing tools, and LLM API integrations built directly into business infrastructure."
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black">
 
     <!-- Loader -->
     <div id="loader">
@@ -351,11 +269,20 @@
         </div>
     </div>
 
-    <!-- Header / Navbar -->
+    <!-- Hero Background Animation Layer -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+        <div
+            class="absolute w-[350px] h-[350px] sm:w-[550px] sm:h-[550px] lg:w-[750px] lg:h-[750px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.22)_0%,_rgba(200,130,20,0.08)_45%,_transparent_75%)] blur-3xl animate-pulse-slow">
+        </div>
+        <canvas id="particleCanvas" class="absolute inset-0 w-full h-full opacity-60"></canvas>
+    </div>
+
     <header class="relative z-50 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
         <a href="index.html" class="flex items-center group focus:outline-none">
-            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
-                <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
+            <div
+                class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
+                <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
                     <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
                 </svg>
@@ -363,20 +290,23 @@
         </a>
 
         <nav class="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm font-medium text-gray-300">
-            <a href="index.html" class="hover:text-white transition-colors">Home</a>
-            <a href="services.html" class="text-white hover:text-white transition-colors">Services</a>
-            <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
-            <a href="contact.html" class="hover:text-white transition-colors">Contact Us</a>
+            <a href="index.html" class="text-white hover:text-white transition-colors">Back to Home</a>
+            <a href="services.html" class="hover:text-white transition-colors">What we do</a>
+            <a href="projects.html" class="hover:text-white transition-colors">See our work</a>
+            <a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a>
         </nav>
 
         <div class="flex items-center space-x-4">
-            <a href="contact.html" class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
+            <a href="contact.html"
+                class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
                 <span>Let's Talk</span>
-                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
             </a>
-            <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none">
+            <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none z-50">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -384,234 +314,577 @@
         </div>
     </header>
 
-    <!-- Mobile Drawer -->
-    <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-6 text-xl font-medium transition-all duration-300 opacity-0 pointer-events-none md:hidden">
-        <button id="closeMenu" class="absolute top-6 right-6 text-gray-400 hover:text-white p-2">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <a href="index.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Home</a>
-        <a href="services.html" class="mobile-link text-white hover:text-white-400 transition-colors">Services</a>
-        <a href="projects.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Projects</a>
-        <a href="contact.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Contact Us</a>
+    <!-- Mobile Drawer with Icons, Underline Effect, and White Text Glow -->
+    <div id="mobileMenu"
+        class="fixed inset-x-0 top-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center pt-14 pb-6 rounded-b-3xl border-b border-white/15 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-full opacity-0 pointer-events-none md:hidden">
+
+
+
+        <div class="w-full flex flex-col items-stretch px-8">
+            <!-- Back to Home -->
+            <a href="index.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-white border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Back to Home
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Services -->
+            <a href="services.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Services
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Projects -->
+            <a href="projects.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Projects
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Connect to Grow -->
+            <a href="contact.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-b border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Connect to Grow
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+        </div>
     </div>
 
     <!-- Page Hero -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 text-center overflow-hidden">
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12 text-center overflow-hidden">
         <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-0">
             <div class="w-[300px] sm:w-[550px] h-[300px] sm:h-[550px] bg-white/[0.03] rounded-full blur-[120px] animate-pulse"></div>
         </div>
 
-        <div class="relative z-10 max-w-3xl mx-auto">
-            <span class="text-xs uppercase tracking-[0.35em] text-white font-semibold mb-3 inline-block animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards]">OUR CAPABILITIES</span>
-            <h1 class="text-4xl sm:text-6xl font-display font-bold text-white uppercase tracking-wide mb-4 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards]">Services</h1>
-            <p class="text-gray-400 text-sm sm:text-base font-light animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards]">This page lays out the capabilities that power our process. Everything here is built to support brands with clarity, direction and execution that holds up over time.</p>
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <span class="text-xs uppercase tracking-[0.35em] text-white font-semibold mb-3 inline-block reveal">Senior-Engineered Digital Agency</span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-white uppercase tracking-wide mb-6 reveal delay-1">You Are In Safe Hands. We Handle 100% Of The Tech, Content & Operations.</h1>
+            <p class="text-gray-300 text-sm sm:text-base font-light max-w-3xl mx-auto leading-relaxed reveal delay-2">
+                Don't stress over technical setups, writing website text, creating graphics, or uploading catalogs. From software systems and admin dashboards to full domain/hosting configuration and unlimited product uploads-i manage everything end-to-end.
+            </p>
         </div>
 
-        <!-- Marquee -->
-        <div class="relative max-w-6xl mx-auto mt-10 flex justify-center gap-3 text-gray-500 text-sm uppercase tracking-[0.3em] font-display animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
-             <span class="text-white">We Can Handle Everything. <br> yes, everything</span>
+        <!-- High-Trust Assurance Bar -->
+        <!-- Single-Line Infinite Marquee Ticker -->
+<div class="relative w-full overflow-hidden border-t border-b border-white/10 py-4 my-8 bg-black/30 backdrop-blur-sm reveal delay-3">
+    <!-- Gradient Fade Masks on Edges -->
+    <div class="pointer-events-none absolute left-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-r from-black to-transparent"></div>
+    <div class="pointer-events-none absolute right-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-l from-black to-transparent"></div>
+
+    <div class="animate-marquee flex items-center gap-8 sm:gap-12 whitespace-nowrap text-xs text-gray-300 font-medium">
+        <!-- Set 1 -->
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Full Domain & Hosting Setup
         </div>
+        <span class="text-white/20">•</span>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Copywriting & Service Quotes Included
+        </div>
+        <span class="text-white/20">•</span>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Custom AI Visuals & Graphics
+        </div>
+        <span class="text-white/20">•</span>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Unlimited Product Catalog Uploads
+        </div>
+        <span class="text-white/20">•</span>
+
+        <!-- Set 2 (Duplicated for seamless looping) -->
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Full Domain & Hosting Setup
+        </div>
+        <span class="text-white/20">•</span>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Copywriting & Service Quotes Included
+        </div>
+        <span class="text-white/20">•</span>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Custom AI Visuals & Graphics
+        </div>
+        <span class="text-white/20">•</span>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Unlimited Product Catalog Uploads
+        </div>
+        <span class="text-white/20">•</span>
+    </div>
+</div>
     </section>
 
-    <!-- Section 1: The Web Development Suite -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <!-- SECTION 1: Software Systems, Dashboards & Modernization -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
         <div class="reveal">
-            <h2 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">The Web Development Suite</h2>
-            <p class="text-gray-400 text-xs sm:text-sm">Here's everything we offer under web development — from thoughtful UI/UX work to full-scale ecommerce builds. Each service is designed to help brands look sharp and perform well online.</p>
+            <span class="text-xs font-semibold tracking-widest text-gray-400 uppercase">01. Software & Web Application Engineering</span>
+            <h2 class="text-2xl sm:text-4xl font-display font-bold text-white mt-1 mb-2">Custom Systems, Admin Dashboards & Website Rebuilds</h2>
+            <p class="text-gray-400 text-xs sm:text-sm max-w-3xl">Architected by senior software engineers. Whether starting from scratch or turning a slow, outdated website into a high-performance system, i build solutions that scale seamlessly.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <div class="studio-card rounded-2xl p-6 flex flex-col justify-between reveal">
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">UI/UX Strategy</span>
-                    <h4 class="font-display font-bold text-base text-white mb-2">Structuring Journeys That Lead To Results</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">Thoughtful Wireframes Crafted With Purpose. We design websites that are fast, intuitive, & tailored to your brand.</p>
-                </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Explore →</a>
-            </div>
-            <div class="studio-card rounded-2xl p-6 flex flex-col justify-between reveal">
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Landing Page Frameworks</span>
-                    <h4 class="font-display font-bold text-base text-white mb-2">Clear Messaging That Drives Confident Buying</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">Structure Designed Around User Psychology. We build structured landing page frameworks optimized for conversions.</p>
-                </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Explore →</a>
-            </div>
-            <div class="studio-card rounded-2xl p-6 flex flex-col justify-between reveal">
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Modern Portfolio Website</span>
-                    <h4 class="font-display font-bold text-base text-white mb-2">A Refined Identity For Your Digital Presence</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">Multi Page Portfolio That Builds Trust. Your portfolio is crafted like a high-value agency showcase.</p>
-                </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Explore →</a>
-            </div>
-            <div class="studio-card rounded-2xl p-6 flex flex-col justify-between reveal">
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Product Catalog Website</span>
-                    <h4 class="font-display font-bold text-base text-white mb-2">Catalog Sites Crafted For Real Impact</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">Shaping Catalogs Into Clear Digital Frameworks. Designed around how buyers explore your offerings.</p>
-                </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Explore →</a>
-            </div>
-            <div class="studio-card rounded-2xl p-6 flex flex-col justify-between reveal">
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Ecommerce Strategy</span>
-                    <h4 class="font-display font-bold text-base text-white mb-2">Building Digital Stores That Truly Perform</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-4">Decisions Backed By Research. We dive into your funnel story, analyze competitors, and convert visitors.</p>
-                </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Explore →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 2: Environment Setup -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-6">
-        <div class="reveal">
-            <h2 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Environment Setup</h2>
-            <p class="text-gray-400 text-xs sm:text-sm">A smooth digital experience begins with the essentials. We handle the full environment setup so you never worry about the backend.</p>
-        </div>
-        <div class="studio-card rounded-2xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 reveal">
-            <div class="space-y-3">
-                <span class="text-[10px] uppercase tracking-widest text-white font-semibold block">Hosting and Domain Setup</span>
-                <h4 class="font-display font-bold text-xl text-white">High Performance Hosting Paired With Seamless Domain Integration</h4>
-                <p class="text-gray-400 text-xs sm:text-sm max-w-2xl font-light">A Reliable Backend Environment That Supports All Web Functions Smoothly. We configure your hosting plan and domain settings for maximum uptime.</p>
-            </div>
-            <a href="contact.html" class="glass-btn px-6 py-3 rounded-xl text-xs font-medium text-white border-white/40 bg-white/10 whitespace-nowrap">Get a custom plan →</a>
-        </div>
-    </section>
-
-    <!-- Section 3: The Conversion And Growth Hub -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
-        <div class="reveal">
-            <h2 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">The Conversion And Growth Hub</h2>
-            <p class="text-gray-400 text-xs sm:text-sm">This is where your brand expands through targeted marketing, smart content distribution, and consistent performance improvements.</p>
-        </div>
+        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="studio-card rounded-2xl p-8 flex flex-col justify-between reveal">
+            <div class="studio-card rounded-2xl p-7 flex flex-col justify-between reveal delay-1">
                 <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Search Engine Optimization</span>
-                    <h4 class="font-display font-bold text-lg text-white mb-3">Make Your Brand Easier To Find Online</h4>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Improve Visibility, Credibility, And Organic Reach With Focused SEO. Your website is optimized with smart keyword research.</p>
+                    <div class="text-xs uppercase tracking-widest text-gray-400 font-mono mb-2">● Engineered Systems</div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Custom Software & Web Applications</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Custom software tools engineered to run complex internal business logic, external portals, and secure user databases.</p>
+                    <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Secure User Authentication & Roles</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Fast Backend Infrastructure</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Automated Email & Messaging Pipelines</li>
+                    </ul>
                 </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Learn More →</a>
+                <a href="contact.html" class="inline-flex items-center text-xs text-white font-medium hover:underline gap-1">Architect My System →</a>
             </div>
-            <div class="studio-card rounded-2xl p-8 flex flex-col justify-between border-white/40 shadow-[0_0_25px_rgba(245,185,40,0.15)] reveal">
+
+            <div class="studio-card rounded-2xl p-7 flex flex-col justify-between border-white/40 shadow-[0_0_30px_rgba(255,255,255,0.06)] reveal delay-2">
                 <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Ad Campaign Management</span>
-                    <h4 class="font-display font-bold text-lg text-white mb-3">Plan Launch And Scale High Converting Ad Campaigns</h4>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Target The Right Audience and Optimize Every Step For Returns. Comprehensive ad strategy across Meta and Google.</p>
+                    <div class="text-xs uppercase tracking-widest text-gray-400 font-mono mb-2">● Full Control</div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Custom Admin Dashboards & Panels</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Take full command of your business with custom control panels to track sales, manage clients, monitor operational metrics, and generate instant reports.</p>
+                    <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Real-Time Revenue & Data Charts</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Client & Inventory Management</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Custom Automated PDF / Invoice Generator</li>
+                    </ul>
                 </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Learn More →</a>
+                <a href="contact.html" class="inline-flex items-center text-xs text-white font-medium hover:underline gap-1">Build Custom Dashboard →</a>
             </div>
-            <div class="studio-card rounded-2xl p-8 flex flex-col justify-between reveal">
+
+            <div class="studio-card rounded-2xl p-7 flex flex-col justify-between reveal delay-3">
                 <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Social Media Care</span>
-                    <h4 class="font-display font-bold text-lg text-white mb-3">Keep Your Brand Active Across Every Social Platform</h4>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Steady Content And Community Handling Built For Long Term Growth. From posts and captions to inbox management.</p>
+                    <div class="text-xs uppercase tracking-widest text-gray-400 font-mono mb-2">● Revamp & Modernize</div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Legacy Website Rebuild & Enhancement</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Is your current site slow, broken, or outdated? We overhaul, rebuild, and optimize existing sites to achieve top security and lightning speeds.</p>
+                    <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Speed & Performance Overhaul</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Modern UI/UX Redesign</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Mobile & Tablet Optimization</li>
+                    </ul>
                 </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Learn More →</a>
+                <a href="contact.html" class="inline-flex items-center text-xs text-white font-medium hover:underline gap-1">Rebuild My Website →</a>
             </div>
         </div>
-        <div class="text-center reveal">
-            <a href="contact.html" class="glass-btn inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium text-white bg-white/5 border border-white/15 hover:border-white/50 hover:bg-white/10 transition-all duration-300">
-                <span>Get a quote</span> →
+        <!-- Custom AI Solutions & Automation Card -->
+<div class="studio-card rounded-2xl p-7 flex flex-col justify-between reveal delay-4">
+    <div>
+        <div class="text-xs uppercase tracking-widest text-gray-400 font-mono mb-2">● AI Automation</div>
+        <h3 class="font-display font-bold text-xl text-white mb-3">AI Agents & Workflow Automation</h3>
+        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Custom AI tools, automated customer service bots, and LLM integrations built directly into your business stack.</p>
+        <ul class="text-xs text-gray-300 space-y-2 mb-6">
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Custom AI Chatbots & Customer Support Bots</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Automated Data Extraction & Document Parsing</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> OpenAI / Anthropic API System Integrations</li>
+        </ul>
+    </div>
+    <a href="contact.html" class="inline-flex items-center text-xs text-white font-medium hover:underline gap-1">Build Custom AI Tool →</a>
+</div>
+    </section>
+
+<!-- SECTION 2: Complete Marketplace, E-Commerce & Turnkey Content Setup -->
+<!-- SECTION 2: Complete Marketplace, E-Commerce & Turnkey Content Setup -->
+<section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+        <div class="reveal">
+            <span class="text-xs font-semibold tracking-widest text-gray-400 uppercase">02. Turnkey E-Commerce & Content</span>
+        <h2 class="text-2xl sm:text-4xl font-display font-bold text-white mt-2 mb-3">Hands-Off Store Setup & Content Creation</h2>
+        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed">Zero effort required on your end. We build your platform, configure hosting, write persuasive copy, and upload your entire product catalog.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- CARD 1: E-Commerce Platform & Growth Graph -->
+        <div class="studio-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-white/10 bg-black/40 backdrop-blur-md reveal delay-1 group hover:border-emerald-500/40 transition-all duration-500">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">STORE EXECUTION</span>
+                    <span class="text-xs text-gray-400 font-mono">Catalog Scale: 10k+</span>
+                </div>
+                
+                <h3 class="font-display font-bold text-xl sm:text-2xl text-white mb-2">Turnkey Store & Marketplace Setup</h3>
+                <p class="text-gray-400 text-xs sm:text-sm mb-6 leading-relaxed">High-converting e-commerce backends linked with secure payment gateways and order management.</p>
+
+                <!-- Graphic Component: Fixed Live Growth Chart -->
+                <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 mb-6 space-y-3">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-gray-400 font-mono">Catalog Throughput & Sales</span>
+                        <span class="text-emerald-400 font-bold font-mono">+142% Active Growth</span>
+                    </div>
+
+                    <!-- Cleaned Vector Graph SVG -->
+                    <div class="relative h-28 w-full flex items-end">
+                        <svg class="w-full h-full" viewBox="0 0 300 80" fill="none">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.35" />
+                                    <stop offset="100%" stop-color="#10b981" stop-opacity="0.0" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Fill -->
+                            <path d="M 10 70 Q 70 55, 130 60 T 230 30 T 285 15 L 285 75 L 10 75 Z" fill="url(#chartGradient)" />
+                            <!-- Stroke Path -->
+                            <path d="M 10 70 Q 70 55, 130 60 T 230 30 T 285 15" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round" class="drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+                            <!-- Pulse Dot safely inset at x:285 y:15 -->
+                            <circle cx="285" cy="15" r="4" fill="#10b981" class="animate-ping" />
+                            <circle cx="285" cy="15" r="4" fill="#ffffff" />
+                        </svg>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-white/5 text-[11px]">
+                        <div class="flex items-center gap-1.5 text-gray-300">
+                            <span class="text-emerald-400 font-bold">✓</span> Unlimited Catalog Uploads
+                        </div>
+                        <div class="flex items-center gap-1.5 text-gray-300">
+                            <span class="text-emerald-400 font-bold">✓</span> Domain & SSL Configured
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                <span>Launch E-Commerce Store</span>
+                <span class="text-base transition-transform group-hover:translate-x-1">→</span>
             </a>
         </div>
-    </section>
 
-    <!-- Section 4: Brand Identity Basecamp -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
-        <div class="reveal">
-            <h2 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Brand Identity Basecamp</h2>
-            <p class="text-gray-400 text-xs sm:text-sm">Your foundation for clear, confident branding. These services give you the assets and direction you need to show up consistently and professionally.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="studio-card rounded-2xl p-8 flex flex-col justify-between reveal">
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Signature Logo</span>
-                    <h4 class="font-display font-bold text-xl text-white mb-3">A Visual Anchor That Gives Your Brand Recognition</h4>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">A Defined Mark Crafted From Strategy And Brand Understanding. We study your market and audience to shape an intentional mark.</p>
+        <!-- CARD 2: Business Analytics Sandbox (Matching Success Theme) -->
+        <div class="studio-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-white/10 bg-black/40 backdrop-blur-md reveal delay-2 group hover:border-emerald-500/40 transition-all duration-500">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-wider bg-white-500/10 text-white-400 border border-white-500/20">BUSINESS INTELLIGENCE</span>
+                    <span class="text-xs text-emerald-400 font-mono flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Sandbox Active
+                    </span>
                 </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Book a quick call →</a>
-            </div>
-            <div class="studio-card rounded-2xl p-8 flex flex-col justify-between reveal">
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block mb-2">Brand Identity Suite</span>
-                    <h4 class="font-display font-bold text-xl text-white mb-3">A Complete Brand Guide Shaped From Strategy & Vision</h4>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">A Full Set Of Visual Rules That Strengthens Recognition Everywhere. We organize your brand into a structured identity.</p>
+                
+                <h3 class="font-display font-bold text-xl sm:text-2xl text-white mb-2">Automated Business Analytics</h3>
+                <p class="text-gray-400 text-xs sm:text-sm mb-6 leading-relaxed">Built-in dashboards tracking store performance, customer acquisition, and product catalog engagement.</p>
+
+                <!-- Graphic Component: Upscaled Analytics Dashboard Sandbox -->
+                <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10 mb-6 space-y-3 font-mono">
+                    <div class="grid grid-cols-2 gap-3 pb-3 border-b border-white/5">
+                        <div class="bg-black/50 p-2.5 rounded-lg border border-white/5">
+                            <span class="text-[10px] text-gray-400 block mb-0.5">Total Revenue</span>
+                            <span class="text-sm font-bold text-white">$48,290.00</span>
+                            <span class="text-[9px] text-emerald-400 block mt-0.5">↑ 28.4% this mo</span>
+                        </div>
+                        <div class="bg-black/50 p-2.5 rounded-lg border border-white/5">
+                            <span class="text-[10px] text-gray-400 block mb-0.5">Conversion Rate</span>
+                            <span class="text-sm font-bold text-white-400">4.82%</span>
+                            <span class="text-[9px] text-emerald-400 block mt-0.5">★ Top 5% Industry</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Progress Meter in Success Gradient -->
+                    <div class="space-y-1.5 pt-1">
+                        <div class="flex justify-between text-[10px] text-gray-400 font-sans">
+                            <span>Catalog Conversion Efficiency</span>
+                            <span class="text-white-400 font-mono font-bold">94.2%</span>
+                        </div>
+                    <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+    <div class="h-full bg-emerald-400 rounded-full w-[94%] shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-white/5 text-[11px] font-sans">
+                        <div class="flex items-center gap-1.5 text-gray-300">
+                            <span class="text-emerald-400 font-bold">✓</span> Real-Time Order Tracking
+                        </div>
+                        <div class="flex items-center gap-1.5 text-gray-300">
+                            <span class="text-emerald-400 font-bold">✓</span> Automated Reports
+                        </div>
+                    </div>
                 </div>
-                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Book a quick call →</a>
             </div>
+
+            <a href="contact.html" class="inline-flex items-center gap-2 text-xs font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                <span>Explore Analytics Suite</span>
+                <span class="text-base transition-transform group-hover:translate-x-1">→</span>
+            </a>
         </div>
-    </section>
-
-  <section class="futuristic-clock-section">
-  <div class="fcs-container">
-    
-    <!-- Top Header -->
-    <div class="fcs-header">
-      <h2>Reach Out And We'll Take It From There</h2>
-      <p>Whether you're planning something new or improving something that already exists you can start by sending us a short note. We'll review everything and come back with a plan that fits the direction you're aiming for.</p>
-    </div>
-
-    <!-- Main Content Grid -->
-    <div class="fcs-grid">
-      
-      <!-- Left Column: Dynamic Clock -->
-      <div class="fcs-clock-wrapper">
-        <div class="clock-outer-glow"></div>
-        <div class="clock">
-          <!-- Dial Numbers -->
-          <span class="num num-12">12</span>
-          <span class="num num-1">1</span>
-          <span class="num num-2">2</span>
-          <span class="num num-3">3</span>
-          <span class="num num-4">4</span>
-          <span class="num num-5">5</span>
-          <span class="num num-6">6</span>
-          <span class="num num-7">7</span>
-          <span class="num num-8">8</span>
-          <span class="num num-9">9</span>
-          <span class="num num-10">10</span>
-          <span class="num num-11">11</span>
-
-          <!-- Inner Ring Ticks -->
-          <div class="inner-dial"></div>
-
-          <!-- Clock Hands -->
-          <div class="hand hour-hand" id="hourHand"></div>
-          <div class="hand minute-hand" id="minuteHand"></div>
-          <div class="hand second-hand" id="secondHand"></div>
-
-          <!-- Center Badge with K&S -->
-          <div class="center-badge">
-            <span>K&S</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: CTA Content -->
-      <div class="fcs-content">
-        <h3>TIME WON'T WAIT. YOUR GROWTH SHOULDN'T EITHER.</h3>
-        <p>If You're Ready To Stop Stalling And Start Scaling, This Is Your Moment. The Clock Is Already Moving. The Question Is... Are You?</p>
-        
-        <div class="btn-group">
-          <a href="contact.html" class="transformation-btn">
-            Start the Transformation <span class="arrow">&rarr;</span>
-          </a>
-          <span class="subtext">Your Next Big Leap Starts Now</span>
-        </div>
-      </div>
 
     </div>
-  </div>
 </section>
+
+    <!-- SECTION 3: SEO, Social Media & Marketing Growth -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+        <div class="reveal">
+            <span class="text-xs font-semibold tracking-widest text-gray-400 uppercase">03. Digital Marketing & Traffic Engineering</span>
+            <h2 class="text-2xl sm:text-4xl font-display font-bold text-white mt-1 mb-2">Complete SEO, Meta Ads & Social Media Growth</h2>
+            <p class="text-gray-400 text-xs sm:text-sm max-w-3xl">We don't just build your platform; We drive targeted buyers to it. Targeted marketing strategies tailored to generate active leads, phone calls, and revenue.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="studio-card rounded-2xl p-7 flex flex-col justify-between reveal delay-1">
+                <div>
+                    <h3 class="font-display font-bold text-lg text-white mb-3">Targeted Search SEO</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 font-light">Dominate search engine rankings when local or global clients search for your services. Sustainable, long-term organic revenue.</p>
+                    <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Technical On-Page & Schema Optimization</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Local Google Business Ranking</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> High-Intent Keyword Targeting</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Request SEO Strategy →</a>
+            </div>
+
+            <div class="studio-card rounded-2xl p-7 flex flex-col justify-between reveal delay-2">
+                <div>
+                    <h3 class="font-display font-bold text-lg text-white mb-3">Social Media Campaign Management</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 font-light">Build an active online community and convert followers into paying customers across Facebook, Instagram, LinkedIn, and X.</p>
+                    <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Content Calendar Design & Captions</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Paid Meta & Google Ad Management</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Brand Awareness & Lead Campaigns</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Scale Social Media →</a>
+            </div>
+
+            <div class="studio-card rounded-2xl p-7 flex flex-col justify-between reveal delay-3">
+                <div>
+                    <h3 class="font-display font-bold text-lg text-white mb-3">Data Operations & Automated Excel</h3>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 font-light">Custom database management, automated spreadsheets, VBA/Macros, and KPI dashboards to streamline backend operations.</p>
+                    <ul class="text-xs text-gray-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Automated Excel Formulas & Macros</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Data Scrubbing & Structuring</li>
+                        <li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Custom Financial & KPI Reports</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="text-xs text-white font-medium hover:underline">Streamline Operations →</a>
+            </div>
+        </div>
+    </section>
+<!-- SECTION 4: Scaled Responsive Curved Roadmap -->
+<section class="relative z-10 max-w-12xl mx-auto px-2 sm:px-6 lg:px-8 py-12 bg-white/[0.02] border border-white/10 rounded-3xl my-8 overflow-hidden">
+    <!-- Section Header -->
+    <div class="text-center max-w-xl mx-auto mb-8 sm:mb-12 reveal">
+        <span class="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-gray-400 font-semibold block mb-1 font-mono">Step-By-Step Execution</span>
+        <h2 class="text-xl sm:text-3xl font-display font-bold text-white tracking-tight">How We Deliver Your Project</h2>
+        <p class="text-gray-400 text-[11px] sm:text-xs mt-2 leading-relaxed">Zero technical confusion. We handle every step carefully from concept to final production deployment.</p>
+    </div>
+
+    <!-- Container forced to fit all mobile/desktop viewports -->
+    <div class="relative w-full max-w-4xl mx-auto py-4 px-1 sm:px-4">
+        
+        <!-- SVG Curved Path: Animated Dotted Path -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 600 320" fill="none" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="roadmapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#10b981" />
+                    <stop offset="50%" stop-color="#3b82f6" />
+                    <stop offset="100%" stop-color="#a855f7" />
+                </linearGradient>
+            </defs>
+            <!-- Snake curve through scaled grid coordinates with animation -->
+            <path d="M 100 70 H 500 C 570 70, 570 250, 500 250 H 100" 
+                  stroke="url(#roadmapGradient)" 
+                  stroke-width="3" 
+                  class="opacity-80 animate-dash-flow" />
+        </svg>
+
+        <!-- Top Row: Steps 1 & 2 -->
+        <div class="grid grid-cols-3 gap-1 sm:gap-4 relative z-10 mb-12 sm:mb-20">
+            <!-- Step 1 -->
+            <div class="text-center group reveal">
+                <div class="step-loop step-delay-1 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-black border-2 border-emerald-500/50 group-hover:border-emerald-400 flex items-center justify-center mx-auto mb-2 transition-all duration-300">
+                    <svg class="w-4 h-4 sm:w-7 sm:h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                </div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-mono tracking-widest text-emerald-400 block mb-0.5">Step 01</span>
+                <h4 class="font-display font-bold text-white text-[11px] sm:text-base leading-tight mb-1">Initial Discovery Call</h4>
+                <p class="text-[9px] sm:text-xs text-gray-400 leading-normal max-w-[130px] sm:max-w-xs mx-auto">We listen to your business goals without tech jargon.</p>
+            </div>
+
+            <!-- Spacer -->
+            <div></div>
+
+            <!-- Step 2 -->
+            <div class="text-center group reveal delay-1">
+                <div class="step-loop step-delay-2 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-black border-2 border-blue-500/50 group-hover:border-blue-400 flex items-center justify-center mx-auto mb-2 transition-all duration-300">
+                    <svg class="w-4 h-4 sm:w-7 sm:h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-mono tracking-widest text-blue-400 block mb-0.5">Step 02</span>
+                <h4 class="font-display font-bold text-white text-[11px] sm:text-base leading-tight mb-1">Blueprint & Quote</h4>
+                <p class="text-[9px] sm:text-xs text-gray-400 leading-normal max-w-[130px] sm:max-w-xs mx-auto">Clear pricing, execution plan, and timeline outlined.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Steps 3 & 4 (Reversed Order following the curved path) -->
+        <div class="grid grid-cols-3 gap-1 sm:gap-4 relative z-10">
+            <!-- Step 4 -->
+            <div class="text-center group reveal delay-3">
+                <div class="step-loop step-delay-4 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-black border-2 border-emerald-500/50 group-hover:border-emerald-400 flex items-center justify-center mx-auto mb-2 transition-all duration-300">
+                    <svg class="w-4 h-4 sm:w-7 sm:h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-mono tracking-widest text-emerald-400 block mb-0.5">Step 04</span>
+                <h4 class="font-display font-bold text-white text-[11px] sm:text-base leading-tight mb-1">Domain Launch & Training</h4>
+                <p class="text-[9px] sm:text-xs text-gray-400 leading-normal max-w-[130px] sm:max-w-xs mx-auto">Full system launch followed by dashboard training.</p>
+            </div>
+
+            <!-- Spacer -->
+            <div></div>
+
+            <!-- Step 3 -->
+            <div class="text-center group reveal delay-2">
+                <div class="step-loop step-delay-3 w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-black border-2 border-white-500/50 group-hover:border-white-400 flex items-center justify-center mx-auto mb-2 transition-all duration-300">
+                    <svg class="w-4 h-4 sm:w-7 sm:h-7 text-white-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+                <span class="text-[8px] sm:text-[10px] uppercase font-mono tracking-widest text-white-400 block mb-0.5">Step 03</span>
+                <h4 class="font-display font-bold text-white text-[11px] sm:text-base leading-tight mb-1">Build & Content Upload</h4>
+                <p class="text-[9px] sm:text-xs text-gray-400 leading-normal max-w-[130px] sm:max-w-xs mx-auto">We build your platform and upload product data.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <!-- SECTION 5: High-Converting Futuristic Call To Action & Clock Section (Monochrome Edition) -->
+<section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-black via-zinc-950 to-black border border-white/10 rounded-3xl my-12 overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.03)]">
+    
+    <!-- Ambient Backdrop Glows (Monochrome) -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/[0.03] rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <span class="text-[11px] uppercase tracking-[0.25em] text-gray-300 font-mono font-semibold">Limited Project Capacity</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
+                Ready To Elevate Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500">Digital Infrastructure?</span>
+            </h2>
+            <p class="text-gray-400 text-xs sm:text-base mt-4 leading-relaxed font-light max-w-2xl mx-auto">
+                Don't let technical hurdles hold your growth back. Partner with an engineering team that handles code, AI integration, infrastructure, and marketing under one roof.
+            </p>
+        </div>
+
+        <!-- Section Main Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Clock Visual Column (5 Cols) -->
+            <div class="lg:col-span-5 flex justify-center reveal delay-1">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-black/60 border border-white/15 p-4 shadow-[0_0_40px_rgba(255,255,255,0.08)] flex items-center justify-center group hover:border-white/40 transition-all duration-500">
+                    
+                    <!-- Pulsing Outer Ring -->
+                    <div class="absolute inset-0 rounded-full border border-white/20 animate-ping opacity-20"></div>
+                    <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-white/10 via-gray-500/10 to-white/10 blur-md opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
+
+                    <!-- Futuristic Clock Face -->
+                    <div class="relative w-full h-full rounded-full bg-zinc-950 border border-white/10 flex items-center justify-center overflow-hidden">
+                        
+                        <!-- Hour Markers -->
+                        <span class="absolute top-3 font-mono text-xs font-bold text-white">12</span>
+                        <span class="absolute right-4 font-mono text-xs font-bold text-gray-400">3</span>
+                        <span class="absolute bottom-3 font-mono text-xs font-bold text-gray-300">6</span>
+                        <span class="absolute left-4 font-mono text-xs font-bold text-gray-400">9</span>
+                        
+                        <!-- Inner Dial Markings -->
+                        <div class="absolute w-44 h-44 rounded-full border border-dashed border-white/10"></div>
+                        <div class="absolute w-28 h-28 rounded-full border border-white/20"></div>
+
+                        <!-- Clock Hands (White / Gray Tones) -->
+                        <div class="hand hour-hand absolute w-1 h-14 bg-white rounded-full origin-bottom top-16 shadow-[0_0_10px_#ffffff]" id="hourHand"></div>
+                        <div class="hand minute-hand absolute w-0.5 h-20 bg-gray-300 rounded-full origin-bottom top-10 shadow-[0_0_10px_#d1d5db]" id="minuteHand"></div>
+                        <div class="hand second-hand absolute w-0.5 h-24 bg-gray-500 rounded-full origin-bottom top-6 shadow-[0_0_10px_#6b7280]" id="secondHand"></div>
+
+                        <!-- Center Brand Badge -->
+                        <div class="relative z-10 w-12 h-12 rounded-full bg-black border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.2)] flex items-center justify-center">
+                            <span class="text-xs font-mono font-bold text-white tracking-tighter">K&S</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content & Conversion Offer Column (7 Cols) -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal delay-2">
+                <div class="space-y-3">
+                    <span class="text-xs font-mono text-gray-300 uppercase tracking-wider block">Fast Project Onboarding</span>
+                    <h3 class="text-2xl sm:text-3xl font-display font-bold text-white">Your Custom System Can Be Live Faster Than You Think</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed font-light">
+                        Connect to Grow now. We respond within 24 hours with a free architectural consultation, timeline breakdown, and a fixed-cost proposal tailored to your business goals.
+                    </p>
+                </div>
+
+                <!-- High-Trust Conversion Bullet Points -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-left">
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">⚡</span>
+                        <span class="text-xs text-gray-300 font-medium">Guaranteed 24-Hour SLA Response</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">🛡️</span>
+                        <span class="text-xs text-gray-300 font-medium">100% Strict Mutual NDA Protection</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">🎯</span>
+                        <span class="text-xs text-gray-300 font-medium">No Hidden Fees or Technical Jargon</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">🚀</span>
+                        <span class="text-xs text-gray-300 font-medium">Full Post-Launch Code Handover</span>
+                    </div>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                    <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white text-black font-semibold text-sm hover:bg-gray-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 group">
+                        <span>Get Your Free Proposal & Roadmap</span>
+                        <svg class="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <p class="text-[11px] font-mono text-gray-500">Direct Senior Technical Engineer Consultation • Free Project Blueprint</p>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Footer -->
     <footer class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none opacity-20 flex items-center justify-center">
-            <div class="w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.15)_0%,_transparent_70%)] blur-3xl"></div>
-        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
                 <div class="lg:col-span-5 space-y-6">
@@ -622,35 +895,33 @@
                                 <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
                             </svg>
                         </div>
-                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S info Desk</span>
+                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S Info Desk</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Next-Gen Brand Architects and Digital Experience Studio helping ambitious companies scale their revenue and dominate their market.</p>
-                    <div class="pt-2">
-                        <a href="contact.html" class="inline-flex items-center gap-2 text-sm text-white-400 hover:underline"><span>✉</span> info@K&Sinfotech.com</a>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Senior-engineered software applications, modern websites, custom admin dashboards, and turn-key digital marketing solutions.</p>
+                    <div class="pt-2 space-y-1 text-sm text-gray-300">
+                        <div>✉ Email: <a href="mailto:kashafshoukat27@gmail.com" class="hover:underline">kashafshoukat27@gmail.com</a></div>
+                        <div>📞 Phone: <a href="tel:+923087441026" class="hover:underline">+92 (308) 7441026</a></div>
                     </div>
                 </div>
                 <div class="lg:col-span-3 space-y-4">
                     <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
                     <ul class="space-y-2.5 text-sm text-gray-400">
-                        <li><a href="index.html" class="hover:text-white-400 transition-colors">Home</a></li>
-                        <li><a href="services.html" class="hover:text-white-400 transition-colors">Services</a></li>
-                        <li><a href="projects.html" class="hover:text-white-400 transition-colors">Projects</a></li>
-                        <li><a href="contact.html" class="hover:text-white-400 transition-colors">Contact Us</a></li>
+                        <li><a href="index.html" class="hover:text-white transition-colors">Back to Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">What we do</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">See our work</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a></li>
                     </ul>
                 </div>
                 <div class="lg:col-span-4 space-y-4">
-                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Connect With Us</h4>
-                    <p class="text-gray-400 text-xs sm:text-sm font-light">Follow our latest design drops and industry insights across social networks.</p>
-                    <div class="flex items-center space-x-3 pt-2">
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">f</a>
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">in</a>
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">ig</a>
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">x</a>
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Direct Contact</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm font-light">Have an existing site or new system in mind? Talk directly with our lead software team.</p>
+                    <div class="pt-2">
+                        <a href="contact.html" class="glass-btn px-6 py-3 rounded-xl text-xs text-white font-medium inline-block">Schedule Engineering Call</a>
                     </div>
                 </div>
             </div>
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
-                <p>&copy; 2026 K&S info Desk | All Rights Reserved.</p>
+                <p>&copy; 2026 K&S Info Desk | Senior Software Engineering & Digital Growth</p>
                 <div class="flex space-x-6">
                     <a href="contact.html" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
                     <a href="contact.html" class="hover:text-gray-300 transition-colors">Terms & Conditions</a>
@@ -658,59 +929,166 @@
             </div>
         </div>
     </footer>
-<script>
-  function animateClock() {
-    const now = new Date();
-    
-    // Get time components with fractions for continuous smooth motion
-    const milliseconds = now.getMilliseconds();
-    const seconds = now.getSeconds() + milliseconds / 1000;
-    const minutes = now.getMinutes() + seconds / 60;
-    const hours = (now.getHours() % 12) + minutes / 60;
+ <!-- JavaScript Bundle -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    // Calculate rotation degrees
-    const secondDeg = seconds * 6; // 360 / 60
-    const minuteDeg = minutes * 6; // 360 / 60
-    const hourDeg = hours * 30;    // 360 / 12
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-y-0');
 
-    // Apply rotations
+            if (!isOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.remove('translate-y-6', 'opacity-0');
+                        link.classList.add('translate-y-0', 'opacity-100');
+                    }, 120 + (index * 90));
+                });
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+                mobileLinks.forEach((link) => {
+                    link.classList.remove('translate-y-0', 'opacity-100');
+                    link.classList.add('translate-y-6', 'opacity-0');
+                });
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
+    <!-- Scripts -->
+    <script>
+        // Realtime Dynamic Clock
+        function animateClock() {
+            const now = new Date();
+            const milliseconds = now.getMilliseconds();
+            const seconds = now.getSeconds() + milliseconds / 1000;
+            const minutes = now.getMinutes() + seconds / 60;
+            const hours = (now.getHours() % 12) + minutes / 60;
+
+            const secondDeg = seconds * 6;
+            const minuteDeg = minutes * 6;
+            const hourDeg = hours * 30;
+
+            const hourHand = document.getElementById('hourHand');
+            const minuteHand = document.getElementById('minuteHand');
+            const secondHand = document.getElementById('secondHand');
+
+            if (hourHand) hourHand.style.transform = `rotate(${hourDeg}deg)`;
+            if (minuteHand) minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+            if (secondHand) secondHand.style.transform = `rotate(${secondDeg}deg)`;
+
+            requestAnimationFrame(animateClock);
+        }
+        requestAnimationFrame(animateClock);
+
+        // Safe Mobile Navigation Script
+      
+
+        // Instant Onload Animations & Scroll Observer
+        function initRevealAnimations() {
+            const observerOptions = {
+                root: null,
+                threshold: 0.05,
+                rootMargin: '0px 0px -20px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    el.classList.add('visible');
+                }
+                revealObserver.observe(el);
+            });
+        }
+
+        // Run animations safely when page loads
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                    initRevealAnimations();
+                }, 300);
+            } else {
+                initRevealAnimations();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
     const hourHand = document.getElementById('hourHand');
     const minuteHand = document.getElementById('minuteHand');
     const secondHand = document.getElementById('secondHand');
 
-    if (hourHand) hourHand.style.transform = `rotate(${hourDeg}deg)`;
-    if (minuteHand) minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-    if (secondHand) secondHand.style.transform = `rotate(${secondDeg}deg)`;
+    if (!hourHand || !minuteHand || !secondHand) return;
 
-    // Request next frame for smooth movement
-    requestAnimationFrame(animateClock);
-  }
+    // Function to calculate exact degree angles based on current system time
+    function updateClock() {
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const minutes = now.getMinutes();
+        const hours = now.getHours();
 
-  // Start the animation
-  requestAnimationFrame(animateClock);
-</script>
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('opacity-0', 'pointer-events-none'));
-        closeMenu.addEventListener('click', () => mobileMenu.classList.add('opacity-0', 'pointer-events-none'));
-        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('opacity-0', 'pointer-events-none')));
+        // Calculate continuous degree rotations
+        const secondDeg = (seconds / 60) * 360;
+        const minuteDeg = ((minutes + seconds / 60) / 60) * 360;
+        const hourDeg = (((hours % 12) + minutes / 60) / 12) * 360;
 
-        const revealObserver = new IntersectionObserver((entries) => {
+        // Apply CSS rotations
+        secondHand.style.transform = `rotate(${secondDeg}deg)`;
+        minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+        hourHand.style.transform = `rotate(${hourDeg}deg)`;
+    }
+
+    // Run real-time update every second
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial positioning
+
+    // Scroll-Triggered Entrance Spin Animation
+    const clockSection = document.querySelector('.futuristic-clock-section') || hourHand.closest('section');
+    if (clockSection && 'IntersectionObserver' in window) {
+        let animated = false;
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    // Apply smooth 360-degree entrance sweep animation
+                    [hourHand, minuteHand, secondHand].forEach(hand => {
+                        hand.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                    });
+                    
+                    // Re-calculate after spin completes to maintain real-time precision
+                    setTimeout(() => {
+                        [hourHand, minuteHand, secondHand].forEach(hand => {
+                            hand.style.transition = 'transform 0.2s ease-in-out';
+                        });
+                    }, 1200);
                 }
             });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        }, { threshold: 0.3 });
 
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            if (loader) setTimeout(() => loader.classList.add('hidden'), 500);
-        });
+        observer.observe(clockSection);
+    }
+});
     </script>
 </body>
 

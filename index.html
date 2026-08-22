@@ -245,7 +245,15 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
+} 
+        .scrollbar-none::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 
@@ -846,222 +854,220 @@
         </div>
     </div>
 
-<!-- Hero Section -->
-<!-- Hero Section -->
-<section id="home" class="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-90px)] text-center px-4 sm:px-6 max-w-7xl mx-auto py-12 overflow-hidden bg-black text-white selection:bg-white selection:text-black">
+<!-- Hero Section with Sleek Cel Animation, Moving Grid Background & Onload Effects -->
+<section id="home" class="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-90px)] text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 sm:py-20 overflow-hidden bg-black text-white selection:bg-white selection:text-black">
 
     <!-- 1. Ambient Background Gradient Vignette -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none z-0"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_75%)] pointer-events-none z-0"></div>
 
-    <!-- 2. Fixed Visible Moving Grid Lines Background -->
-    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-50">
-        <div class="absolute inset-[-100%] h-[300%] w-[300%] bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] animate-[moveGrid_20s_linear_infinite]"></div>
+    <!-- 2. Sleek Traditional Cel Animation Layer: High-Contrast Hand-Drawn Lines -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-60">
+        <svg class="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="celGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.7)" />
+                    <stop offset="50%" stop-color="rgba(160,160,160,0.3)" />
+                    <stop offset="100%" stop-color="rgba(255,255,255,0.6)" />
+                </linearGradient>
+            </defs>
+            <!-- Hand-drawn style sketchy arc frames with smooth onload dash entrance -->
+            <path d="M 50,150 Q 350,50 650,250 T 1250,100" fill="none" stroke="url(#celGradient)" stroke-width="2" stroke-dasharray="10 6" class="animate-[pulse_3s_steps(4,end)_infinite]" />
+            <path d="M 100,450 Q 450,200 800,400 T 1500,300" fill="none" stroke="url(#celGradient)" stroke-width="1.5" stroke-dasharray="8 8" class="animate-[pulse_2.5s_steps(3,end)_infinite]" />
+        </svg>
+
+        <!-- Sketchy Pencil/Acetate Geometric Shapes with Onload Fade -->
+        <div class="absolute top-1/3 right-[22%] w-20 h-20 border-2 border-dashed border-white/40 rounded-full animate-[spin_10s_linear_infinite] opacity-0 [animation:fadeIn_1s_ease_forwards_0.4s]"></div>
+        <div class="absolute bottom-1/3 left-[18%] w-16 h-16 border border-white/30 rotate-12 animate-[bounce_5s_ease-in-out_infinite] opacity-0 [animation:fadeIn_1s_ease_forwards_0.6s]"></div>
     </div>
 
-    <!-- 3. Dynamic Interactive Glow & Floating Particle Simulators -->
+    <!-- 3. Actively Moving Grid Lines Background with White/Grey Gradients -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
+        <div class="absolute inset-[-100%] h-[300%] w-[300%] bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(180,180,180,0.1)_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] animate-[moveGrid_20s_linear_infinite]"></div>
+    </div>
+
+    <!-- 4. Dynamic Interactive Glow & Floating Orbs -->
     <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden">
-        <!-- Center Pulsing Core Glow -->
-        <div class="w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-white/[0.04] rounded-full blur-[140px] animate-[pulse_6s_ease-in-out_infinite]"></div>
-        
-        <!-- Secondary Floating Drift Orb 1 -->
-        <div class="absolute w-[250px] h-[250px] bg-white/[0.03] rounded-full blur-[100px] animate-[float_10s_ease-in-out_infinite] -top-20 -left-20"></div>
-        
-        <!-- Tertiary Floating Drift Orb 2 -->
-        <div class="absolute w-[300px] h-[300px] bg-white/[0.02] rounded-full blur-[110px] animate-[float_12s_ease-in-out_infinite_reverse] -bottom-20 -right-20"></div>
+        <div class="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-gradient-to-tr from-white/[0.08] to-gray-500/[0.02] rounded-full blur-[120px] sm:blur-[150px] animate-[pulse_6s_ease-in-out_infinite]"></div>
+        <div class="absolute w-[220px] h-[220px] bg-white/[0.04] rounded-full blur-[90px] animate-[float_10s_ease-in-out_infinite] -top-10 -left-10"></div>
+        <div class="absolute w-[280px] h-[280px] bg-gray-300/[0.03] rounded-full blur-[100px] animate-[float_12s_ease-in-out_infinite_reverse] -bottom-10 -right-10"></div>
     </div>
 
-    <!-- 4. Top Badge -->
-    <div class="relative z-10 inline-block mb-4 sm:mb-6 animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:100ms]">
-        <div class="group relative p-[1px] rounded-full overflow-hidden bg-gradient-to-r from-transparent via-white/30 to-transparent">
-            <span class="relative flex items-center gap-2 text-[11px] sm:text-sm font-semibold uppercase tracking-[0.355em] text-gray-200 bg-black/80 px-6 py-2.5 rounded-full backdrop-blur-xl shadow-[0_0_25px_rgba(255,255,255,0.03)]">
+    <!-- 5. Top Badge with Onload Entrance -->
+    <div class="relative z-10 inline-block mb-4 sm:mb-6 animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:150ms]">
+        <div class="group relative p-[1px] rounded-full overflow-hidden bg-gradient-to-r from-transparent via-white/40 to-transparent">
+            <span class="relative flex items-center gap-2 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.25em] sm:tracking-[0.355em] text-gray-200 bg-black/90 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full backdrop-blur-xl shadow-[0_0_25px_rgba(255,255,255,0.05)]">
                 <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-                Next-Gen Authority
+                Global Growth & Revenue Engines
             </span>
         </div>
     </div>
 
-    <!-- 5. Main Title -->
-    <h1 class="relative z-10 font-display font-black tracking-wider uppercase text-white drop-shadow-[0_15px_50px_rgba(255,255,255,0.2)] text-3xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] max-w-6xl mx-auto my-2 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:300ms]">
-        Brand <span class="bg-gradient-to-b from-white via-gray-200 to-gray-500 bg-clip-text text-transparent">Architects</span>
+    <!-- 6. Main Title with Smooth Onload Reveal -->
+    <h1 class="relative z-10 font-display font-black tracking-wider uppercase text-white drop-shadow-[0_15px_50px_rgba(255,255,255,0.2)] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.1] max-w-6xl mx-auto my-2 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:350ms]">
+        Scale Your <span class="bg-gradient-to-b from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">Business Worldwide</span>
     </h1>
 
-    <!-- 6. Catchy Subheading -->
-    <p class="relative z-10 text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-4 sm:mt-6 font-light tracking-wide leading-relaxed animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:500ms]">
-        We engineer dominant digital ecosystems that turn high-value attention into permanent market leadership. 
-        <span class="text-gray-200 font-normal">Transparent strategies, elite execution, measurable ROI.</span>
+    <!-- 7. Catchy Subheading with Staggered Onload -->
+    <p class="relative z-10 text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl sm:max-w-3xl mx-auto mt-4 sm:mt-6 font-light tracking-wide leading-relaxed animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:550ms]">
+        We don't just deploy <strong>SYSTEMS</strong>, we build end-to-end digital <strong>ECOSYSTEMS</strong> that drive 
+        <span class="text-gray-200 font-normal">explosive customer acquisition, recurring sales, and global market dominance.</span>
     </p>
 
-    <!-- 7. Interactive Call to Action Button -->
-    <div class="relative z-10 mt-8 sm:mt-12 animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:700ms]">
-        <a href="services.html" class="group relative inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide overflow-hidden bg-white text-black shadow-[0_0_40px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:bg-black hover:text-white border border-transparent hover:border-white/40 transition-all duration-500 cursor-pointer active:scale-95">
-            
-            <!-- Shimmer Effect Layer -->
+    <!-- 8. Interactive Call to Action Buttons with Onload Entry -->
+    <div class="relative z-10 mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:750ms]">
+        
+        <!-- Primary Button -->
+        <a href="services.html" class="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide overflow-hidden bg-white text-black shadow-[0_0_40px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:bg-black hover:text-white border border-transparent hover:border-white/40 transition-all duration-500 cursor-pointer active:scale-95">
             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-black/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-
             <span class="relative z-10 font-medium flex items-center gap-2">
-                Let's Build Your 
-                <span class="font-bold underline underline-offset-4 decoration-1 decoration-white/60 group-hover:decoration-white">Digital Empire</span>
+                Launch Your <span class="font-bold underline underline-offset-4 decoration-1 decoration-white/60 group-hover:decoration-white">Digital Empire</span>
             </span>
-
             <svg class="w-4 h-4 text-black transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
+
+        <!-- Secondary Button -->
+        <a href="contact.html" class="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide bg-white/[0.03] text-gray-300 hover:text-white hover:bg-white/[0.08] border border-white/10 hover:border-white/30 backdrop-blur-md transition-all duration-300 cursor-pointer active:scale-95">
+            <span>Book Growth Strategy Call</span>
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
         </a>
     </div>
 </section>
 
 
+  <!-- Projects Showcase Section with Properly Sized Mobile Slider & Onload Animations -->
+<section id="projects"
+    class="reveal-section relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black text-white overflow-hidden">
 
-    <!-- Projects Showcase Section with Properly Sized Mobile Slider -->
-    <section id="projects"
-        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black text-white overflow-hidden">
+    <!-- Background Elevated White Glow Effect -->
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-0">
+    </div>
 
-        <!-- Background Elevated White Glow Effect -->
+    <!-- Section Header -->
+    <div class="relative z-10 max-w-3xl">
+        <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-4">
+            Selected Pieces From Our Studio
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
+            These pieces show how we turn raw concepts into polished experiences. We pay attention to movement,
+            layout, flow, and the feeling a website gives the moment someone lands on it. This is where you can see
+            how all those elements come together.
+        </p><br>
+    </div>
+
+    <!-- Mobile Slide Navigation Controls Header (Visible on small screens only) -->
+    <div class="flex md:hidden items-center justify-end gap-3 mb-4 z-20 relative">
+        <button onclick="scrollProjects('left')"
+            class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
+            aria-label="Slide Left">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button onclick="scrollProjects('right')"
+            class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
+            aria-label="Slide Right">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Projects Container: Properly Sized Cards for Mobile & Grid for Desktop -->
+    <div id="projectsSlider"
+        class="relative z-10 flex md:grid md:grid-cols-3 gap-5 lg:gap-8 items-center overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-4 md:pb-0">
+
+        <!-- Project Card 1: Crystal Pro -->
         <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-0">
-        </div>
-
-        <!-- Section Header -->
-        <div class="relative z-10 max-w-3xl">
-            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-4">
-                Selected Pieces From Our Studio
-            </h2>
-            <p class="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
-                These pieces show how we turn raw concepts into polished experiences. We pay attention to movement,
-                layout, flow, and the feeling a website gives the moment someone lands on it. This is where you can see
-                how all those elements come together.
-            </p><br>
-        </div>
-
-        <!-- Mobile Slide Navigation Controls Header (Visible on small screens only) -->
-        <div class="flex md:hidden items-center justify-end gap-3 mb-4 z-20 relative">
-            <button onclick="scrollProjects('left')"
-                class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
-                aria-label="Slide Left">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button onclick="scrollProjects('right')"
-                class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
-                aria-label="Slide Right">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Projects Container: Properly Sized Cards for Mobile & Grid for Desktop -->
-        <div id="projectsSlider"
-            class="relative z-10 flex md:grid md:grid-cols-3 gap-5 lg:gap-8 items-center overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-4 md:pb-0">
-
-            <!-- Project Card 1: Crystal Pro -->
-            <div
-                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/30 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
-                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                    <img src="car.webp" alt="Crystal Pro"
-                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                        onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <span
-                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Crystal
-                            Pro
-                            Design</span>
-                       <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+            class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+            <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                <img src="car.webp" alt="Crystal Pro"
+                    class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                </div>
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <span
+                        class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Crystal
+                        Pro
+                        Design</span>
+                   <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
     Explore <span class="text-base">&rarr;</span>
 </a>
-                    </div>
                 </div>
             </div>
-
-            <!-- Project Card 2: Phantom Pro Studio -->
-            <div
-                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/30 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
-                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                    <img src="vale.webp" alt="Phantom Pro Studio"
-                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                        onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <span
-                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Phantom
-                            Pro Studio</span>
-                        <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
-    Explore <span class="text-base">&rarr;</span>
-</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project Card 3: Alpha Fitness -->
-            <div
-                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/30 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
-                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                    <img src="shimmer-edited.webp" alt="Alpha Fitness"
-                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                        onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <span
-                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Alpha
-                            Fitness</span>
-                        <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
-    Explore <span class="text-base">&rarr;</span>
-</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Bottom Action Controls Footer -->
-        <div class="relative z-10 mt-12 sm:mt-16 flex items-center justify-between">
-            <a href="#services"
-                class="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300">
-                <span>See More</span>
-                <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </a>
-
-            <a href="#home"
-                class="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-                </svg>
-            </a>
+        <!-- Project Card 2: Phantom Pro Studio -->
+        <div
+            class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+            <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                <img src="vale.webp" alt="Phantom Pro Studio"
+                    class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                </div>
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <span
+                        class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Phantom
+                        Pro Studio</span>
+                    <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+    Explore <span class="text-base">&rarr;</span>
+</a>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- JavaScript for Slider Scroll -->
-    <script>
-        function scrollProjects(direction) {
-            const container = document.getElementById('projectsSlider');
-            const scrollAmount = 280; // Scroll by fixed card width length
-            if (direction === 'left') {
-                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else {
-                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            }
-        }
-    </script>
+        <!-- Project Card 3: Alpha Fitness -->
+        <div
+            class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+            <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                <img src="shimmer-edited.webp" alt="Alpha Fitness"
+                    class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                </div>
+                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <span
+                        class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Alpha
+                        Fitness</span>
+                    <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+    Explore <span class="text-base">&rarr;</span>
+</a>
+                </div>
+            </div>
+        </div>
 
-    <style>
-        .scrollbar-none::-webkit-scrollbar {
-            display: none;
-        }
+    </div>
 
-        .scrollbar-none {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+    <!-- Bottom Action Controls Footer -->
+    <div class="relative z-10 mt-12 sm:mt-16 flex items-center justify-between">
+        <a href="#services"
+            class="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300">
+            <span>See More</span>
+            <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
+
+        <a href="#home"
+            class="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+        </a>
+    </div>
+</section>
+
+   
+
+  
 
     <!-- Our Philosophy Section -->
     <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-black">
@@ -2162,6 +2168,61 @@
                 document.getElementById('testimonialBadge').innerText = data.badge;
                 textEl.style.opacity = '1';
             }, 150);
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-section').forEach(section => {
+        observer.observe(section);
+    });
+    // Function to handle smooth scrolling for the mobile projects slider
+function scrollProjects(direction) {
+    const slider = document.getElementById('projectsSlider');
+    if (!slider) return;
+
+    // Determine scroll amount based on the first card's width + gap, or fallback to 320px
+    const card = slider.querySelector('.studio-card');
+    const scrollAmount = card ? card.offsetWidth + 20 : 320;
+
+    if (direction === 'left') {
+        slider.scrollBy({
+            left: -scrollAmount,
+            behavior: 'smooth'
+        });
+    } else {
+        slider.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+}
+});
+</script>
+ <!-- JavaScript for Slider Scroll -->
+    <script>
+        function scrollProjects(direction) {
+            const container = document.getElementById('projectsSlider');
+            const scrollAmount = 280; // Scroll by fixed card width length
+            if (direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
         }
     </script>
 </body>

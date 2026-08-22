@@ -4,9 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K&S info Desk — Projects</title>
+    <!-- Comprehensive SEO Meta Tags -->
+    <title>K&S Info Desk - Enterprise Digital Agency & Performance Engineering</title>
+    <meta name="description" content="K&S Info Desk delivers high-converting digital platforms, custom web development, automated SEO, and ultra-fast Web Vitals guaranteed to scale your brand revenue.">
+    <meta name="keywords" content="Digital Agency, Web Development, Core Web Vitals, High Converting Copywriting, Performance Engineering, SEO Automation">
+    <meta name="robots" content="index, follow">
+    
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "K&S Info Desk",
+      "url": "https://ksinfodesk.com",
+      "logo": "https://ksinfodesk.com/logo.png",
+      "description": "High-performance digital engineering agency specialized in high-converting web applications, SEO automation, and brand transformation.",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Global"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
@@ -15,17 +38,24 @@
                         sans: ['Inter', 'sans-serif'],
                         display: ['Space Grotesk', 'sans-serif'],
                     },
+                    colors: {
+                        brandGreen: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'marquee': 'marquee 25s linear infinite',
+                        'marquee': 'marqueeScroll 25s linear infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        marquee: {
+                        marqueeScroll: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(-50%)' },
                         }
@@ -34,316 +64,83 @@
             }
         }
     </script>
+
     <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Glassmorphism Buttons */
         .glass-btn {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.4);
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
-        .glass-btn:active { transform: translateY(0px) scale(0.97); }
 
+        /* Enterprise Studio Cards with Deep Black Shadows */
         .studio-card {
-            background: rgba(20, 20, 20, 0.7);
-            border: 1px solid white;
-            backdrop-filter: blur(10px);
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(15, 15, 18, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 1px rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .studio-card:hover {
-            border-color: white;
-            box-shadow: 0 10px 40px rgba(245, 185, 40, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 1), 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
-        .outline-text {
-            color: transparent;
-            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.75);
-            transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
-        }
-        .outline-text:hover {
-            color: rgba(255, 215, 0, 0.2);
-            -webkit-text-stroke: 1.5px rgba(255, 215, 0, 0.9);
+        /* Sticky Card Stacking Mechanics */
+        .stacking-card {
+            position: sticky;
+            top: 6rem;
+            margin-bottom: 3rem;
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #444; }
-
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-15px) scale(1.03); } }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
+        /* Preloader */
         #loader {
-            position: fixed; inset: 0; z-index: 9999; background: #000;
+            position: fixed; inset: 0; z-index: 9999; background: #000000;
             display: flex; align-items: center; justify-content: center;
             transition: opacity 0.6s ease, visibility 0.6s ease;
         }
         #loader.hidden { opacity: 0; visibility: hidden; }
-        .loader-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.8); animation: loaderPulse 1.4s ease-in-out infinite; }
+        .loader-dot { width: 10px; height: 10px; border-radius: 50%; background: #ffffff; animation: loaderPulse 1.4s ease-in-out infinite; }
         .loader-dot:nth-child(2) { animation-delay: 0.2s; }
         .loader-dot:nth-child(3) { animation-delay: 0.4s; }
         @keyframes loaderPulse { 0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1.1); } }
-   /* Futuristic Clock Section Styling */
-.futuristic-clock-section {
-  background-color: #030305;
-  color: #ffffff;
-  padding: 80px 20px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  overflow: hidden;
-}
 
-.fcs-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+        /* Clock Animation */
+        .fcs-clock-wrapper { position: relative; width: 320px; height: 320px; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+        .clock { position: relative; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at center, #111115 0%, #000000 100%); border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: inset 0 0 25px rgba(0,0,0,0.9), 0 15px 35px rgba(0,0,0,0.9); }
+        .num { position: absolute; font-size: 0.75rem; font-weight: 500; color: #888888; text-align: center; width: 20px; height: 20px; line-height: 20px; }
+        .num-12 { top: 12px; left: 50%; transform: translateX(-50%); }
+        .num-3  { top: 50%; right: 12px; transform: translateY(-50%); }
+        .num-6  { bottom: 12px; left: 50%; transform: translateX(-50%); }
+        .num-9  { top: 50%; left: 12px; transform: translateY(-50%); }
+        .hand { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom center; border-radius: 4px; z-index: 5; }
+        .hour-hand { width: 4px; height: 70px; background: #ffffff; margin-left: -2px; }
+        .minute-hand { width: 3px; height: 95px; background: #cccccc; margin-left: -1.5px; }
+        .second-hand { width: 1.5px; height: 110px; background: #10b981; margin-left: -0.75px; }
+        .center-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: #181818; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; z-index: 10; }
 
-/* Header Styling */
-.fcs-header {
-  margin-bottom: 60px;
-  max-width: 900px;
-}
-
-.fcs-header h2 {
-  font-size: 2.2rem;
-  font-weight: 400;
-  letter-spacing: -0.5px;
-  color: #f0f0f0;
-  margin-bottom: 16px;
-}
-
-.fcs-header p {
-  font-size: 1rem;
-  color: #8a8a93;
-  line-height: 1.6;
-}
-
-/* Main Layout Grid */
-.fcs-grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-
-/* Clock Container & Glow Effect */
-.fcs-clock-wrapper {
-  position: relative;
-  width: 380px;
-  height: 380px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.clock-outer-glow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.08), inset 0 0 20px rgba(255, 255, 255, 0.05);
-  pointer-events: none;
-}
-
-.clock {
-  position: relative;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #111216 0%, #08080a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.9), 0 10px 30px rgba(0, 0, 0, 0.8);
-}
-
-/* Dial Numbers Positioning */
-.num {
-  position: absolute;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #a0a0ab;
-  text-align: center;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-}
-
-.num-12 { top: 12px; left: 50%; transform: translateX(-50%); }
-.num-1  { top: 32px; right: 80px; }
-.num-2  { top: 80px; right: 32px; }
-.num-3  { top: 50%; right: 12px; transform: translateY(-50%); }
-.num-4  { bottom: 80px; right: 32px; }
-.num-5  { bottom: 32px; right: 80px; }
-.num-6  { bottom: 12px; left: 50%; transform: translateX(-50%); }
-.num-7  { bottom: 32px; left: 80px; }
-.num-8  { bottom: 80px; left: 32px; }
-.num-9  { top: 50%; left: 12px; transform: translateY(-50%); }
-.num-10 { top: 80px; left: 32px; }
-.num-11 { top: 32px; left: 80px; }
-
-/* Inner Ring Markings */
-.inner-dial {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 230px;
-  height: 230px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 1px dashed rgba(255, 255, 255, 0.12);
-}
-
-/* Clock Needles */
-.hand {
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  transform-origin: bottom center;
-  border-radius: 4px;
-  z-index: 5;
-}
-
-.hour-hand {
-  width: 4px;
-  height: 80px;
-  background: #ffffff;
-  margin-left: -2px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.minute-hand {
-  width: 3px;
-  height: 115px;
-  background: #e0e0e0;
-  margin-left: -1.5px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-.second-hand {
-  width: 1.5px;
-  height: 130px;
-  background: #ffffff;
-  margin-left: -0.75px;
-  opacity: 0.8;
-}
-
-/* Center Badge with K&S */
-.center-badge {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52px;
-  height: 52px;
-  background: #18191e;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.1);
-}
-
-.center-badge span {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-
-/* Right Content Styling */
-.fcs-content {
-  flex: 1;
-  min-width: 300px;
-  max-width: 540px;
-}
-
-.fcs-content h3 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  letter-spacing: 1px;
-  line-height: 1.3;
-  color: #e4e4e7;
-  margin-bottom: 20px;
-}
-
-.fcs-content p {
-  color: #90909a;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.btn-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.transformation-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-}
-
-.transformation-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-.subtext {
-  font-size: 0.8rem;
-  color: #60606a;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .fcs-grid {
-    flex-direction: column;
-    text-align: center;
-  }
-  .fcs-header {
-    text-align: center;
-  }
-  .btn-group {
-    align-items: center;
-  }
-}
+        /* Infinite Marquee Ticker Setup */
+        .animate-marquee-container { display: flex; width: max-content; animation: marqueeScroll 25s linear infinite; }
+        .animate-marquee-container:hover { animation-play-state: paused; }
    </style>
 </head>
 
-<body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white-500 selection:text-black">
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black">
 
-    <!-- Loader -->
+    <!-- Preloader -->
     <div id="loader">
         <div class="flex items-center gap-2">
             <div class="loader-dot"></div>
@@ -352,11 +149,20 @@
         </div>
     </div>
 
-    <!-- Header / Navbar -->
+   <!-- Hero Background Animation Layer -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+        <div
+            class="absolute w-[350px] h-[350px] sm:w-[550px] sm:h-[550px] lg:w-[750px] lg:h-[750px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.22)_0%,_rgba(200,130,20,0.08)_45%,_transparent_75%)] blur-3xl animate-pulse-slow">
+        </div>
+        <canvas id="particleCanvas" class="absolute inset-0 w-full h-full opacity-60"></canvas>
+    </div>
+
     <header class="relative z-50 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
         <a href="index.html" class="flex items-center group focus:outline-none">
-            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
-                <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
+            <div
+                class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
+                <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
                     <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
                 </svg>
@@ -364,20 +170,23 @@
         </a>
 
         <nav class="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm font-medium text-gray-300">
-            <a href="index.html" class="hover:text-white transition-colors">Home</a>
-            <a href="services.html" class="hover:text-white transition-colors">Services</a>
-            <a href="projects.html" class="text-white hover:text-white transition-colors">Projects</a>
-            <a href="contact.html" class="hover:text-white transition-colors">Contact Us</a>
+            <a href="index.html" class="text-white hover:text-white transition-colors">Home</a>
+            <a href="services.html" class="hover:text-white transition-colors">What we do</a>
+            <a href="projects.html" class="hover:text-white transition-colors">See Our Work</a>
+            <a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a>
         </nav>
 
         <div class="flex items-center space-x-4">
-            <a href="contact.html" class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
+            <a href="contact.html"
+                class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
                 <span>Let's Talk</span>
-                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
             </a>
-            <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none">
+            <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none z-50">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -385,190 +194,551 @@
         </div>
     </header>
 
-    <!-- Mobile Drawer -->
-    <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-6 text-xl font-medium transition-all duration-300 opacity-0 pointer-events-none md:hidden">
-        <button id="closeMenu" class="absolute top-6 right-6 text-gray-400 hover:text-white p-2">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <a href="index.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Home</a>
-        <a href="services.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Services</a>
-        <a href="projects.html" class="mobile-link text-white hover:text-white-400 transition-colors">Projects</a>
-        <a href="contact.html" class="mobile-link text-gray-300 hover:text-white-400 transition-colors">Contact Us</a>
+    <!-- Mobile Drawer with Icons, Underline Effect, and White Text Glow -->
+    <div id="mobileMenu"
+        class="fixed inset-x-0 top-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center pt-14 pb-6 rounded-b-3xl border-b border-white/15 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-full opacity-0 pointer-events-none md:hidden">
+
+
+
+        <div class="w-full flex flex-col items-stretch px-8">
+            <!-- Home -->
+            <a href="index.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-white border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Home
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Services -->
+            <a href="services.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Services
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Projects -->
+            <a href="projects.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Projects
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Connect to Grow -->
+            <a href="contact.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-b border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Connect to Grow
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+        </div>
     </div>
 
+
     <!-- Page Hero -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 text-center overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-0">
-            <div class="w-[300px] sm:w-[550px] h-[300px] sm:h-[550px] bg-white/[0.03] rounded-full blur-[120px] animate-pulse"></div>
-        </div>
-
-        <div class="relative z-10 max-w-3xl mx-auto">
-            <span class="text-xs uppercase tracking-[0.35em] text-white font-semibold mb-3 inline-block animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards]">OUR WORK</span>
-            <h1 class="text-4xl sm:text-6xl font-display font-bold text-white uppercase tracking-wide mb-4 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards]">Projects</h1>
-            <p class="text-gray-400 text-sm sm:text-base font-light animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards]">These projects highlight the decisions, design, and execution behind our work. Each one reflects how we take an idea from rough concept to a finished outcome that actually performs.</p>
-        </div>
-
-        <!-- Marquee -->
-        <div class="relative max-w-6xl mx-auto mt-10 flex justify-center gap-3 text-gray-500 text-sm uppercase tracking-[0.3em] font-display animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards]">
-             <span class="text-white">We Can Handle Everything. <br> yes, everything</span>
-        </div>
-    </section>
-
-    <!-- Approach Intro -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="max-w-3xl reveal">
-            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-4">Our Approach in Action</h2>
-            <p class="text-gray-400 text-sm sm:text-base leading-relaxed font-light">Here's a closer look at the projects we've built across platforms and industries. From early sketches to full-scale launches, each one shows how we think, refine, and deliver with clarity.</p>
-        </div>
-    </section>
-
-    <!-- Projects Grid -->
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
-
-        <!-- Project 1: Phantom Auto Studio -->
-        <div class="studio-card rounded-3xl overflow-hidden group reveal">
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                    <img src="vale.webp" alt="Phantom Auto Studio" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
-                </div>
-                <div class="p-8 sm:p-12 space-y-4">
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block">Branding & Web</span>
-                    <h3 class="text-2xl font-display font-bold text-white">PHANTOM AUTO STUDIO</h3>
-                    <h4 class="text-lg font-display font-medium text-gray-300">A Brand Built For Precision And Performance</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">Phantom Auto Studio needed a visual identity that matched the way they work: sharp, disciplined, and obsessed with detail. We built their branding from the ground up, defined their colors and type system, and designed a website that lets their work speak for itself without distractions.</p>
-                    <a href="contact.html" class="inline-flex items-center gap-2 text-sm text-white font-medium hover:underline pt-2">Discuss similar project →</a>
-                </div>
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 text-center animate-fade-in-up">
+        <div class="max-w-3xl mx-auto space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/15 text-gray-300 text-xs font-mono">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <span>ENTERPRISE PERFORMANCE ENGINEERING</span>
             </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-display font-bold text-white uppercase tracking-tight">
+                Case Studies & <span class="text-gray-400">Live Proof</span>
+            </h1>
+            
+            <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed">
+                We engineer conversion-focused web architectures, automated technical SEO, and high-velocity code. Explore our client transformations below.
+            </p>
+        </div>
+<div class="relative w-full overflow-hidden border-t border-b border-white/10 py-4 my-8 bg-black/30 backdrop-blur-sm reveal delay-3">
+    <!-- Gradient Fade Masks on Edges -->
+    <div class="pointer-events-none absolute left-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-r from-black to-transparent"></div>
+    <div class="pointer-events-none absolute right-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-l from-black to-transparent"></div>
+
+    <div class="animate-marquee flex items-center gap-8 sm:gap-12 whitespace-nowrap text-xs text-gray-300 font-medium">
+        <!-- Set 1 -->
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Full Domain & Hosting Setup
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Copywriting & Service Quotes Included
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Custom AI Visuals & Graphics
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Unlimited Product Catalog Uploads
         </div>
 
-        <!-- Project 2: YSS EXIM Global Showcase -->
-        <div class="studio-card rounded-3xl overflow-hidden group reveal">
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-                <div class="p-8 sm:p-12 space-y-4 lg:order-1 order-2">
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block">Catalog Website</span>
-                    <h3 class="text-2xl font-display font-bold text-white">YSS EXIM Global Showcase</h3>
-                    <h4 class="text-lg font-display font-medium text-gray-300">A Catalog Website Built To Showcase Global Luxury Trade</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">YSS EXIM deals in a wide mix of luxury imports and exports, and the challenge was to present everything clearly without losing the premium feel of the brand. We organized their product categories, shaped the site layout, and built a catalog-style website that makes browsing easy and highlights the scale of what they offer.</p>
-                    <a href="contact.html" class="inline-flex items-center gap-2 text-sm text-white font-medium hover:underline pt-2">Discuss similar project →</a>
-                </div>
-                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900 lg:order-2 order-1">
-                    <img src="https://cdn.mos.cms.futurecdn.net/7EorBLqZ4LmnLqxcrBiBcR.jpg" alt="YSS EXIM" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
-                </div>
-            </div>
+        <!-- Set 2 (Duplicated for seamless looping) -->
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Full Domain & Hosting Setup
         </div>
-
-        <!-- Project 4: The Crystal Pro Project -->
-       <div class="studio-card rounded-3xl overflow-hidden group reveal">
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-        <!-- Image on Left -->
-        <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900 lg:order-1 order-1">
-            <img src="car.webp" alt="Crystal Pro" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Copywriting & Service Quotes Included
         </div>
-        
-        <!-- Text on Right -->
-        <div class="p-8 sm:p-12 space-y-4 lg:order-2 order-2">
-            <span class="text-[10px] uppercase tracking-widest text-white font-semibold block">Web Design</span>
-            <h3 class="text-2xl font-display font-bold text-white">The Crystal Pro Project</h3>
-            <h4 class="text-lg font-display font-medium text-gray-300">A Website as Refined as the Product</h4>
-            <p class="text-gray-400 text-sm leading-relaxed font-light">Crystal Pro works with certified PPF trusted worldwide. The site presents their scale and precision plainly so visitors understand the quality without feeling overwhelmed.</p>
-            <a href="contact.html" class="inline-flex items-center gap-2 text-sm text-white font-medium hover:underline pt-2">Discuss similar project →</a>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Custom AI Visuals & Graphics
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">✓</span> Unlimited Product Catalog Uploads
         </div>
     </div>
 </div>
-
        
+    </section>
 
-        <!-- Project 6: Shimmer Jewelry -->
-        <div class="studio-card rounded-3xl overflow-hidden group reveal">
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
-                <div class="p-8 sm:p-12 space-y-4 lg:order-1 order-2">
-                    <span class="text-[10px] uppercase tracking-widest text-white font-semibold block">Ecommerce</span>
-                    <h3 class="text-2xl font-display font-bold text-white">Shimmer Jewelry Project</h3>
-                    <h4 class="text-lg font-display font-medium text-gray-300">A shopping experience crafted to support every purchase</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">The experience is built around trust, clarity, and an easy purchase flow. It helps the brand convert through simplicity.</p>
-                    <a href="contact.html" class="inline-flex items-center gap-2 text-sm text-white font-medium hover:underline pt-2">Discuss similar project →</a>
+    <!-- Detailed Performance Analytics Dashboard Cards -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 mb-12 animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Card 1 -->
+            <div class="studio-card p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-mono text-gray-400 uppercase">Google PageSpeed</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-brandGreen-500/10 border border-brandGreen-500/30 text-brandGreen-500 font-mono text-[10px] font-bold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brandGreen-500"></span> OPTIMIZED
+                        </span>
+                    </div>
+                    <div class="text-4xl font-bold font-display text-white">99 <span class="text-lg font-normal text-gray-500">/ 100</span></div>
+                    <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+                        Optimized paint under <strong class="text-white">0.38 seconds</strong>. Zero JavaScript bloat ensures maximum search indexing speed and organic reach.
+                    </p>
                 </div>
-                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900 lg:order-2 order-1">
-                    <img src="shimmer-edited.webp" alt="Shimmer Jewelry" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80"></div>
+                <div class="mt-6 pt-4 border-t border-white/10">
+                    <div class="flex justify-between text-[11px] font-mono text-gray-400 mb-1.5">
+                        <span>LCP Benchmark</span>
+                        <span class="text-brandGreen-500 font-bold">0.38s PASSED</span>
+                    </div>
+                    <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                        <div class="bg-brandGreen-500 h-full w-[99%] rounded-full shadow-[0_0_10px_#10b981]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="studio-card p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-mono text-gray-400 uppercase">Average Client ROI</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-brandGreen-500/10 border border-brandGreen-500/30 text-brandGreen-500 font-mono text-[10px] font-bold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brandGreen-500"></span> VERIFIED
+                        </span>
+                    </div>
+                    <div class="text-4xl font-bold font-display text-white">+142% <span class="text-lg font-normal text-gray-500">LIFT</span></div>
+                    <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+                        Direct revenue increase achieved through conversion copywriting, frictionless UI design, and psychological trust engineering.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/10">
+                    <div class="flex justify-between text-[11px] font-mono text-gray-400 mb-1.5">
+                        <span>Checkout Conversion</span>
+                        <span class="text-brandGreen-500 font-bold">4.8% AVG</span>
+                    </div>
+                    <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                        <div class="bg-brandGreen-500 h-full w-[88%] rounded-full shadow-[0_0_10px_#10b981]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="studio-card p-6 rounded-2xl flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-mono text-gray-400 uppercase">Management Level</span>
+                        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-brandGreen-500/10 border border-brandGreen-500/30 text-brandGreen-500 font-mono text-[10px] font-bold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brandGreen-500"></span> AUTOMATED
+                        </span>
+                    </div>
+                    <div class="text-4xl font-bold font-display text-white">100% <span class="text-lg font-normal text-gray-500">HANDS-OFF</span></div>
+                    <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+                        Complete technical ownership: domain setup, SSL encryption, CDN routing, product catalog sync, and weekly backups included.
+                    </p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/10">
+                    <div class="flex justify-between text-[11px] font-mono text-gray-400 mb-1.5">
+                        <span>Uptime Guarantee</span>
+                        <span class="text-brandGreen-500 font-bold">99.99%</span>
+                    </div>
+                    <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                        <div class="bg-brandGreen-500 h-full w-[100%] rounded-full shadow-[0_0_10px_#10b981]"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: Stacking Project Cards (Card Over Card Scroll Effect) -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        
+        <!-- PROJECT 1 -->
+        <div class="studio-card rounded-3xl overflow-hidden stacking-card z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                <!-- Media Section -->
+                <div class="lg:col-span-7 relative overflow-hidden bg-zinc-900 min-h-[320px]">
+                    <img src="vale.webp" alt="Phantom Auto Studio Case Study" class="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white">
+                            ⚡ 0.32s Paint | High-End Automobile Platform
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Details & Case Study Content -->
+                <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-mono font-semibold">CASE STUDY 01 / 04</span>
+                            <span class="text-xs font-mono text-gray-500">LUXURY AUTOMOTIVE</span>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-white">PHANTOM AUTO STUDIO</h3>
+                        
+                        <div class="mt-4 space-y-3 text-xs text-gray-400 leading-relaxed">
+                            <p><strong class="text-gray-200">The Challenge:</strong> Low inquiry rate due to an outdated slow platform that failed to reflect their high-end auto detailing services.</p>
+                            <p><strong class="text-gray-200">The Solution:</strong> Re-engineered full web design, embedded custom booking engine, and wrote sales-focused copy targeting high-net-worth vehicle owners.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mini Green Bar Chart Component -->
+                    <div class="bg-black/60 border border-white/10 rounded-xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono text-gray-300">Quote Booking Growth</span>
+                            <span class="text-xs font-mono text-brandGreen-500 font-bold">+210% LIFT</span>
+                        </div>
+                        <div class="flex items-end gap-2 h-16 pt-2">
+                            <div class="flex-1 bg-white/10 rounded-t h-[25%]"></div>
+                            <div class="flex-1 bg-white/10 rounded-t h-[35%]"></div>
+                            <div class="flex-1 bg-white/20 rounded-t h-[40%]"></div>
+                            <div class="flex-1 bg-brandGreen-500/50 rounded-t h-[70%]"></div>
+                            <div class="flex-1 bg-brandGreen-500 rounded-t h-[100%] shadow-[0_0_10px_#10b981]"></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-gray-400">Core Web Vitals Index</span>
+                            <span class="text-brandGreen-500 font-bold">99 / 100</span>
+                        </div>
+                        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-brandGreen-500 h-full w-[99%] rounded-full shadow-[0_0_8px_#10b981]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="studio-card rounded-3xl overflow-hidden stacking-card z-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                <!-- Details & Case Study Content -->
+                <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 lg:order-1 order-2">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-mono font-semibold">CASE STUDY 02 / 04</span>
+                            <span class="text-xs font-mono text-gray-500">GLOBAL TRADE</span>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-white">YSS EXIM SHOWCASE</h3>
+                        
+                        <div class="mt-4 space-y-3 text-xs text-gray-400 leading-relaxed">
+                            <p><strong class="text-gray-200">The Challenge:</strong> Managing over 400+ international export catalog items without slowing down site loading speeds for global buyers.</p>
+                            <p><strong class="text-gray-200">The Solution:</strong> Built a headless product catalog architecture with CDN caching, image optimization, and multi-currency inquiry routing.</p>
+                        </div>
+                    </div>
+
+                    <!-- Line Chart SVG Visual -->
+                    <div class="bg-black/60 border border-white/10 rounded-xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono text-gray-300">Global Engagement Curve</span>
+                            <span class="text-xs font-mono text-brandGreen-500 font-bold">+180% INCREASE</span>
+                        </div>
+                        <div class="h-16 w-full flex items-center">
+                            <svg class="w-full h-12 stroke-brandGreen-500 fill-none" viewBox="0 0 200 40">
+                                <path d="M0,35 Q40,32 80,18 T160,22 T200,4" stroke-width="3" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-gray-400">Search Engine Indexing</span>
+                            <span class="text-brandGreen-500 font-bold">100% AUTOMATED</span>
+                        </div>
+                        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-brandGreen-500 h-full w-[100%] rounded-full shadow-[0_0_8px_#10b981]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Section -->
+                <div class="lg:col-span-7 relative overflow-hidden bg-zinc-900 min-h-[320px] lg:order-2 order-1">
+                    <img src="https://cdn.mos.cms.futurecdn.net/7EorBLqZ4LmnLqxcrBiBcR.jpg" alt="YSS EXIM Trade Showcase" class="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white">
+                            📦 400+ SKU Catalog Managed
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="studio-card rounded-3xl overflow-hidden stacking-card z-30">
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                <!-- Media Section -->
+                <div class="lg:col-span-7 relative overflow-hidden bg-zinc-900 min-h-[320px]">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Apex Luxury Realty Platform" class="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white">
+                            🏢 Interactive Property Tour Engine
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Details & Case Study Content -->
+                <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-mono font-semibold">CASE STUDY 03 / 04</span>
+                            <span class="text-xs font-mono text-gray-500">REAL ESTATE</span>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-white">APEX LUXURY REALTY</h3>
+                        
+                        <div class="mt-4 space-y-3 text-xs text-gray-400 leading-relaxed">
+                            <p><strong class="text-gray-200">The Challenge:</strong> Converting anonymous property viewers into verified buyer consultations for high-ticket listings.</p>
+                            <p><strong class="text-gray-200">The Solution:</strong> Structured interactive floorplan previews with integrated agent booking, automated SMS follow-ups, and targeted landing page copy.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mini Metric Graphic -->
+                    <div class="bg-black/60 border border-white/10 rounded-xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs font-mono text-gray-300">Qualified Leads Generated</span>
+                            <span class="text-xs font-mono text-brandGreen-500 font-bold">+320% SURGE</span>
+                        </div>
+                        <div class="flex items-end gap-2 h-16 pt-2">
+                            <div class="flex-1 bg-brandGreen-500/20 rounded-t h-[30%]"></div>
+                            <div class="flex-1 bg-brandGreen-500/40 rounded-t h-[50%]"></div>
+                            <div class="flex-1 bg-brandGreen-500/70 rounded-t h-[75%]"></div>
+                            <div class="flex-1 bg-brandGreen-500 rounded-t h-[100%] shadow-[0_0_10px_#10b981]"></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-gray-400">Organic Keyword Ranking</span>
+                            <span class="text-brandGreen-500 font-bold">TOP 3 RANKING</span>
+                        </div>
+                        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-brandGreen-500 h-full w-[98%] rounded-full shadow-[0_0_8px_#10b981]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="studio-card rounded-3xl overflow-hidden stacking-card z-40">
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                <!-- Details & Case Study Content -->
+                <div class="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 lg:order-1 order-2">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] uppercase tracking-widest text-gray-400 font-mono font-semibold">CASE STUDY 04 / 04</span>
+                            <span class="text-xs font-mono text-gray-500">FINTECH & SAAS</span>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold text-white">NEXUS PAYMENTS HUB</h3>
+                        
+                        <div class="mt-4 space-y-3 text-xs text-gray-400 leading-relaxed">
+                            <p><strong class="text-gray-200">The Challenge:</strong> High visitor drop-off during the enterprise onboarding flow due to overly complex signup forms.</p>
+                            <p><strong class="text-gray-200">The Solution:</strong> Redesigned a multi-step streamlined checkout UX, reinforced bank-grade trust signals, and integrated live chat assist.</p>
+                        </div>
+                    </div>
+
+                    <!-- Mini Horizontal Bar Chart -->
+                    <div class="bg-black/60 border border-white/10 rounded-xl p-4 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-mono text-gray-300">User Retention Metric</span>
+                            <span class="text-xs font-mono text-brandGreen-500 font-bold">96.4% OPTIMAL</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brandGreen-500 h-full w-[96%] rounded-full shadow-[0_0_8px_#10b981]"></div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-xs font-mono">
+                            <span class="text-gray-400">Security & Performance Grade</span>
+                            <span class="text-brandGreen-500 font-bold">A+ CERTIFIED</span>
+                        </div>
+                        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-brandGreen-500 h-full w-[100%] rounded-full shadow-[0_0_8px_#10b981]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Section -->
+                <div class="lg:col-span-7 relative overflow-hidden bg-zinc-900 min-h-[320px] lg:order-2 order-1">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80" alt="Nexus Payments Platform" class="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                        <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-white">
+                            🛡️ Enterprise Security Architecture
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
 
     </section>
 
-   <!-- Futuristic Clock Section -->
-<section class="futuristic-clock-section">
-  <div class="fcs-container">
+   <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-black via-zinc-950 to-black border border-white/10 rounded-3xl my-12 overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.03)]">
     
-    <!-- Top Header -->
-    <div class="fcs-header">
-      <h2>Reach Out And We'll Take It From There</h2>
-      <p>Whether you're planning something new or improving something that already exists you can start by sending us a short note. We'll review everything and come back with a plan that fits the direction you're aiming for.</p>
-    </div>
+    <!-- Ambient Backdrop Glows (Monochrome) -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/[0.03] rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/[0.02] rounded-full blur-3xl pointer-events-none"></div>
 
-    <!-- Main Content Grid -->
-    <div class="fcs-grid">
-      
-      <!-- Left Column: Dynamic Clock -->
-      <div class="fcs-clock-wrapper">
-        <div class="clock-outer-glow"></div>
-        <div class="clock">
-          <!-- Dial Numbers -->
-          <span class="num num-12">12</span>
-          <span class="num num-1">1</span>
-          <span class="num num-2">2</span>
-          <span class="num num-3">3</span>
-          <span class="num num-4">4</span>
-          <span class="num num-5">5</span>
-          <span class="num num-6">6</span>
-          <span class="num num-7">7</span>
-          <span class="num num-8">8</span>
-          <span class="num num-9">9</span>
-          <span class="num num-10">10</span>
-          <span class="num num-11">11</span>
-
-          <!-- Inner Ring Ticks -->
-          <div class="inner-dial"></div>
-
-          <!-- Clock Hands -->
-          <div class="hand hour-hand" id="hourHand"></div>
-          <div class="hand minute-hand" id="minuteHand"></div>
-          <div class="hand second-hand" id="secondHand"></div>
-
-          <!-- Center Badge with K&S -->
-          <div class="center-badge">
-            <span>K&S</span>
-          </div>
+    <div class="relative z-10 max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
+                <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                <span class="text-[11px] uppercase tracking-[0.25em] text-gray-300 font-mono font-semibold">Limited Project Capacity</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-display font-bold text-white tracking-tight leading-tight">
+                Ready To Elevate Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-500">Digital Infrastructure?</span>
+            </h2>
+            <p class="text-gray-400 text-xs sm:text-base mt-4 leading-relaxed font-light max-w-2xl mx-auto">
+                Don't let technical hurdles hold your growth back. Partner with an engineering team that handles code, AI integration, infrastructure, and marketing under one roof.
+            </p>
         </div>
-      </div>
 
-      <!-- Right Column: CTA Content -->
-      <div class="fcs-content">
-        <h3>TIME WON'T WAIT. YOUR GROWTH SHOULDN'T EITHER.</h3>
-        <p>If You're Ready To Stop Stalling And Start Scaling, This Is Your Moment. The Clock Is Already Moving. The Question Is... Are You?</p>
-        
-        <div class="btn-group">
-          <a href="#contact" class="transformation-btn">
-            Start the Transformation <span class="arrow">&rarr;</span>
-          </a>
-          <span class="subtext">Your Next Big Leap Starts Now</span>
+        <!-- Section Main Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Clock Visual Column (5 Cols) -->
+            <div class="lg:col-span-5 flex justify-center reveal delay-1">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-black/60 border border-white/15 p-4 shadow-[0_0_40px_rgba(255,255,255,0.08)] flex items-center justify-center group hover:border-white/40 transition-all duration-500">
+                    
+                    <!-- Pulsing Outer Ring -->
+                    <div class="absolute inset-0 rounded-full border border-white/20 animate-ping opacity-20"></div>
+                    <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-white/10 via-gray-500/10 to-white/10 blur-md opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
+
+                    <!-- Futuristic Clock Face -->
+                    <div class="relative w-full h-full rounded-full bg-zinc-950 border border-white/10 flex items-center justify-center overflow-hidden">
+                        
+                        <!-- Hour Markers -->
+                        <span class="absolute top-3 font-mono text-xs font-bold text-white">12</span>
+                        <span class="absolute right-4 font-mono text-xs font-bold text-gray-400">3</span>
+                        <span class="absolute bottom-3 font-mono text-xs font-bold text-gray-300">6</span>
+                        <span class="absolute left-4 font-mono text-xs font-bold text-gray-400">9</span>
+                        
+                        <!-- Inner Dial Markings -->
+                        <div class="absolute w-44 h-44 rounded-full border border-dashed border-white/10"></div>
+                        <div class="absolute w-28 h-28 rounded-full border border-white/20"></div>
+
+                        <!-- Clock Hands (White / Gray Tones) -->
+                        <div class="hand hour-hand absolute w-1 h-14 bg-white rounded-full origin-bottom top-16 shadow-[0_0_10px_#ffffff]" id="hourHand"></div>
+                        <div class="hand minute-hand absolute w-0.5 h-20 bg-gray-300 rounded-full origin-bottom top-10 shadow-[0_0_10px_#d1d5db]" id="minuteHand"></div>
+                        <div class="hand second-hand absolute w-0.5 h-24 bg-gray-500 rounded-full origin-bottom top-6 shadow-[0_0_10px_#6b7280]" id="secondHand"></div>
+
+                        <!-- Center Brand Badge -->
+                        <div class="relative z-10 w-12 h-12 rounded-full bg-black border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.2)] flex items-center justify-center">
+                            <span class="text-xs font-mono font-bold text-white tracking-tighter">K&S</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content & Conversion Offer Column (7 Cols) -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal delay-2">
+                <div class="space-y-3">
+                    <span class="text-xs font-mono text-gray-300 uppercase tracking-wider block">Fast Project Onboarding</span>
+                    <h3 class="text-2xl sm:text-3xl font-display font-bold text-white">Your Custom System Can Be Live Faster Than You Think</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed font-light">
+                        Connect to Grow now. We respond within 24 hours with a free architectural consultation, timeline breakdown, and a fixed-cost proposal tailored to your business goals.
+                    </p>
+                </div>
+
+                <!-- High-Trust Conversion Bullet Points -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-left">
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">⚡</span>
+                        <span class="text-xs text-gray-300 font-medium">Guaranteed 24-Hour SLA Response</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">🛡️</span>
+                        <span class="text-xs text-gray-300 font-medium">100% Strict Mutual NDA Protection</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">🎯</span>
+                        <span class="text-xs text-gray-300 font-medium">No Hidden Fees or Technical Jargon</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <span class="text-white text-sm">🚀</span>
+                        <span class="text-xs text-gray-300 font-medium">Full Post-Launch Code Handover</span>
+                    </div>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                    <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white text-black font-semibold text-sm hover:bg-gray-200 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 group">
+                        <span>Get Your Free Proposal & Roadmap</span>
+                        <svg class="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+                
+                <p class="text-[11px] font-mono text-gray-500">Direct Senior Technical Engineer Consultation • Free Project Blueprint</p>
+            </div>
         </div>
-      </div>
-
     </div>
-  </div>
 </section>
+
     <!-- Footer -->
     <footer class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none opacity-20 flex items-center justify-center">
-            <div class="w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.15)_0%,_transparent_70%)] blur-3xl"></div>
-        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
                 <div class="lg:col-span-5 space-y-6">
@@ -579,35 +749,33 @@
                                 <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
                             </svg>
                         </div>
-                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S info Desk</span>
+                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S Info Desk</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Next-Gen Brand Architects and Digital Experience Studio helping ambitious companies scale their revenue and dominate their market.</p>
-                    <div class="pt-2">
-                        <a href="contact.html" class="inline-flex items-center gap-2 text-sm text-white-400 hover:underline"><span>✉</span> info@K&Sinfotech.com</a>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Senior-engineered software applications, modern websites, custom admin dashboards, and turn-key digital marketing solutions.</p>
+                    <div class="pt-2 space-y-1 text-sm text-gray-300">
+                        <div>✉ Email: <a href="mailto:kashafshoukat27@gmail.com" class="hover:underline">kashafshoukat27@gmail.com</a></div>
+                        <div>📞 Phone: <a href="tel:+923087441026" class="hover:underline">+92 (308) 7441026</a></div>
                     </div>
                 </div>
                 <div class="lg:col-span-3 space-y-4">
                     <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
                     <ul class="space-y-2.5 text-sm text-gray-400">
-                        <li><a href="index.html" class="hover:text-white-400 transition-colors">Home</a></li>
-                        <li><a href="services.html" class="hover:text-white-400 transition-colors">Services</a></li>
-                        <li><a href="projects.html" class="hover:text-white-400 transition-colors">Projects</a></li>
-                        <li><a href="contact.html" class="hover:text-white-400 transition-colors">Contact Us</a></li>
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">What we do</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">See Our Work</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a></li>
                     </ul>
                 </div>
                 <div class="lg:col-span-4 space-y-4">
-                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Connect With Us</h4>
-                    <p class="text-gray-400 text-xs sm:text-sm font-light">Follow our latest design drops and industry insights across social networks.</p>
-                    <div class="flex items-center space-x-3 pt-2">
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">f</a>
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">in</a>
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">ig</a>
-                        <a href="contact.html" class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors">x</a>
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Direct Contact</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm font-light">Have an existing site or new system in mind? Talk directly with our lead software team.</p>
+                    <div class="pt-2">
+                        <a href="contact.html" class="glass-btn px-6 py-3 rounded-xl text-xs text-white font-medium inline-block">Schedule Engineering Call</a>
                     </div>
                 </div>
             </div>
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
-                <p>&copy; 2026 K&S info Desk | All Rights Reserved.</p>
+                <p>&copy; 2026 K&S Info Desk | Senior Software Engineering & Digital Growth</p>
                 <div class="flex space-x-6">
                     <a href="contact.html" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
                     <a href="contact.html" class="hover:text-gray-300 transition-colors">Terms & Conditions</a>
@@ -615,61 +783,67 @@
             </div>
         </div>
     </footer>
-<script>
-  function animateClock() {
-    const now = new Date();
-    
-    // Get time components with fractions for continuous smooth motion
-    const milliseconds = now.getMilliseconds();
-    const seconds = now.getSeconds() + milliseconds / 1000;
-    const minutes = now.getMinutes() + seconds / 60;
-    const hours = (now.getHours() % 12) + minutes / 60;
 
-    // Calculate rotation degrees
-    const secondDeg = seconds * 6; // 360 / 60
-    const minuteDeg = minutes * 6; // 360 / 60
-    const hourDeg = hours * 30;    // 360 / 12
-
-    // Apply rotations
-    const hourHand = document.getElementById('hourHand');
-    const minuteHand = document.getElementById('minuteHand');
-    const secondHand = document.getElementById('secondHand');
-
-    if (hourHand) hourHand.style.transform = `rotate(${hourDeg}deg)`;
-    if (minuteHand) minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-    if (secondHand) secondHand.style.transform = `rotate(${secondDeg}deg)`;
-
-    // Request next frame for smooth movement
-    requestAnimationFrame(animateClock);
-  }
-
-  // Start the animation
-  requestAnimationFrame(animateClock);
-</script>
     <script>
-        
-        const menuBtn = document.getElementById('menuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.remove('opacity-0', 'pointer-events-none'));
-        closeMenu.addEventListener('click', () => mobileMenu.classList.add('opacity-0', 'pointer-events-none'));
-        document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('opacity-0', 'pointer-events-none')));
+        function animateClock() {
+            const now = new Date();
+            const ms = now.getMilliseconds();
+            const sec = now.getSeconds() + ms / 1000;
+            const min = now.getMinutes() + sec / 60;
+            const hr = (now.getHours() % 12) + min / 60;
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            const hHand = document.getElementById('hourHand');
+            const mHand = document.getElementById('minuteHand');
+            const sHand = document.getElementById('secondHand');
+
+            if (hHand) hHand.style.transform = `rotate(${hr * 30}deg)`;
+            if (mHand) mHand.style.transform = `rotate(${min * 6}deg)`;
+            if (sHand) sHand.style.transform = `rotate(${sec * 6}deg)`;
+
+            requestAnimationFrame(animateClock);
+        }
+        requestAnimationFrame(animateClock);
 
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
-            if (loader) setTimeout(() => loader.classList.add('hidden'), 500);
+            if (loader) setTimeout(() => loader.classList.add('hidden'), 350);
+        });
+    </script>
+     <!-- JavaScript Bundle -->
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-y-0');
+
+            if (!isOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.remove('translate-y-6', 'opacity-0');
+                        link.classList.add('translate-y-0', 'opacity-100');
+                    }, 120 + (index * 90));
+                });
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+                mobileLinks.forEach((link) => {
+                    link.classList.remove('translate-y-0', 'opacity-100');
+                    link.classList.add('translate-y-6', 'opacity-0');
+                });
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
         });
     </script>
 </body>
-
 </html>

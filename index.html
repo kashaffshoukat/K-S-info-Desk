@@ -41,6 +41,15 @@
         }
     </script>
     <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         .glass-btn {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
@@ -106,46 +115,54 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #444;
         }
-@keyframes moveGrid {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(3.5rem);
-    }
-}
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) translateX(0px);
-    }
-    50% {
-        transform: translateY(-20px) translateX(15px);
-    }
-}
+        @keyframes moveGrid {
+            0% {
+                transform: translateY(0);
+            }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            100% {
+                transform: translateY(3.5rem);
+            }
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-         @keyframes fadeInUp {
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px);
+            }
+
+            50% {
+                transform: translateY(-20px) translateX(15px);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -180,72 +197,84 @@
                 transform: translateY(-15px) scale(1.03);
             }
         }
+
         @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+            0% {
+                transform: translateX(0%);
+            }
 
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-}
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-/* Pause animation on hover so they can easily click a logo */
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
 
-@keyframes moveGrid {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(4rem);
-    }
-}@keyframes moveGrid {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(4rem);
-    }
-}
+        /* Pause animation on hover so they can easily click a logo */
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px) translateX(0px);
-    }
-    50% {
-        transform: translateY(-20px) translateX(15px);
-    }
-}
+        @keyframes moveGrid {
+            0% {
+                transform: translateY(0);
+            }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            100% {
+                transform: translateY(4rem);
+            }
+        }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-} 
+        @keyframes moveGrid {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(4rem);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px);
+            }
+
+            50% {
+                transform: translateY(-20px) translateX(15px);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .scrollbar-none::-webkit-scrollbar {
             display: none;
         }
@@ -267,807 +296,414 @@
         <canvas id="particleCanvas" class="absolute inset-0 w-full h-full opacity-60"></canvas>
     </div>
 
-   <header class="relative z-50 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
-    <a href="index.html" class="flex items-center group focus:outline-none">
-        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
-            <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
-                <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
-            </svg>
+    <header class="relative z-50 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+        <a href="index.html" class="flex items-center group focus:outline-none">
+            <div
+                class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl glass-btn flex items-center justify-center shadow-lg group-hover:border-white/30 transition-all">
+                <svg viewBox="0 0 32 32" class="w-5 h-5 sm:w-6 sm:h-6 text-white fill-current"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                    <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                </svg>
+            </div>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm font-medium text-gray-300">
+            <a href="index.html" class="text-white hover:text-white transition-colors">Home</a>
+            <a href="services.html" class="hover:text-white transition-colors">What we Do</a>
+            <a href="projects.html" class="hover:text-white transition-colors">See our Work</a>
+            <a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <a href="contact.html"
+                class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
+                <span>Let's Talk</span>
+                <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+            <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none z-50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
-    </a>
+    </header>
 
-    <nav class="hidden md:flex items-center space-x-8 lg:space-x-12 text-sm font-medium text-gray-300">
-        <a href="index.html" class="text-white hover:text-white transition-colors">Home</a>
-        <a href="services.html" class="hover:text-white transition-colors">Services</a>
-        <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
-        <a href="contact.html" class="hover:text-white transition-colors">Contact Us</a>
-    </nav>
+    <!-- Mobile Drawer with Icons, Underline Effect, and White Text Glow -->
+    <div id="mobileMenu"
+        class="fixed inset-x-0 top-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center pt-14 pb-6 rounded-b-3xl border-b border-white/15 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-full opacity-0 pointer-events-none md:hidden">
 
-    <div class="flex items-center space-x-4">
-        <a href="contact.html" class="glass-btn px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium flex items-center gap-2 group cursor-pointer border-none text-white">
-            <span>Let's Talk</span>
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-        </a>
-        <button id="menuBtn" class="md:hidden glass-btn p-2 rounded-xl text-white focus:outline-none z-50">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-        </button>
+
+
+        <div class="w-full flex flex-col items-stretch px-8">
+            <!-- Home -->
+            <a href="index.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-white border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Home
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Services -->
+            <a href="services.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    What we do
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Projects -->
+            <a href="projects.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    See our Work
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+
+            <!-- Contact Us -->
+            <a href="contact.html"
+                class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-b border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
+                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span
+                    class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
+                    Connect to Grow
+                    <span
+                        class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                </span>
+            </a>
+        </div>
     </div>
-</header>
-
-<!-- Mobile Drawer with Icons, Underline Effect, and White Text Glow -->
-<div id="mobileMenu" 
-     class="fixed inset-x-0 top-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center pt-14 pb-6 rounded-b-3xl border-b border-white/15 shadow-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-full opacity-0 pointer-events-none md:hidden">
-    
-    
-    
-    <div class="w-full flex flex-col items-stretch px-8">
-        <!-- Home -->
-        <a href="index.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-white border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
-            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-            <span class="relative text-lg font-medium tracking-wide group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
-                Home
-                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-            </span>
-        </a>
-
-        <!-- Services -->
-        <a href="services.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
-            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <span class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
-                Services
-                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-            </span>
-        </a>
-
-        <!-- Projects -->
-        <a href="projects.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
-            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-            <span class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
-                Projects
-                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-            </span>
-        </a>
-
-        <!-- Contact Us -->
-        <a href="contact.html" class="mobile-link group relative py-4 w-full flex items-center justify-center gap-3 text-gray-300 border-t border-b border-white/10 transition-all transform translate-y-6 opacity-0 duration-500">
-            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <span class="relative text-lg font-medium tracking-wide group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all">
-                Contact Us
-                <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-            </span>
-        </a>
-    </div>
-</div>
 
     <!-- Interactive Contact Us Modal / Page View -->
-    <div id="contactModal"
-        class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl overflow-y-auto transition-all duration-300 opacity-0 pointer-events-none flex flex-col">
-        <!-- Modal Header -->
+
+
+    <!-- Hero Section with Sleek Cel Animation, Moving Grid Background & Onload Effects -->
+    <section id="home"
+        class="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-90px)] text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 sm:py-20 overflow-hidden bg-black text-white selection:bg-white selection:text-black">
+
+        <!-- 1. Ambient Background Gradient Vignette -->
         <div
-            class="sticky top-0 z-20 w-full bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-            <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white-400">
-                    <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
-                        <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
-                    </svg>
-                </div>
-                <span class="font-display font-bold text-lg text-white uppercase tracking-wider">K&S info Desk — CONTACT
-                    US</span>
-            </div>
-            <button onclick="closeContactModal()"
-                class="glass-btn p-2 rounded-xl text-gray-300 hover:text-white cursor-pointer">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_75%)] pointer-events-none z-0">
         </div>
 
-        <!-- Modal Content - Contact Us Page Replica -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full space-y-16">
-            <div class="text-center max-w-3xl mx-auto">
-                <span class="text-xs uppercase tracking-[0.35em] text-white-400 font-semibold mb-3 inline-block">GET IN
-                    TOUCH</span>
-                <h2 class="text-3xl sm:text-5xl font-display font-bold text-white uppercase tracking-wide mb-4">LET'S
-                    START A CONVERSATION</h2>
-                <p class="text-gray-400 text-sm sm:text-base font-light">Have a project in mind or want to explore how
-                    we can elevate your brand? Fill out the form below or reach out directly.</p>
+        <!-- 2. Sleek Traditional Cel Animation Layer: High-Contrast Hand-Drawn Lines -->
+        <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-60">
+            <svg class="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="celGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(255,255,255,0.7)" />
+                        <stop offset="50%" stop-color="rgba(160,160,160,0.3)" />
+                        <stop offset="100%" stop-color="rgba(255,255,255,0.6)" />
+                    </linearGradient>
+                </defs>
+                <!-- Hand-drawn style sketchy arc frames with smooth onload dash entrance -->
+                <path d="M 50,150 Q 350,50 650,250 T 1250,100" fill="none" stroke="url(#celGradient)" stroke-width="2"
+                    stroke-dasharray="10 6" class="animate-[pulse_3s_steps(4,end)_infinite]" />
+                <path d="M 100,450 Q 450,200 800,400 T 1500,300" fill="none" stroke="url(#celGradient)"
+                    stroke-width="1.5" stroke-dasharray="8 8" class="animate-[pulse_2.5s_steps(3,end)_infinite]" />
+            </svg>
+
+            <!-- Sketchy Pencil/Acetate Geometric Shapes with Onload Fade -->
+            <div
+                class="absolute top-1/3 right-[22%] w-20 h-20 border-2 border-dashed border-white/40 rounded-full animate-[spin_10s_linear_infinite] opacity-0 [animation:fadeIn_1s_ease_forwards_0.4s]">
             </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto w-full">
-                <!-- Contact Info Sidebar -->
-                <div class="lg:col-span-5 studio-card rounded-3xl p-8 space-y-8">
-                    <div>
-                        <span class="text-xs uppercase tracking-widest text-white-400 font-semibold block mb-2">DIRECT
-                            CONTACT</span>
-                        <h3 class="font-display font-bold text-xl text-white">We're Ready to Build Your Vision</h3>
-                    </div>
-
-                    <div class="space-y-6 text-sm text-gray-300">
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white-400 shrink-0">
-                                ✉</div>
-                            <div>
-                                <span class="block text-xs uppercase text-gray-400 tracking-wider">Email Us</span>
-                                <a href="mailto:info@K&Sinfotech.com"
-                                    class="text-white font-medium hover:text-white-400 transition-colors">info@K&Sinfotech.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white-400 shrink-0">
-                                ☎</div>
-                            <div>
-                                <span class="block text-xs uppercase text-gray-400 tracking-wider">Call /
-                                    WhatsApp</span>
-                                <span class="text-white font-medium">+1 (555) 382-4847</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white-400 shrink-0">
-                                📍</div>
-                            <div>
-                                <span class="block text-xs uppercase text-gray-400 tracking-wider">Studio
-                                    Headquarters</span>
-                                <span class="text-white font-medium">Next-Gen Brand Architecture Hub</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 border-t border-white/10">
-                        <span class="text-xs uppercase tracking-widest text-gray-400 block mb-3">Follow Our
-                            Channels</span>
-                        <div class="flex items-center space-x-3">
-                            <div
-                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
-                                f</div>
-                            <div
-                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
-                                in</div>
-                            <div
-                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
-                                ig</div>
-                            <div
-                                class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 cursor-pointer">
-                                x</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="lg:col-span-7 studio-card rounded-3xl p-8 sm:p-10">
-                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Your Name
-                                    *</label>
-                                <input type="text" required placeholder="John Doe"
-                                    class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Email Address
-                                    *</label>
-                                <input type="email" required placeholder="john@example.com"
-                                    class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Phone
-                                    Number</label>
-                                <input type="tel" placeholder="+1 (555) 000-0000"
-                                    class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Service
-                                    Interested In</label>
-                                <select
-                                    class="w-full bg-zinc-900 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-white transition-colors">
-                                    <option>Custom Website Design</option>
-                                    <option>Branding Essentials</option>
-                                    <option>Social Media Management</option>
-                                    <option>Conversion & Growth Suite</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-xs uppercase tracking-wider text-gray-300 font-medium">Project Details
-                                *</label>
-                            <textarea rows="4" required placeholder="Tell us about your business goals and vision..."
-                                class="w-full bg-black/60 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors resize-none"></textarea>
-                        </div>
-
-                        <button type="submit"
-                            class="glass-btn w-full py-4 rounded-xl text-center text-sm font-medium text-white-400 border-white/40 bg-white/10 hover:bg-white/20 transition-all cursor-pointer">
-                            Send Message →
-                        </button>
-
-                        <div id="formSuccessMsg"
-                            class="hidden p-4 rounded-xl bg-white/10 border border-white/30 text-white-300 text-xs text-center">
-                            Thank you! Your message has been sent successfully. We will get back to you shortly.
-                        </div>
-                    </form>
-                </div>
+            <div
+                class="absolute bottom-1/3 left-[18%] w-16 h-16 border border-white/30 rotate-12 animate-[bounce_5s_ease-in-out_infinite] opacity-0 [animation:fadeIn_1s_ease_forwards_0.6s]">
             </div>
         </div>
-    </div>
 
-    <!-- Interactive Projects Modal / Page View -->
-    <div id="projectsModal"
-        class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl overflow-y-auto transition-all duration-300 opacity-0 pointer-events-none flex flex-col">
-        <!-- Modal Header -->
+        <!-- 3. Actively Moving Grid Lines Background with White/Grey Gradients -->
+        <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
+            <div
+                class="absolute inset-[-100%] h-[300%] w-[300%] bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(180,180,180,0.1)_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] animate-[moveGrid_20s_linear_infinite]">
+            </div>
+        </div>
+
+        <!-- 4. Dynamic Interactive Glow & Floating Orbs -->
+        <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden">
+            <div
+                class="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-gradient-to-tr from-white/[0.08] to-gray-500/[0.02] rounded-full blur-[120px] sm:blur-[150px] animate-[pulse_6s_ease-in-out_infinite]">
+            </div>
+            <div
+                class="absolute w-[220px] h-[220px] bg-white/[0.04] rounded-full blur-[90px] animate-[float_10s_ease-in-out_infinite] -top-10 -left-10">
+            </div>
+            <div
+                class="absolute w-[280px] h-[280px] bg-gray-300/[0.03] rounded-full blur-[100px] animate-[float_12s_ease-in-out_infinite_reverse] -bottom-10 -right-10">
+            </div>
+        </div>
+
+        <!-- 5. Top Badge with Onload Entrance -->
         <div
-            class="sticky top-0 z-20 w-full bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-            <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white-400">
-                    <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
-                        <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
-                    </svg>
-                </div>
-                <span class="font-display font-bold text-lg text-white uppercase tracking-wider">K&S info Desk —
-                    PROJECTS PORTAL</span>
-            </div>
-            <button onclick="closeProjectsModal()"
-                class="glass-btn p-2 rounded-xl text-gray-300 hover:text-white cursor-pointer">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-
-        <!-- Modal Content - Full Projects Page -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full space-y-16">
-            <div class="text-center max-w-3xl mx-auto">
-                <span class="text-xs uppercase tracking-[0.35em] text-white-400 font-semibold mb-3 inline-block">OUR
-                    WORK</span>
-                <h2 class="text-3xl sm:text-5xl font-display font-bold text-white uppercase tracking-wide mb-4">PROJECTS
-                    ARCHIVE</h2>
-                <p class="text-gray-400 text-sm sm:text-base font-light">Explore our complete collection of digital
-                    builds, brand transformations, and immersive experiences crafted for global category leaders.</p>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="studio-card rounded-2xl overflow-hidden group">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                        <img src="car.webp" alt="Crystal Pro"
-                            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                            onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                            <span
-                                class="text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 text-gray-300">Crystal
-                                Pro
-                                Design</span>
-                            <span class="text-xs font-medium text-white-400">UI/UX & Web</span>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-display font-bold text-lg text-white">Crystal ProArchitectural Studio</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed font-light">High-end minimalism web platform
-                            showcasing modern architectural concepts with fluid grid animations.</p>
-                        <button onclick="closeProjectsModal(); openContactModal();"
-                            class="inline-block text-xs text-white-400 font-medium hover:underline pt-2 bg-transparent border-none cursor-pointer p-0">Discuss
-                            similar project →</button>
-                    </div>
-                </div>
-
-                <div class="studio-card rounded-2xl overflow-hidden group">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                        <img src="vale.webp" alt="Phantom Pro Studio"
-                            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                            onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                            <span
-                                class="text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 text-gray-300">Phantom
-                                Pro</span>
-                            <span class="text-xs font-medium text-white-400">Branding & Web</span>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-display font-bold text-lg text-white">Phantom Pro Automotive</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed font-light">Aggressive dark-mode digital
-                            experience for high-performance supercar customizers.</p>
-                        <button onclick="closeProjectsModal(); openContactModal();"
-                            class="inline-block text-xs text-white-400 font-medium hover:underline pt-2 bg-transparent border-none cursor-pointer p-0">Discuss
-                            similar project →</button>
-                    </div>
-                </div>
-
-                <div class="studio-card rounded-2xl overflow-hidden group">
-                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                        <img src="https://placehold.co/800x600/1e1e1e/f5b928?text=Alpha+Fitness" alt="Alpha Fitness"
-                            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                            onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
-                        </div>
-                        <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                            <span
-                                class="text-xs uppercase tracking-widest px-3 py-1 rounded-full bg-black/60 border border-white/10 text-gray-300">Alpha
-                                Fitness</span>
-                            <span class="text-xs font-medium text-white-400">Growth & App</span>
-                        </div>
-                    </div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="font-display font-bold text-lg text-white">Alpha Performance Gym</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed font-light">Conversion-optimized membership
-                            portal and streamlined customer onboarding funnel.</p>
-                        <button onclick="closeProjectsModal(); openContactModal();"
-                            class="inline-block text-xs text-white-400 font-medium hover:underline pt-2 bg-transparent border-none cursor-pointer p-0">Discuss
-                            similar project →</button>
-                    </div>
-                </div>
+            class="relative z-10 inline-block mb-4 sm:mb-6 animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:150ms]">
+            <div
+                class="group relative p-[1px] rounded-full overflow-hidden bg-gradient-to-r from-transparent via-white/40 to-transparent">
+                <span
+                    class="relative flex items-center gap-2 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.25em] sm:tracking-[0.355em] text-gray-200 bg-black/90 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full backdrop-blur-xl shadow-[0_0_25px_rgba(255,255,255,0.05)]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+                    Global Growth & Revenue Engines
+                </span>
             </div>
         </div>
-    </div>
 
-    <!-- Interactive Services Modal / Page View -->
-    <div id="servicesModal"
-        class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl overflow-y-auto transition-all duration-300 opacity-0 pointer-events-none flex flex-col">
-        <!-- Modal Header -->
+        <!-- 6. Main Title with Smooth Onload Reveal -->
+        <h1
+            class="relative z-10 font-display font-black tracking-wider uppercase text-white drop-shadow-[0_15px_50px_rgba(255,255,255,0.2)] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.1] max-w-6xl mx-auto my-2 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:350ms]">
+            Scale Your <span
+                class="bg-gradient-to-b from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">Business
+                Worldwide</span>
+        </h1>
+
+        <!-- 7. Catchy Subheading with Staggered Onload -->
+        <p
+            class="relative z-10 text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl sm:max-w-3xl mx-auto mt-4 sm:mt-6 font-light tracking-wide leading-relaxed animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:550ms]">
+            We don't just deploy <strong>SYSTEMS</strong>, we build end-to-end digital <strong>ECOSYSTEMS</strong> that
+            drive
+            <span class="text-gray-200 font-normal">explosive customer acquisition, recurring sales, and global market
+                dominance.</span>
+        </p>
+
+        <!-- 8. Interactive Call to Action Buttons with Onload Entry -->
         <div
-            class="sticky top-0 z-20 w-full bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-            <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-xl glass-btn flex items-center justify-center text-white-400">
-                    <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
-                        <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
-                    </svg>
-                </div>
-                <span class="font-display font-bold text-lg text-white uppercase tracking-wider">K&S info Desk —
-                    SERVICES PORTAL</span>
-            </div>
-            <button onclick="closeServicesModal()" class="glass-btn p-2 rounded-xl text-gray-300 hover:text-white">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
+            class="relative z-10 mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:750ms]">
 
-        <!-- Modal Content - Full Services Page Replica -->
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full space-y-24">
-            <!-- Services Hero Subtitle -->
-            <div class="text-center max-w-3xl mx-auto">
-                <span class="text-xs uppercase tracking-[0.35em] text-white-400 font-semibold mb-3 inline-block">OUR
-                    CAPABILITIES</span>
-                <h2 class="text-3xl sm:text-5xl font-display font-bold text-white uppercase tracking-wide mb-4">SERVICES
-                </h2>
-                <p class="text-gray-400 text-sm sm:text-base font-light">This page lays out the capabilities that power
-                    our process. Everything here is built to support brands with clarity, direction and execution that
-                    holds up over time.</p>
-            </div>
-
-            <!-- Section 1: The Web Development Suite -->
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">The Web Development Suite
-                    </h3>
-                    <p class="text-gray-400 text-xs sm:text-sm">Here's everything we offer under web development — from
-                        thoughtful UI/UX work to full-scale ecommerce builds. Each service is designed to help brands
-                        look sharp and perform well online.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">UI/UX
-                                Strategy</span>
-                            <h4 class="font-display font-bold text-base text-white mb-2">Structuring Journeys That Lead
-                                To Results</h4>
-                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Thoughtful Wireframes Crafted With
-                                Purpose. We design websites that are fast, intuitive, & tailored to your brand.</p>
-                        </div>
-                        <a href="#projects.html" 
-                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
-                    </div>
-                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Landing
-                                Page Frameworks</span>
-                            <h4 class="font-display font-bold text-base text-white mb-2">Clear Messaging That Drives
-                                Confident Buying</h4>
-                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Structure Designed Around User
-                                Psychology. We build structured landing page frameworks optimized for conversions.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
-                    </div>
-                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Modern
-                                Portfolio Website</span>
-                            <h4 class="font-display font-bold text-base text-white mb-2">A Refined Identity For Your
-                                Digital Presence</h4>
-                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Multi Page Portfolio That Builds
-                                Trust. Your portfolio is crafted like a high-value agency showcase.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
-                    </div>
-                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Product
-                                Catalog Website</span>
-                            <h4 class="font-display font-bold text-base text-white mb-2">Catalog Sites Crafted For Real
-                                Impact</h4>
-                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Shaping Catalogs Into Clear Digital
-                                Frameworks. Designed around how buyers explore your offerings.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
-                    </div>
-                    <div class="studio-card rounded-2xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Ecommerce
-                                Strategy</span>
-                            <h4 class="font-display font-bold text-base text-white mb-2">Building Digital Stores That
-                                Truly Perform</h4>
-                            <p class="text-gray-400 text-xs leading-relaxed mb-4">Decisions Backed By Research. We dive
-                                into your funnel story, analyze competitors, and convert visitors.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Explore →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 2: Environment Setup -->
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Environment Setup</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm">A smooth digital experience begins with the essentials.
-                        We handle the full environment setup so you never worry about the backend.</p>
-                </div>
+            <!-- Primary Button -->
+            <a href="services.html"
+                class="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide overflow-hidden bg-white text-black shadow-[0_0_40px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:bg-black hover:text-white border border-transparent hover:border-white/40 transition-all duration-500 cursor-pointer active:scale-95">
                 <div
-                    class="studio-card rounded-2xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                    <div class="space-y-3">
-                        <span class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block">Hosting
-                            and Domain Setup</span>
-                        <h4 class="font-display font-bold text-xl text-white">High Performance Hosting Paired With
-                            Seamless Domain Integration</h4>
-                        <p class="text-gray-400 text-xs sm:text-sm max-w-2xl font-light">A Reliable Backend Environment
-                            That Supports All Web Functions Smoothly. We configure your hosting plan and domain settings
-                            for maximum uptime.</p>
-                    </div>
-                    <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                        class="glass-btn px-6 py-3 rounded-xl text-xs font-medium text-white-400 border-white/40 bg-white/10 whitespace-nowrap">Get
-                        a custom plan →</a>
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-black/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000">
                 </div>
-            </div>
+                <span class="relative z-10 font-medium flex items-center gap-2">
+                    Launch Your <span
+                        class="font-bold underline underline-offset-4 decoration-1 decoration-white/60 group-hover:decoration-white">Digital
+                        Empire</span>
+                </span>
+                <svg class="w-4 h-4 text-black transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-white relative z-10"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
 
-            <!-- Section 3: The Conversion And Growth Hub -->
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">The Conversion And Growth Hub
-                    </h3>
-                    <p class="text-gray-400 text-xs sm:text-sm">This is where your brand expands through targeted
-                        marketing, smart content distribution, and consistent performance improvements.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Search
-                                Engine Optimization</span>
-                            <h4 class="font-display font-bold text-lg text-white mb-3">Make Your Brand Easier To Find
-                                Online</h4>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Improve
-                                Visibility, Credibility, And Organic Reach With Focused SEO. Your website is optimized
-                                with smart keyword research.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Learn More →</a>
-                    </div>
-                    <div
-                        class="studio-card rounded-2xl p-8 flex flex-col justify-between border-white/40 shadow-[0_0_25px_rgba(245,185,40,0.15)]">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Ad
-                                Campaign Management</span>
-                            <h4 class="font-display font-bold text-lg text-white mb-3">Plan Launch And Scale High
-                                Converting Ad Campaigns</h4>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Target The Right
-                                Audience and Optimize Every Step For Returns. Comprehensive ad strategy across Meta and
-                                Google.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Learn More →</a>
-                    </div>
-                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Social
-                                Media Care</span>
-                            <h4 class="font-display font-bold text-lg text-white mb-3">Keep Your Brand Active Across
-                                Every Social Platform</h4>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">Steady Content
-                                And Community Handling Built For Long Term Growth. From posts and captions to inbox
-                                management.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Learn More →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 4: Brand Identity Basecamp -->
-            <div class="space-y-8">
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2">Brand Identity Basecamp</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm">Your foundation for clear, confident branding. These
-                        services give you the assets and direction you need to show up consistently and professionally.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Signature
-                                Logo</span>
-                            <h4 class="font-display font-bold text-xl text-white mb-3">A Visual Anchor That Gives Your
-                                Brand Recognition</h4>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">A Defined Mark
-                                Crafted From Strategy And Brand Understanding. We study your market and audience to
-                                shape an intentional mark.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Book a quick call →</a>
-                    </div>
-                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between">
-                        <div>
-                            <span
-                                class="text-[10px] uppercase tracking-widest text-white-400 font-semibold block mb-2">Brand
-                                Identity Suite</span>
-                            <h4 class="font-display font-bold text-xl text-white mb-3">A Complete Brand Guide Shaped
-                                From Strategy & Vision</h4>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">A Full Set Of
-                                Visual Rules That Strengthens Recognition Everywhere. We organize your brand into a
-                                structured identity.</p>
-                        </div>
-                        <a href="#contact" target="_blank" rel="noopener noreferrer" onclick="closeServicesModal()"
-                            class="text-xs text-white-400 font-medium hover:underline">Book a quick call →</a>
-                    </div>
-                </div>
-            </div>
+            <!-- Secondary Button -->
+            <a href="contact.html"
+                class="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide bg-white/[0.03] text-gray-300 hover:text-white hover:bg-white/[0.08] border border-white/10 hover:border-white/30 backdrop-blur-md transition-all duration-300 cursor-pointer active:scale-95">
+                <span>Book Growth Strategy Call</span>
+                <svg class="w-4 h-4 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
         </div>
-    </div>
+    </section>
 
-<!-- Hero Section with Sleek Cel Animation, Moving Grid Background & Onload Effects -->
-<section id="home" class="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-90px)] text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 sm:py-20 overflow-hidden bg-black text-white selection:bg-white selection:text-black">
-
-    <!-- 1. Ambient Background Gradient Vignette -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_0%,transparent_75%)] pointer-events-none z-0"></div>
-
-    <!-- 2. Sleek Traditional Cel Animation Layer: High-Contrast Hand-Drawn Lines -->
-    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-60">
-        <svg class="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="celGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="rgba(255,255,255,0.7)" />
-                    <stop offset="50%" stop-color="rgba(160,160,160,0.3)" />
-                    <stop offset="100%" stop-color="rgba(255,255,255,0.6)" />
-                </linearGradient>
-            </defs>
-            <!-- Hand-drawn style sketchy arc frames with smooth onload dash entrance -->
-            <path d="M 50,150 Q 350,50 650,250 T 1250,100" fill="none" stroke="url(#celGradient)" stroke-width="2" stroke-dasharray="10 6" class="animate-[pulse_3s_steps(4,end)_infinite]" />
-            <path d="M 100,450 Q 450,200 800,400 T 1500,300" fill="none" stroke="url(#celGradient)" stroke-width="1.5" stroke-dasharray="8 8" class="animate-[pulse_2.5s_steps(3,end)_infinite]" />
-        </svg>
-
-        <!-- Sketchy Pencil/Acetate Geometric Shapes with Onload Fade -->
-        <div class="absolute top-1/3 right-[22%] w-20 h-20 border-2 border-dashed border-white/40 rounded-full animate-[spin_10s_linear_infinite] opacity-0 [animation:fadeIn_1s_ease_forwards_0.4s]"></div>
-        <div class="absolute bottom-1/3 left-[18%] w-16 h-16 border border-white/30 rotate-12 animate-[bounce_5s_ease-in-out_infinite] opacity-0 [animation:fadeIn_1s_ease_forwards_0.6s]"></div>
-    </div>
-
-    <!-- 3. Actively Moving Grid Lines Background with White/Grey Gradients -->
-    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40">
-        <div class="absolute inset-[-100%] h-[300%] w-[300%] bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(180,180,180,0.1)_1px,transparent_1px)] bg-[size:3rem_3rem] sm:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] animate-[moveGrid_20s_linear_infinite]"></div>
-    </div>
-
-    <!-- 4. Dynamic Interactive Glow & Floating Orbs -->
-    <div class="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden">
-        <div class="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-gradient-to-tr from-white/[0.08] to-gray-500/[0.02] rounded-full blur-[120px] sm:blur-[150px] animate-[pulse_6s_ease-in-out_infinite]"></div>
-        <div class="absolute w-[220px] h-[220px] bg-white/[0.04] rounded-full blur-[90px] animate-[float_10s_ease-in-out_infinite] -top-10 -left-10"></div>
-        <div class="absolute w-[280px] h-[280px] bg-gray-300/[0.03] rounded-full blur-[100px] animate-[float_12s_ease-in-out_infinite_reverse] -bottom-10 -right-10"></div>
-    </div>
-
-    <!-- 5. Top Badge with Onload Entrance -->
-    <div class="relative z-10 inline-block mb-4 sm:mb-6 animate-[fadeInDown_1s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:150ms]">
-        <div class="group relative p-[1px] rounded-full overflow-hidden bg-gradient-to-r from-transparent via-white/40 to-transparent">
-            <span class="relative flex items-center gap-2 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.25em] sm:tracking-[0.355em] text-gray-200 bg-black/90 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full backdrop-blur-xl shadow-[0_0_25px_rgba(255,255,255,0.05)]">
-                <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-                Global Growth & Revenue Engines
-            </span>
-        </div>
-    </div>
-
-    <!-- 6. Main Title with Smooth Onload Reveal -->
-    <h1 class="relative z-10 font-display font-black tracking-wider uppercase text-white drop-shadow-[0_15px_50px_rgba(255,255,255,0.2)] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.1] max-w-6xl mx-auto my-2 animate-[fadeInUp_1.2s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:350ms]">
-        Scale Your <span class="bg-gradient-to-b from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">Business Worldwide</span>
-    </h1>
-
-    <!-- 7. Catchy Subheading with Staggered Onload -->
-    <p class="relative z-10 text-gray-400 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl sm:max-w-3xl mx-auto mt-4 sm:mt-6 font-light tracking-wide leading-relaxed animate-[fadeInUp_1.4s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:550ms]">
-        We don't just deploy <strong>SYSTEMS</strong>, we build end-to-end digital <strong>ECOSYSTEMS</strong> that drive 
-        <span class="text-gray-200 font-normal">explosive customer acquisition, recurring sales, and global market dominance.</span>
-    </p>
-
-    <!-- 8. Interactive Call to Action Buttons with Onload Entry -->
-    <div class="relative z-10 mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto animate-[fadeInUp_1.6s_cubic-bezier(0.16,1,0.3,1)_forwards] opacity-0 [animation-delay:750ms]">
-        
-        <!-- Primary Button -->
-        <a href="services.html" class="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide overflow-hidden bg-white text-black shadow-[0_0_40px_rgba(255,255,255,0.25)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:bg-black hover:text-white border border-transparent hover:border-white/40 transition-all duration-500 cursor-pointer active:scale-95">
-            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-black/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            <span class="relative z-10 font-medium flex items-center gap-2">
-                Launch Your <span class="font-bold underline underline-offset-4 decoration-1 decoration-white/60 group-hover:decoration-white">Digital Empire</span>
-            </span>
-            <svg class="w-4 h-4 text-black transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-        </a>
-
-        <!-- Secondary Button -->
-        <a href="contact.html" class="group relative inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-4 sm:py-4.5 rounded-full text-xs sm:text-sm md:text-base font-medium tracking-wide bg-white/[0.03] text-gray-300 hover:text-white hover:bg-white/[0.08] border border-white/10 hover:border-white/30 backdrop-blur-md transition-all duration-300 cursor-pointer active:scale-95">
-            <span>Book Growth Strategy Call</span>
-            <svg class="w-4 h-4 text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-        </a>
-    </div>
-</section>
-
-
-  <!-- Projects Showcase Section with Properly Sized Mobile Slider & Onload Animations -->
-<section id="projects"
-    class="reveal-section relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black text-white overflow-hidden">
-
-    <!-- Background Elevated White Glow Effect -->
+    <!-- Trust Subtitle -->
     <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-0">
-    </div>
-
-    <!-- Section Header -->
-    <div class="relative z-10 max-w-3xl">
-        <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-4">
-            Selected Pieces From Our Studio
-        </h2>
-        <p class="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
-            These pieces show how we turn raw concepts into polished experiences. We pay attention to movement,
-            layout, flow, and the feeling a website gives the moment someone lands on it. This is where you can see
-            how all those elements come together.
-        </p><br>
-    </div>
-
-    <!-- Mobile Slide Navigation Controls Header (Visible on small screens only) -->
-    <div class="flex md:hidden items-center justify-end gap-3 mb-4 z-20 relative">
-        <button onclick="scrollProjects('left')"
-            class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
-            aria-label="Slide Left">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
-            </svg>
-        </button>
-        <button onclick="scrollProjects('right')"
-            class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
-            aria-label="Slide Right">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-            </svg>
-        </button>
-    </div>
-
-    <!-- Projects Container: Properly Sized Cards for Mobile & Grid for Desktop -->
-    <div id="projectsSlider"
-        class="relative z-10 flex md:grid md:grid-cols-3 gap-5 lg:gap-8 items-center overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-4 md:pb-0">
-
-        <!-- Project Card 1: Crystal Pro -->
+        class="relative w-full overflow-hidden border-t border-b border-white/10 py-4 my-8 bg-black/30 backdrop-blur-sm reveal delay-3">
+        <!-- Gradient Fade Masks on Edges -->
         <div
-            class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
-            <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                <img src="car.webp" alt="Crystal Pro"
-                    class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                    onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
-                </div>
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                    <span
-                        class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Crystal
-                        Pro
-                        Design</span>
-                   <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
-    Explore <span class="text-base">&rarr;</span>
-</a>
-                </div>
-            </div>
+            class="pointer-events-none absolute left-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-r from-black to-transparent">
+        </div>
+        <div
+            class="pointer-events-none absolute right-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-l from-black to-transparent">
         </div>
 
-        <!-- Project Card 2: Phantom Pro Studio -->
         <div
-            class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
-            <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                <img src="vale.webp" alt="Phantom Pro Studio"
-                    class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                    onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
-                </div>
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                    <span
-                        class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Phantom
-                        Pro Studio</span>
-                    <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
-    Explore <span class="text-base">&rarr;</span>
-</a>
-                </div>
+            class="animate-marquee flex items-center gap-8 sm:gap-12 whitespace-nowrap text-xs text-gray-300 font-medium">
+            <!-- Set 1 -->
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Full Domain & Hosting Setup
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Copywriting & Service Quotes Included
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Custom AI Visuals & Graphics
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Unlimited Product Catalog Uploads
+            </div>
+
+            <!-- Set 2 (Duplicated for seamless looping) -->
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Full Domain & Hosting Setup
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Copywriting & Service Quotes Included
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Custom AI Visuals & Graphics
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-emerald-400 font-bold">✓</span> Unlimited Product Catalog Uploads
             </div>
         </div>
+    </div>
 
-        <!-- Project Card 3: Alpha Fitness -->
+    <!-- Projects Showcase Section with Properly Sized Mobile Slider & Onload Animations -->
+    <section id="projects"
+        class="reveal-section relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black text-white overflow-hidden">
+
+        <!-- Background Elevated White Glow Effect -->
         <div
-            class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
-            <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                <img src="shimmer-edited.webp" alt="Alpha Fitness"
-                    class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                    onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
-                </div>
-                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                    <span
-                        class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Alpha
-                        Fitness</span>
-                    <a href="projects.html" class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
-    Explore <span class="text-base">&rarr;</span>
-</a>
-                </div>
-            </div>
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-0">
         </div>
 
-    </div>
+        <!-- Section Header -->
+        <div class="relative z-10 max-w-3xl">
+            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-4">
+                Selected Pieces From Our Studio
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed font-light">
+                These pieces show how we turn raw concepts into polished experiences. We pay attention to movement,
+                layout, flow, and the feeling a website gives the moment someone lands on it. This is where you can see
+                how all those elements come together.
+            </p><br>
+        </div>
 
-    <!-- Bottom Action Controls Footer -->
-    <div class="relative z-10 mt-12 sm:mt-16 flex items-center justify-between">
-        <a href="#services"
-            class="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300">
-            <span>See More</span>
-            <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-        </a>
+        <!-- Mobile Slide Navigation Controls Header (Visible on small screens only) -->
+        <div class="flex md:hidden items-center justify-end gap-3 mb-4 z-20 relative">
+            <button onclick="scrollProjects('left')"
+                class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
+                aria-label="Slide Left">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <button onclick="scrollProjects('right')"
+                class="p-3 rounded-full bg-white/5 border border-white/15 text-white active:bg-white active:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg cursor-pointer"
+                aria-label="Slide Right">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
 
-        <a href="#home"
-            class="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-            </svg>
-        </a>
-    </div>
-</section>
+        <!-- Projects Container: Properly Sized Cards for Mobile & Grid for Desktop -->
+        <div id="projectsSlider"
+            class="relative z-10 flex md:grid md:grid-cols-3 gap-5 lg:gap-8 items-center overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-4 md:pb-0">
 
-   
+            <!-- Project Card 1: Crystal Pro -->
+            <div
+                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                    <img src="car.webp" alt="Crystal Pro"
+                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Crystal
+                            Pro
+                            Design</span>
+                        <a href="projects.html"
+                            class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+                            Explore <span class="text-base">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-  
+            <!-- Project Card 2: Phantom Pro Studio -->
+            <div
+                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                    <img src="vale.webp" alt="Phantom Pro Studio"
+                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Phantom
+                            Pro Studio</span>
+                        <a href="projects.html"
+                            class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+                            Explore <span class="text-base">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3: Alpha Fitness -->
+            <div
+                class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
+                <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
+                    <img src="shimmer-edited.webp" alt="Alpha Fitness"
+                        class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                        onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <span
+                            class="text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-gray-200 backdrop-blur-md">Alpha
+                            Fitness</span>
+                        <a href="projects.html"
+                            class="text-xs font-medium text-white group-hover:translate-x-1.5 transition-transform duration-300 flex items-center gap-1 cursor-pointer">
+                            Explore <span class="text-base">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Action Controls Footer -->
+        <div class="relative z-10 mt-12 sm:mt-16 flex items-center justify-between">
+            <a href="#services"
+                class="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300">
+                <span>See More</span>
+                <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+
+            <a href="#home"
+                class="p-3.5 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:border-white/30 transition-all duration-300 flex items-center justify-center backdrop-blur-md shadow-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+
+
+
 
     <!-- Our Philosophy Section -->
     <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-black">
@@ -1109,14 +745,14 @@
 
                 <!-- Call to Action Button -->
                 <a href="contact.html"
-    class="group inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300 cursor-pointer">
-    <span class="relative z-10 font-medium">Get In Touch</span>
-    <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1.5 relative z-10"
-        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
-</a>
+                    class="group inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:bg-black hover:text-white hover:border hover:border-white transition-all duration-300 cursor-pointer">
+                    <span class="relative z-10 font-medium">Get In Touch</span>
+                    <svg class="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1.5 relative z-10"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -1282,15 +918,15 @@
 
         <!-- Bottom Explore Button -->
         <div class="mt-16 text-center">
-           <a href="services.html"
-    class="glass-btn group inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium text-white bg-white/5 border border-white/15 hover:border-white/50 hover:bg-white/10 transition-all duration-300 cursor-pointer">
-    <span>Explore All Services</span>
-    <svg class="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-1"
-        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
-</a>
+            <a href="services.html"
+                class="glass-btn group inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium text-white bg-white/5 border border-white/15 hover:border-white/50 hover:bg-white/10 transition-all duration-300 cursor-pointer">
+                <span>Explore All What we Do</span>
+                <svg class="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
         </div>
     </section>
     <!-- NEW DIGITAL GROWTH & BUSINESS UPSCALING GRAPH SECTION -->
@@ -1501,17 +1137,7 @@
         </div>
     </section>
 
-    <!-- Inline CSS to hide scrollbars and handle custom smooth tab effects -->
-    <style>
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
 
     <!-- JavaScript for Instant Zero-Delay Smooth Tab Switching -->
     <script>
@@ -1582,10 +1208,11 @@
     </script>
 
 
-   <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/10">
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/10">
         <!-- Partners Marquee Section -->
         <div class="mb-24 overflow-hidden">
-            <h2 class="text-xl sm:text-2xl font-display font-bold tracking-wide text-white mb-3">Partners Who Built With Us</h2>
+            <h2 class="text-xl sm:text-2xl font-display font-bold tracking-wide text-white mb-3">Partners Who Built With
+                Us</h2>
             <p class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-2xl mb-12">
                 Each partnership brought unique scaling challenges and high expectations. Working closely with these
                 industry leaders allowed us to engineer elite digital solutions built for conversion and long-term
@@ -1593,11 +1220,12 @@
             </p>
 
             <!-- Marquee Container with Gradient Fades on Edges -->
-            <div class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-                
+            <div
+                class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+
                 <!-- Moving Track (Duplicated items for a seamless infinite loop) -->
                 <div class="flex w-max animate-marquee space-x-6 items-center">
-                    
+
                     <!-- FIRST SET OF LOGOS -->
                     <!-- Partner 1: AH -->
                     <div onclick="manualSwitch(0)"
@@ -1650,26 +1278,40 @@
 
 
                     <!-- DUPLICATED SET FOR INFINITE LOOP EFFECT -->
-                    <div onclick="manualSwitch(0)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    <div onclick="manualSwitch(0)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
                     </div>
-                    <div onclick="manualSwitch(1)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    <div onclick="manualSwitch(1)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
                     </div>
-                    <div onclick="manualSwitch(2)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/HSOD-1.webp" alt="HSOD" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    <div onclick="manualSwitch(2)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/HSOD-1.webp" alt="HSOD"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
                     </div>
-                    <div onclick="manualSwitch(3)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/phantom-auto.webp" alt="Phantom" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    <div onclick="manualSwitch(3)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/phantom-auto.webp" alt="Phantom"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
                     </div>
-                    <div onclick="manualSwitch(4)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/YSS-1.webp" alt="yssp" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    <div onclick="manualSwitch(4)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/YSS-1.webp" alt="yssp"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
                     </div>
-                    <div onclick="manualSwitch(5)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/amora-salon.webp" alt="Amora" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    <div onclick="manualSwitch(5)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/amora-salon.webp" alt="Amora"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
                     </div>
-                    <div onclick="manualSwitch(6)" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group" class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    <div onclick="manualSwitch(6)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
                     </div>
 
                 </div>
@@ -1706,7 +1348,8 @@
                     <div class="text-left lg:text-right pt-4">
                         <span id="testimonialSub" class="text-xs uppercase tracking-widest text-white block mb-1">—
                             PYARE MIYAN ZARIWALA</span>
-                        <span id="testimonialRole" class="text-xs text-gray-400 font-normal">Fashion & Traditional Textile Craft</span>
+                        <span id="testimonialRole" class="text-xs text-gray-400 font-normal">Fashion & Traditional
+                            Textile Craft</span>
                     </div>
 
                     <div id="testimonialBadgeContainer"
@@ -1716,18 +1359,25 @@
                     </div>
 
                     <div class="flex items-center space-x-2 pt-4">
-                        <button onclick="manualSwitch(0)" id="tDot-0" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(1)" id="tDot-1" class="w-6 h-2 rounded-full bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(2)" id="tDot-2" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(3)" id="tDot-3" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(4)" id="tDot-4" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(5)" id="tDot-5" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(6)" id="tDot-6" class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(0)" id="tDot-0"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(1)" id="tDot-1"
+                            class="w-6 h-2 rounded-full bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(2)" id="tDot-2"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(3)" id="tDot-3"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(4)" id="tDot-4"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(5)" id="tDot-5"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(6)" id="tDot-6"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
                     </div>
                 </div>
             </div>
         </div>
-</section>
+    </section>
     <script>
         const testimonialData = [
             {
@@ -1814,18 +1464,14 @@
             autoSlideInterval = setInterval(nextSlide, 4500);
         }
     </script>
-   
-        
-    <footer id="contact" class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none opacity-20 flex items-center justify-center">
-            <div
-                class="w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,_rgba(245,185,40,0.15)_0%,_transparent_70%)] blur-3xl">
-            </div>
-        </div>
 
+
+
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-                <!-- Brand & Info -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="flex items-center space-x-3">
                         <div class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center shadow-lg">
@@ -1835,102 +1481,85 @@
                                 <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
                             </svg>
                         </div>
-                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S info
+                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S Info
                             Desk</span>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">
-                        Next-Gen Brand Architects and Digital Experience Studio helping ambitious companies scale their
-                        revenue and dominate their market.
-                    </p>
-                    <div class="pt-2">
-                        <button onclick="openContactModal()"
-                            class="inline-flex items-center gap-2 text-sm text-white-400 hover:underline bg-transparent border-none cursor-pointer p-0">
-                            <span>✉</span> info@K&Sinfotech.com
-                        </button>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Senior-engineered software
+                        applications, modern websites, custom admin dashboards, and turn-key digital marketing
+                        solutions.</p>
+                    <div class="pt-2 space-y-1 text-sm text-gray-300">
+                        <div>✉ Email: <a href="mailto:kashafshoukat27@gmail.com"
+                                class="hover:underline">kashafshoukat27@gmail.com</a></div>
+                        <div>📞 Phone: <a href="tel:+923087441026" class="hover:underline">+92 (308) 7441026</a></div>
                     </div>
                 </div>
-
-                <!-- Quick Links -->
-             <div class="lg:col-span-3 space-y-4">
-    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
-    <ul class="space-y-2.5 text-sm text-gray-400">
-        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
-        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
-        <li><a href="projects.html" class="hover:text-white transition-colors">Projects</a></li>
-        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
-    </ul>
-</div>
-
-                <!-- Socials & Callout -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Our Top Services</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">See Our Work</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a></li>
+                    </ul>
+                </div>
                 <div class="lg:col-span-4 space-y-4">
-                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Connect With Us
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Direct Contact
                     </h4>
-                    <p class="text-gray-400 text-xs sm:text-sm font-light">Follow our latest design drops and industry
-                        insights across social networks.</p>
-                    <div class="flex items-center space-x-3 pt-2">
-                        <button onclick="openContactModal()"
-                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">f</button>
-                        <button onclick="openContactModal()"
-                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">in</button>
-                        <button onclick="openContactModal()"
-                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">ig</button>
-                        <button onclick="openContactModal()"
-                            class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center text-white hover:text-white-400 transition-colors border-none cursor-pointer">x</button>
+                    <p class="text-gray-400 text-xs sm:text-sm font-light">Have an existing site or new system in mind?
+                        Talk directly with our lead software team.</p>
+                    <div class="pt-2">
+                        <a href="contact.html"
+                            class="glass-btn px-6 py-3 rounded-xl text-xs text-white font-medium inline-block">Schedule
+                            Engineering Call</a>
                     </div>
                 </div>
             </div>
-
             <div
                 class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
-                <p>&copy; 2026 K&S info Desk | All Rights Reserved.</p>
+                <p>&copy; 2026 K&S Info Desk | Senior Software Engineering & Digital Growth</p>
                 <div class="flex space-x-6">
-                   <a href="/privacy-policy.html" class="hover:text-gray-300 transition-colors bg-transparent border-none cursor-pointer p-0 text-xs text-gray-500 no-underline">
-  Privacy Policy
-</a>
-                    <button onclick="openContactModal()"
-                        class="hover:text-gray-300 transition-colors bg-transparent border-none cursor-pointer p-0 text-xs text-gray-500">Terms
-                        & Conditions</button>
+                    <a href="contact.html" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="contact.html" class="hover:text-gray-300 transition-colors">Terms & Conditions</a>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- JavaScript Bundle -->
     <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    function toggleMenu() {
-        const isOpen = mobileMenu.classList.contains('translate-y-0');
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-y-0');
 
-        if (!isOpen) {
-            mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-            mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-            
-            mobileLinks.forEach((link, index) => {
-                setTimeout(() => {
-                    link.classList.remove('translate-y-6', 'opacity-0');
-                    link.classList.add('translate-y-0', 'opacity-100');
-                }, 120 + (index * 90));
-            });
-        } else {
-            mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-            mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-            
-            mobileLinks.forEach((link) => {
-                link.classList.remove('translate-y-0', 'opacity-100');
-                link.classList.add('translate-y-6', 'opacity-0');
-            });
+            if (!isOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.remove('translate-y-6', 'opacity-0');
+                        link.classList.add('translate-y-0', 'opacity-100');
+                    }, 120 + (index * 90));
+                });
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+                mobileLinks.forEach((link) => {
+                    link.classList.remove('translate-y-0', 'opacity-100');
+                    link.classList.add('translate-y-6', 'opacity-0');
+                });
+            }
         }
-    }
 
-    menuBtn.addEventListener('click', toggleMenu);
-    
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', toggleMenu);
-    });
-</script>
+        menuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+    </script>
 
     <script>
 
@@ -1977,7 +1606,7 @@
             });
         });
 
-      
+
 
         // Contact Modal Control
         function openContactModal() {
@@ -2172,48 +1801,48 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-section').forEach(section => {
+                observer.observe(section);
+            });
+            // Function to handle smooth scrolling for the mobile projects slider
+            function scrollProjects(direction) {
+                const slider = document.getElementById('projectsSlider');
+                if (!slider) return;
+
+                // Determine scroll amount based on the first card's width + gap, or fallback to 320px
+                const card = slider.querySelector('.studio-card');
+                const scrollAmount = card ? card.offsetWidth + 20 : 320;
+
+                if (direction === 'left') {
+                    slider.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    slider.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal-section').forEach(section => {
-        observer.observe(section);
-    });
-    // Function to handle smooth scrolling for the mobile projects slider
-function scrollProjects(direction) {
-    const slider = document.getElementById('projectsSlider');
-    if (!slider) return;
-
-    // Determine scroll amount based on the first card's width + gap, or fallback to 320px
-    const card = slider.querySelector('.studio-card');
-    const scrollAmount = card ? card.offsetWidth + 20 : 320;
-
-    if (direction === 'left') {
-        slider.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    } else {
-        slider.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    }
-}
-});
-</script>
- <!-- JavaScript for Slider Scroll -->
+    </script>
+    <!-- JavaScript for Slider Scroll -->
     <script>
         function scrollProjects(direction) {
             const container = document.getElementById('projectsSlider');

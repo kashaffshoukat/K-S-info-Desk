@@ -8,11 +8,13 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-    <!-- Chart.js for Growth Graph -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js for Growth Graph (loaded once) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script>
         tailwind.config = {
             theme: {
@@ -122,7 +124,7 @@
             }
 
             100% {
-                transform: translateY(3.5rem);
+                transform: translateY(4rem);
             }
         }
 
@@ -153,48 +155,12 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
                 transform: translateY(30px);
             }
 
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) scale(1);
-            }
-
-            50% {
-                transform: translateY(-15px) scale(1.03);
             }
         }
 
@@ -219,62 +185,6 @@
             animation-play-state: paused;
         }
 
-        @keyframes moveGrid {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(4rem);
-            }
-        }
-
-        @keyframes moveGrid {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(4rem);
-            }
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) translateX(0px);
-            }
-
-            50% {
-                transform: translateY(-20px) translateX(15px);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .scrollbar-none::-webkit-scrollbar {
             display: none;
         }
@@ -284,6 +194,9 @@
             scrollbar-width: none;
         }
     </style>
+  <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
 </head>
 
 <body class="bg-black text-white font-sans antialiased overflow-x-hidden selection:bg-white-500 selection:text-black">
@@ -618,7 +531,7 @@
             <div
                 class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
                 <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                    <img src="car.webp" alt="Crystal Pro"
+                    <img src="car.webp" alt="Crystal Pro" loading="lazy"
                         class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                         onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
@@ -640,7 +553,7 @@
             <div
                 class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
                 <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                    <img src="vale.webp" alt="Phantom Pro Studio"
+                    <img src="vale.webp" alt="Phantom Pro Studio" loading="lazy"
                         class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                         onerror="this.src='https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
@@ -661,7 +574,7 @@
             <div
                 class="studio-card min-w-[270px] max-w-[300px] sm:max-w-none sm:min-w-[320px] md:min-w-0 rounded-2xl overflow-hidden group border border-white/10 bg-zinc-950 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:border-white/35 transition-all duration-500 transform md:hover:-translate-y-2 snap-center flex-shrink-0 mx-auto md:mx-0 w-full">
                 <div class="relative overflow-hidden aspect-[4/3] bg-zinc-900">
-                    <img src="shimmer-edited.webp" alt="Alpha Fitness"
+                    <img src="shimmer-edited.webp" alt="Alpha Fitness" loading="lazy"
                         class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
                         onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80'">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90">
@@ -757,58 +670,6 @@
         </div>
     </section>
 
-    <!-- JavaScript for the Philosophy Canvas Animation (Converted to White/Silver/Grey) -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const canvas = document.getElementById("philosophyCanvas");
-            if (!canvas) return;
-            const ctx = canvas.getContext("2d");
-
-            function resizeCanvas() {
-                canvas.width = canvas.parentElement.clientWidth;
-                canvas.height = canvas.parentElement.clientHeight;
-            }
-            resizeCanvas();
-            window.addEventListener("resize", resizeCanvas);
-
-            let t = 0;
-            function animatePhilosophy() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                ctx.save();
-                ctx.beginPath();
-
-                let width = canvas.width;
-                let height = canvas.height;
-
-                // Drawing an infinity/wave loop path
-                ctx.moveTo(width / 2, height / 2);
-                for (let x = 0; x < width; x += 5) {
-                    let y = height / 2 + Math.sin((x + t) * 0.015) * 50 * Math.sin(t * 0.005);
-                    ctx.lineTo(x, y);
-                }
-
-                // Updated stroke and shadow to pure white and silver gradients (No Yellow)
-                let gradient = ctx.createLinearGradient(0, 0, width, height);
-                gradient.addColorStop(0, "rgba(255, 255, 255, 0.8)");
-                gradient.addColorStop(0.5, "rgba(156, 163, 175, 0.5)"); // Soft gray
-                gradient.addColorStop(1, "rgba(255, 255, 255, 0.2)");
-
-                ctx.strokeStyle = gradient;
-                ctx.lineWidth = 2.5;
-                ctx.shadowColor = "rgba(255, 255, 255, 0.8)"; // White glow
-                ctx.shadowBlur = 12;
-                ctx.stroke();
-                ctx.restore();
-
-                t += 1.5;
-                requestAnimationFrame(animatePhilosophy);
-            }
-
-            animatePhilosophy();
-        });
-    </script>
-
     <!-- Marquee Banner -->
     <section class="relative z-10 overflow-hidden py-12 border-y border-white/10 bg-black/40 backdrop-blur-md">
         <div class="flex whitespace-nowrap overflow-hidden">
@@ -829,106 +690,7 @@
         </div>
     </section>
 
-    <!-- What We Offer Section -->
-    <section id="services" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div class="max-w-3xl mb-14">
-            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-3">
-                What We Offer
-            </h2>
-            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                Strategy, design, and execution built around what your business actually needs
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Card 1: Custom Website Design -->
-            <div onclick="openServicesModal()"
-                class="studio-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer border border-white/10 bg-zinc-950/50 hover:border-white/30 transition-all duration-300">
-                <div>
-                    <div
-                        class="w-12 h-12 rounded-xl glass-btn flex items-center justify-center text-white mb-6 bg-white/5 border border-white/10">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-3 tracking-wide">CUSTOM WEBSITE
-                        DESIGN</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8">
-                        We design websites that are fast, intuitive, & tailored to your brand. Whether you need a
-                        digital storefront or a standout portfolio, we build experiences that look sharp and perform
-                        even better.
-                    </p>
-                </div>
-                <span
-                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-white group-hover:text-gray-300 transition-colors">
-                    <span>Learn More</span> →
-                </span>
-            </div>
-
-            <!-- Card 2: Branding Essentials -->
-            <div onclick="openServicesModal()"
-                class="studio-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer border border-white/10 bg-zinc-950/50 hover:border-white/30 transition-all duration-300">
-                <div>
-                    <div
-                        class="w-12 h-12 rounded-xl glass-btn flex items-center justify-center text-white mb-6 bg-white/5 border border-white/10">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.5V21m0 0h2" />
-                        </svg>
-                    </div>
-                    <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-3 tracking-wide">BRANDING
-                        ESSENTIALS</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8">
-                        We help you define how your brand shows up visually. From logo design to colors, fonts, and
-                        reference styles, we give you the basic branding tools you need to look sharp and stay
-                        consistent everywhere.
-                    </p>
-                </div>
-                <span
-                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-white group-hover:text-gray-300 transition-colors">
-                    <span>See More</span> →
-                </span>
-            </div>
-
-            <!-- Card 3: Social Media Management -->
-            <div onclick="openServicesModal()"
-                class="studio-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer border border-white/10 bg-zinc-950/50 hover:border-white/30 transition-all duration-300">
-                <div>
-                    <div
-                        class="w-12 h-12 rounded-xl glass-btn flex items-center justify-center text-white mb-6 bg-white/5 border border-white/10">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-display font-bold text-lg sm:text-xl text-white mb-3 tracking-wide">SOCIAL MEDIA
-                        MANAGEMENT</h3>
-                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8">
-                        We manage your social presence by planning post schedules, publishing content, replying to
-                        comments, managing DMs, and keeping your brand active across platforms.
-                    </p>
-                </div>
-                <span
-                    class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-white group-hover:text-gray-300 transition-colors">
-                    <span>See More</span> →
-                </span>
-            </div>
-        </div>
-
-        <!-- Bottom Explore Button -->
-        <div class="mt-16 text-center">
-            <a href="services.html"
-                class="glass-btn group inline-flex items-center gap-3 px-9 py-4 rounded-full text-sm font-medium text-white bg-white/5 border border-white/15 hover:border-white/50 hover:bg-white/10 transition-all duration-300 cursor-pointer">
-                <span>Explore All What we Do</span>
-                <svg class="w-4 h-4 text-white transform transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </a>
-        </div>
-    </section>
+  
     <!-- NEW DIGITAL GROWTH & BUSINESS UPSCALING GRAPH SECTION -->
     <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -989,18 +751,496 @@
         </div>
     </section>
 
-    <!-- Chart.js Script configured strictly with White, Green, and Gray elements -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const ctx = document.getElementById('growthChart').getContext('2d');
+    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="max-w-4xl mx-auto md:mx-0 mb-14 text-center md:text-left">
+            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-3">Our Proven Process
+            </h2>
+            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                No guesswork, no endless delays. We follow a streamlined, high-impact blueprint designed to turn your
+                vision into a high-converting digital asset on time and on budget.
+            </p>
+        </div>
 
-            // Create subtle green gradient fill for the growth line
+        <!-- Adaptive Container with Clean Border Glow -->
+        <div
+            class="w-full max-w-6xl mx-auto rounded-3xl p-5 sm:p-8 md:p-12 border border-white/15 bg-zinc-950/90 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(255,255,255,0.02)]">
+
+            <!-- Process Tabs Header: Yellow, White, and Gray Palette -->
+            <div
+                class="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar border-b border-white/10">
+                <button onclick="switchTab(0)" id="tab-0"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-white/50 bg-white/10 text-white cursor-pointer shadow-[0_0_15px_rgba(251,191,36,0.15)] shrink-0">1.
+                    Discovery & Audit</button>
+                <button onclick="switchTab(1)" id="tab-1"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">2.
+                    Architecture & UX</button>
+                <button onclick="switchTab(2)" id="tab-2"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">3.
+                    Rapid Development</button>
+                <button onclick="switchTab(3)" id="tab-3"
+                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">4.
+                    Launch & Scale</button>
+            </div>
+
+            <!-- Process Content Display -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Image Wrapper with Smooth Hover Zoom-out effect -->
+                <div
+                    class="relative overflow-hidden aspect-[4/3] rounded-2xl bg-zinc-900 border border-white/15 shadow-xl group cursor-pointer">
+                    <img id="processImage" src="Wireframe-asset-ready-scaled.webp" alt="Process Illustration" loading="lazy"
+                        class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 opacity-100">
+                </div>
+
+                <!-- Text Details with Smooth Fade-Slide Transition -->
+                <div id="processTextContent"
+                    class="space-y-3 transition-all duration-300 ease-out opacity-100 translate-y-0">
+                    <span id="processNumber"
+                        class="text-xs uppercase tracking-widest text-white font-semibold block">Phase 01</span>
+                    <h3 id="processTitle"
+                        class="font-display font-bold text-xl sm:text-2xl text-white uppercase tracking-wide">Discovery
+                        & Audit</h3>
+                    <p id="processDesc" class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                        We deep-dive into your business model, target audience, and core bottlenecks. By analyzing your
+                        goals upfront, we align our strategy entirely toward maximizing your ROI and conversion
+                        potential.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/10">
+        <!-- Partners Marquee Section -->
+        <div class="mb-24 overflow-hidden">
+            <h2 class="text-xl sm:text-2xl font-display font-bold tracking-wide text-white mb-3">Partners Who Built With
+                Us</h2>
+            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-2xl mb-12">
+                Each partnership brought unique scaling challenges and high expectations. Working closely with these
+                industry leaders allowed us to engineer elite digital solutions built for conversion and long-term
+                growth.
+            </p>
+
+            <!-- Marquee Container with Gradient Fades on Edges -->
+            <div
+                class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+
+                <!-- Moving Track (Duplicated items for a seamless infinite loop) -->
+                <div class="flex w-max animate-marquee space-x-6 items-center">
+
+                    <!-- FIRST SET OF LOGOS -->
+                    <!-- Partner 1: AH -->
+                    <div onclick="manualSwitch(0)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 2: PM -->
+                    <div onclick="manualSwitch(1)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 3: HSOD -->
+                    <div onclick="manualSwitch(2)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/HSOD-1.webp" alt="HSOD" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 4: PHANTOM -->
+                    <div onclick="manualSwitch(3)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/phantom-auto.webp" alt="Phantom" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 5: YSSP -->
+                    <div onclick="manualSwitch(4)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/YSS-1.webp" alt="yssp" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 6: AMORA -->
+                    <div onclick="manualSwitch(5)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/amora-salon.webp" alt="Amora" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                    <!-- Partner 7: CP -->
+                    <div onclick="manualSwitch(6)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+
+                    <!-- DUPLICATED SET FOR INFINITE LOOP EFFECT -->
+                    <div onclick="manualSwitch(0)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(1)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(2)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/HSOD-1.webp" alt="HSOD" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(3)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/phantom-auto.webp" alt="Phantom" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(4)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/YSS-1.webp" alt="yssp" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(5)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/amora-salon.webp" alt="Amora" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+                    <div onclick="manualSwitch(6)"
+                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
+                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group" loading="lazy"
+                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Display Area (Unchanged) -->
+        <div class="relative overflow-hidden pt-12">
+            <div class="absolute left-0 top-2 select-none pointer-events-none opacity-25 z-0">
+                <h2 class="text-6xl sm:text-8xl md:text-9xl font-display font-black uppercase tracking-wider text-transparent"
+                    style="-webkit-text-stroke: 1px whitesmoke;">TESTIMONIAL</h2>
+            </div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pt-16 sm:pt-24">
+                <div class="lg:col-span-7 pr-0 sm:pr-8">
+                    <div class="relative pt-2">
+                        <p id="testimonialText"
+                            class="text-gray-300 text-sm sm:text-base leading-relaxed font-light transition-opacity duration-300">
+                            "Working with K&S Desk was one of the best decisions we made for our business. They captured
+                            the essence of our traditional brand craftsmanship while giving us a modern digital presence
+                            that appeals to today's customers. The website feels elegant yet rooted in heritage, just
+                            like our brand. Their dedication and communication throughout the project were excellent."
+                        </p>
+                        <span class="text-5xl text-gray-500 font-serif absolute -bottom-10 right-4 select-none">“</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 flex flex-col items-start lg:items-end space-y-6">
+                    <div class="text-left lg:text-right space-y-1">
+                        <span class="text-xs uppercase tracking-widest text-white block">— TESTIMONIALS</span>
+                        <h3 class="text-xl sm:text-2xl font-display font-medium text-white">Clients Testimonials</h3>
+                    </div>
+
+                    <div class="text-left lg:text-right pt-4">
+                        <span id="testimonialSub" class="text-xs uppercase tracking-widest text-white block mb-1">—
+                            PYARE MIYAN ZARIWALA</span>
+                        <span id="testimonialRole" class="text-xs text-gray-400 font-normal">Fashion & Traditional
+                            Textile Craft</span>
+                    </div>
+
+                    <div id="testimonialBadgeContainer"
+                        class="w-28 h-28 rounded-full border border-white/20 bg-black/40 flex items-center justify-center p-3 shadow-2xl relative overflow-hidden">
+                        <img id="testimonialBadgeImg" src="assets/images/pm-logo.webp" alt="Badge" loading="lazy"
+                            class="w-full h-full object-contain">
+                    </div>
+
+                    <div class="flex items-center space-x-2 pt-4">
+                        <button onclick="manualSwitch(0)" id="tDot-0"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(1)" id="tDot-1"
+                            class="w-6 h-2 rounded-full bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(2)" id="tDot-2"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(3)" id="tDot-3"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(4)" id="tDot-4"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(5)" id="tDot-5"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                        <button onclick="manualSwitch(6)" id="tDot-6"
+                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center shadow-lg">
+                            <svg viewBox="0 0 32 32" class="w-5 h-5 text-white fill-current"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
+                                <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
+                            </svg>
+                        </div>
+                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S Info
+                            Desk</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Senior-engineered software
+                        applications, modern websites, custom admin dashboards, and turn-key digital marketing
+                        solutions.</p>
+                    <div class="pt-2 space-y-1 text-sm text-gray-300">
+                        <div>✉ Email: <a href="mailto:kashafshoukat27@gmail.com"
+                                class="hover:underline">kashafshoukat27@gmail.com</a></div>
+                        <div>📞 Phone: <a href="tel:+923087441026" class="hover:underline">+92 (308) 7441026</a></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-white transition-colors">Our Top Services</a></li>
+                        <li><a href="projects.html" class="hover:text-white transition-colors">See Our Work</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a></li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-4 space-y-4">
+                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Direct Contact
+                    </h4>
+                    <p class="text-gray-400 text-xs sm:text-sm font-light">Have an existing site or new system in mind?
+                        Talk directly with our lead software team.</p>
+                    <div class="pt-2">
+                        <a href="contact.html"
+                            class="glass-btn px-6 py-3 rounded-xl text-xs text-white font-medium inline-block">Schedule
+                            Engineering Call</a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 K&S Info Desk | Senior Software Engineering & Digital Growth</p>
+                <div class="flex space-x-6">
+                    <a href="contact.html" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
+                    <a href="contact.html" class="hover:text-gray-300 transition-colors">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Bundle -->
+    <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-y-0');
+
+            if (!isOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.remove('translate-y-6', 'opacity-0');
+                        link.classList.add('translate-y-0', 'opacity-100');
+                    }, 120 + (index * 90));
+                });
+            } else {
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+
+                mobileLinks.forEach((link) => {
+                    link.classList.remove('translate-y-0', 'opacity-100');
+                    link.classList.add('translate-y-6', 'opacity-0');
+                });
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Philosophy Canvas
+        const phiCanvas = document.getElementById('philosophyCanvas');
+        const phiCtx = phiCanvas.getContext('2d');
+        let pWidth, pHeight;
+        function resizePhi() {
+            pWidth = phiCanvas.width = phiCanvas.parentElement.clientWidth;
+            pHeight = phiCanvas.height = phiCanvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizePhi);
+        resizePhi();
+        let phiT = 0;
+        function animatePhilosophy() {
+            phiCtx.clearRect(0, 0, pWidth, pHeight);
+            phiCtx.save();
+            phiCtx.translate(pWidth / 2, pHeight / 2);
+            phiCtx.beginPath();
+            phiCtx.strokeStyle = 'rgba(245, 185, 40, 0.35)';
+            phiCtx.lineWidth = 2.5;
+            const scale = Math.min(pWidth, 500) / 3.5;
+            for (let i = 0; i < Math.PI * 2; i += 0.02) {
+                const angle = i + phiT;
+                const denom = 1 + Math.sin(angle) * Math.sin(angle);
+                const x = (scale * Math.cos(angle)) / denom;
+                const y = (scale * Math.sin(angle) * Math.cos(angle)) / denom;
+                if (i === 0) phiCtx.moveTo(x, y); else phiCtx.lineTo(x, y);
+            }
+            phiCtx.stroke();
+            phiCtx.restore();
+            phiT += 0.008;
+            requestAnimationFrame(animatePhilosophy);
+        }
+        animatePhilosophy();
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            document.querySelectorAll('.parallax-card').forEach(card => {
+                const speed = parseFloat(card.getAttribute('data-speed')) || 0.05;
+                const offset = (scrollY - card.offsetTop + 400) * speed;
+                card.style.transform = `translateY(${offset}px)`;
+            });
+        });
+
+        const servicesData = {
+            web: [
+                { tier: "Tier 01", title: "High-Impact Landing Page", desc: "Custom designed, ultra-fast single page web app optimized for conversions, product launches, and brand authority.", features: ["Custom UI/UX Wireframing", "Advanced Smooth Animations", "Mobile & Tablet Responsive", "5-Day Fast Turnaround"], popular: false },
+                { tier: "Tier 02 — Popular", title: "Full Business Ecosystem", desc: "Multi-page corporate website or digital studio platform with integrated case studies, dynamic blogs, and client portals.", features: ["Up to 8 Custom Pages", "CMS Integration & SEO Setup", "Interactive Canvases & Charts", "Priority 24/7 Support"], popular: true },
+                { tier: "Tier 03", title: "Enterprise Web Application", desc: "Fully bespoke web application, interactive platform, or SaaS interface built with custom frontend architecture.", features: ["Unlimited Scalable Pages", "Custom 3D / WebGL Effects", "Secure Backend API Integration", "Dedicated Engineering Team"], popular: false }
+            ],
+            brand: [
+                { tier: "Tier 01", title: "Identity Starter Kit", desc: "Essential brand assets designed to position your early-stage venture with high professionalism.", features: ["Logo Concepts & Guidelines", "Typography & Color Palette", "Social Media Asset Templates", "Brand Book PDF"], popular: false },
+                { tier: "Tier 02 — Popular", title: "Complete Brand Re-Architecture", desc: "A comprehensive brand overhaul for scaling businesses ready to dominate their market niche.", features: ["Deep Brand Positioning Strategy", "Comprehensive Visual Identity System", "Custom Iconography & Illustrations", "Full Stationery & Pitch Deck Suite"], popular: true },
+                { tier: "Tier 03", title: "Global Enterprise Branding", desc: "International-grade brand architecture for established firms undergoing transition or market expansion.", features: ["Multi-Brand Subsystem Architecture", "Custom Typography Development", "Global Trademark Guidelines", "Ongoing Brand Governance"], popular: false }
+            ],
+            growth: [
+                { tier: "Tier 01", title: "Social Accelerator", desc: "Consistent, high-aesthetic content creation and management to keep your social channels active and engaging.", features: ["12 Custom Posts / Month", "Reels & Shorts Strategy", "Caption Copywriting & Hashtags", "Monthly Growth Analytics"], popular: false },
+                { tier: "Tier 02 — Popular", title: "Revenue Growth Suite", desc: "Full-funnel digital presence management combining social media, paid ads, and conversion optimization.", features: ["Full Content Production", "Paid Ad Campaign Management", "Lead Funnel Optimization", "Weekly Performance Reports"], popular: true },
+                { tier: "Tier 03", title: "Dominance CMO Partner", desc: "End-to-end outsourced marketing leadership and execution for rapid market scaling.", features: ["Dedicated Growth Team", "Omnichannel Ad Scaling", "Influencer Partnerships", "Daily Strategy Iterations"], popular: false }
+            ]
+        };
+
+        function switchServiceTab(category) {
+            ['web', 'brand', 'growth'].forEach(cat => {
+                const btn = document.getElementById(`srvTab-${cat}`);
+                if (cat === category) {
+                    btn.className = "srv-tab px-6 py-3 rounded-full text-xs sm:text-sm font-medium border border-white/50 bg-white/10 text-white-400 transition-all";
+                } else {
+                    btn.className = "srv-tab px-6 py-3 rounded-full text-xs sm:text-sm font-medium border border-white/10 bg-black/40 text-gray-400 hover:text-white transition-all";
+                }
+            });
+
+            const container = document.getElementById('serviceDetailContent');
+            if (!container) return;
+            container.style.opacity = '0';
+            setTimeout(() => {
+                const items = servicesData[category];
+                container.innerHTML = items.map(item => `
+                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between ${item.popular ? 'border-white/40 shadow-[0_0_30px_rgba(245,185,40,0.15)]' : ''}">
+                        <div>
+                            <span class="text-xs font-semibold text-white-400 uppercase tracking-widest block mb-2">${item.tier}</span>
+                            <h3 class="font-display font-bold text-xl text-white mb-3">${item.title}</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${item.desc}</p>
+                            <ul class="space-y-2 text-xs text-gray-300 mb-8">
+                                ${item.features.map(f => `<li class="flex items-center gap-2">✓ ${f}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <a href="#contact" onclick="closeServicesModal()" class="glass-btn w-full py-3 rounded-xl text-center text-xs font-medium ${item.popular ? 'text-white-400 border-white/40 bg-white/10 hover:bg-white/20' : 'text-white hover:border-white/40'} transition-all">Select Tier →</a>
+                    </div>
+                `).join('');
+                container.style.opacity = '1';
+            }, 150);
+        }
+
+        // Process Tabs
+        const processData = [
+            {
+                num: "Phase 01",
+                title: "Discovery & Audit",
+                desc: "We deep-dive into your business model, target audience, and core bottlenecks. By analyzing your goals upfront, we align our strategy entirely toward maximizing your ROI and conversion potential.",
+                img: "Wireframe-asset-ready-scaled.webp"
+            },
+            {
+                num: "Phase 02",
+                title: "Architecture & UX",
+                desc: "We blueprint intuitive user journeys and high-converting layouts. Every structural choice is engineered to keep visitors engaged, reduce bounce rates, and guide them smoothly to checkout or inquiry.",
+                img: "Sitemap-image-ready-scaled.webp"
+            },
+            {
+                num: "Phase 03",
+                title: "Rapid Development",
+                desc: "Our engineering team brings the blueprint to life using clean, lightning-fast code, responsive interfaces, and secure backend integrations (payments, databases, APIs) built to scale effortlessly.",
+                img: "Code-scaled.webp"
+            },
+            {
+                num: "Phase 04",
+                title: "Launch & Scale",
+                desc: "We rigorously test performance, security, and cross-device compatibility before deploying to production. Post-launch, we monitor metrics and provide ongoing optimization to fuel continuous growth.",
+                img: "deployed-scaled.webp"
+            }
+        ];
+
+        let activeTab = 0;
+
+        function switchTab(index) {
+            if (activeTab === index) return;
+            activeTab = index;
+
+            for (let i = 0; i < 4; i++) {
+                const btn = document.getElementById(`tab-${i}`);
+                if (i === index) {
+                    btn.className = "process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-white/50 bg-white/10 text-white cursor-pointer shadow-[0_0_15px_rgba(251,191,36,0.15)] shrink-0";
+                } else {
+                    btn.className = "process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0";
+                }
+            }
+
+            const data = processData[index];
+            const imgEl = document.getElementById('processImage');
+            const textEl = document.getElementById('processTextContent');
+
+            imgEl.style.opacity = '0';
+            textEl.style.opacity = '0';
+            textEl.style.transform = 'translateY(8px)';
+
+            setTimeout(() => {
+                document.getElementById('processNumber').innerText = data.num;
+                document.getElementById('processTitle').innerText = data.title;
+                document.getElementById('processDesc').innerText = data.desc;
+                imgEl.src = data.img;
+
+                imgEl.style.opacity = '1';
+                textEl.style.opacity = '1';
+                textEl.style.transform = 'translateY(0)';
+            }, 150);
+        }
+
+        // Growth Chart initialization (single instance)
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctxGrowth = document.getElementById('growthChart');
+            if (!ctxGrowth || typeof Chart === 'undefined') return;
+            const ctx = ctxGrowth.getContext('2d');
+
             const greenGradient = ctx.createLinearGradient(0, 0, 0, 300);
             greenGradient.addColorStop(0, 'rgba(74, 222, 128, 0.35)');
             greenGradient.addColorStop(1, 'rgba(74, 222, 128, 0.0)');
 
-            const growthChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['Q1', 'Q2', 'Q3', 'Q4'],
@@ -1008,7 +1248,7 @@
                         {
                             label: 'With K&S Desk (Optimized)',
                             data: [15000, 38000, 75000, 140000],
-                            borderColor: '#4ade80', // Green
+                            borderColor: '#4ade80',
                             backgroundColor: greenGradient,
                             borderWidth: 3,
                             fill: true,
@@ -1022,7 +1262,7 @@
                         {
                             label: 'Industry Average (Flat)',
                             data: [12000, 14000, 15500, 16000],
-                            borderColor: '#71717a', // Gray
+                            borderColor: '#71717a',
                             borderWidth: 2,
                             borderDash: [5, 5],
                             fill: false,
@@ -1078,307 +1318,8 @@
                 }
             });
         });
-    </script>
-    <section class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div class="max-w-4xl mx-auto md:mx-0 mb-14 text-center md:text-left">
-            <h2 class="text-2xl sm:text-4xl font-display font-bold tracking-wide text-white mb-3">Our Proven Process
-            </h2>
-            <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
-                No guesswork, no endless delays. We follow a streamlined, high-impact blueprint designed to turn your
-                vision into a high-converting digital asset on time and on budget.
-            </p>
-        </div>
 
-        <!-- Adaptive Container with Clean Border Glow -->
-        <div
-            class="w-full max-w-6xl mx-auto rounded-3xl p-5 sm:p-8 md:p-12 border border-white/15 bg-zinc-950/90 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(255,255,255,0.02)]">
-
-            <!-- Process Tabs Header: Yellow, White, and Gray Palette -->
-            <div
-                class="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-10 no-scrollbar border-b border-white/10">
-                <button onclick="switchTab(0)" id="tab-0"
-                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-white/50 bg-white/10 text-white cursor-pointer shadow-[0_0_15px_rgba(251,191,36,0.15)] shrink-0">1.
-                    Discovery & Audit</button>
-                <button onclick="switchTab(1)" id="tab-1"
-                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">2.
-                    Architecture & UX</button>
-                <button onclick="switchTab(2)" id="tab-2"
-                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">3.
-                    Rapid Development</button>
-                <button onclick="switchTab(3)" id="tab-3"
-                    class="process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0">4.
-                    Launch & Scale</button>
-            </div>
-
-            <!-- Process Content Display -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <!-- Image Wrapper with Smooth Hover Zoom-out effect -->
-                <div
-                    class="relative overflow-hidden aspect-[4/3] rounded-2xl bg-zinc-900 border border-white/15 shadow-xl group cursor-pointer">
-                    <img id="processImage" src="Wireframe-asset-ready-scaled.webp" alt="Process Illustration"
-                        class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 opacity-100">
-                </div>
-
-                <!-- Text Details with Smooth Fade-Slide Transition -->
-                <div id="processTextContent"
-                    class="space-y-3 transition-all duration-300 ease-out opacity-100 translate-y-0">
-                    <span id="processNumber"
-                        class="text-xs uppercase tracking-widest text-white font-semibold block">Phase 01</span>
-                    <h3 id="processTitle"
-                        class="font-display font-bold text-xl sm:text-2xl text-white uppercase tracking-wide">Discovery
-                        & Audit</h3>
-                    <p id="processDesc" class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
-                        We deep-dive into your business model, target audience, and core bottlenecks. By analyzing your
-                        goals upfront, we align our strategy entirely toward maximizing your ROI and conversion
-                        potential.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- JavaScript for Instant Zero-Delay Smooth Tab Switching -->
-    <script>
-        const processData = [
-            {
-                num: "Phase 01",
-                title: "Discovery & Audit",
-                desc: "We deep-dive into your business model, target audience, and core bottlenecks. By analyzing your goals upfront, we align our strategy entirely toward maximizing your ROI and conversion potential.",
-                img: "Wireframe-asset-ready-scaled.webp"
-            },
-            {
-                num: "Phase 02",
-                title: "Architecture & UX",
-                desc: "We blueprint intuitive user journeys and high-converting layouts. Every structural choice is engineered to keep visitors engaged, reduce bounce rates, and guide them smoothly to checkout or inquiry.",
-                img: "Sitemap-image-ready-scaled.webp"
-            },
-            {
-                num: "Phase 03",
-                title: "Rapid Development",
-                desc: "Our engineering team brings the blueprint to life using clean, lightning-fast code, responsive interfaces, and secure backend integrations (payments, databases, APIs) built to scale effortlessly.",
-                img: "Code-scaled.webp"
-            },
-            {
-                num: "Phase 04",
-                title: "Launch & Scale",
-                desc: "We rigorously test performance, security, and cross-device compatibility before deploying to production. Post-launch, we monitor metrics and provide ongoing optimization to fuel continuous growth.",
-                img: "deployed-scaled.webp"
-            }
-        ];
-
-        let activeTab = 0;
-
-        function switchTab(index) {
-            if (activeTab === index) return;
-            activeTab = index;
-
-            // Update Tab Button Styles Instantly
-            for (let i = 0; i < 4; i++) {
-                const btn = document.getElementById(`tab-${i}`);
-                if (i === index) {
-                    btn.className = "process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-white/50 bg-white/10 text-white cursor-pointer shadow-[0_0_15px_rgba(251,191,36,0.15)] shrink-0";
-                } else {
-                    btn.className = "process-tab whitespace-nowrap text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 border border-transparent text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer shrink-0";
-                }
-            }
-
-            const data = processData[index];
-            const imgEl = document.getElementById('processImage');
-            const textEl = document.getElementById('processTextContent');
-
-            // Fade out image and text simultaneously with zero delay
-            imgEl.style.opacity = '0';
-            textEl.style.opacity = '0';
-            textEl.style.transform = 'translateY(8px)';
-
-            // Quickly swap data and fade back in for an ultra-smooth crossfade
-            setTimeout(() => {
-                document.getElementById('processNumber').innerText = data.num;
-                document.getElementById('processTitle').innerText = data.title;
-                document.getElementById('processDesc').innerText = data.desc;
-                imgEl.src = data.img;
-
-                imgEl.style.opacity = '1';
-                textEl.style.opacity = '1';
-                textEl.style.transform = 'translateY(0)';
-            }, 150); // Snappy transition timing to prevent lagging
-        }
-    </script>
-
-
-    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-white/10">
-        <!-- Partners Marquee Section -->
-        <div class="mb-24 overflow-hidden">
-            <h2 class="text-xl sm:text-2xl font-display font-bold tracking-wide text-white mb-3">Partners Who Built With
-                Us</h2>
-            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-2xl mb-12">
-                Each partnership brought unique scaling challenges and high expectations. Working closely with these
-                industry leaders allowed us to engineer elite digital solutions built for conversion and long-term
-                growth.
-            </p>
-
-            <!-- Marquee Container with Gradient Fades on Edges -->
-            <div
-                class="relative w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-
-                <!-- Moving Track (Duplicated items for a seamless infinite loop) -->
-                <div class="flex w-max animate-marquee space-x-6 items-center">
-
-                    <!-- FIRST SET OF LOGOS -->
-                    <!-- Partner 1: AH -->
-                    <div onclick="manualSwitch(0)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-                    <!-- Partner 2: PM -->
-                    <div onclick="manualSwitch(1)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-                    <!-- Partner 3: HSOD -->
-                    <div onclick="manualSwitch(2)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/HSOD-1.webp" alt="HSOD"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-                    <!-- Partner 4: PHANTOM -->
-                    <div onclick="manualSwitch(3)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/phantom-auto.webp" alt="Phantom"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-                    <!-- Partner 5: YSSP -->
-                    <div onclick="manualSwitch(4)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/YSS-1.webp" alt="yssp"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-                    <!-- Partner 6: AMORA -->
-                    <div onclick="manualSwitch(5)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/amora-salon.webp" alt="Amora"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-                    <!-- Partner 7: CP -->
-                    <div onclick="manualSwitch(6)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-
-                    <!-- DUPLICATED SET FOR INFINITE LOOP EFFECT -->
-                    <div onclick="manualSwitch(0)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/Alpha-sc-1.webp" alt="AH Management"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-                    <div onclick="manualSwitch(1)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/pmz-1.webp" alt="Pyare Miyan"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-                    <div onclick="manualSwitch(2)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/HSOD-1.webp" alt="HSOD"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-                    <div onclick="manualSwitch(3)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/phantom-auto.webp" alt="Phantom"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-                    <div onclick="manualSwitch(4)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/YSS-1.webp" alt="yssp"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-                    <div onclick="manualSwitch(5)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/amora-salon.webp" alt="Amora"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-                    <div onclick="manualSwitch(6)"
-                        class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-white/15 flex items-center justify-center bg-black/40 p-3 group hover:border-white/50 transition-colors cursor-pointer overflow-hidden flex-shrink-0">
-                        <img src="assets/images/Crystal-Pro-1.webp" alt="CP Group"
-                            class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Testimonial Display Area (Unchanged) -->
-        <div class="relative overflow-hidden pt-12">
-            <div class="absolute left-0 top-2 select-none pointer-events-none opacity-25 z-0">
-                <h2 class="text-6xl sm:text-8xl md:text-9xl font-display font-black uppercase tracking-wider text-transparent"
-                    style="-webkit-text-stroke: 1px whitesmoke;">TESTIMONIAL</h2>
-            </div>
-
-            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pt-16 sm:pt-24">
-                <div class="lg:col-span-7 pr-0 sm:pr-8">
-                    <div class="relative pt-2">
-                        <p id="testimonialText"
-                            class="text-gray-300 text-sm sm:text-base leading-relaxed font-light transition-opacity duration-300">
-                            "Working with K&S Desk was one of the best decisions we made for our business. They captured
-                            the essence of our traditional brand craftsmanship while giving us a modern digital presence
-                            that appeals to today's customers. The website feels elegant yet rooted in heritage, just
-                            like our brand. Their dedication and communication throughout the project were excellent."
-                        </p>
-                        <span class="text-5xl text-gray-500 font-serif absolute -bottom-10 right-4 select-none">“</span>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 flex flex-col items-start lg:items-end space-y-6">
-                    <div class="text-left lg:text-right space-y-1">
-                        <span class="text-xs uppercase tracking-widest text-white block">— TESTIMONIALS</span>
-                        <h3 class="text-xl sm:text-2xl font-display font-medium text-white">Clients Testimonials</h3>
-                    </div>
-
-                    <div class="text-left lg:text-right pt-4">
-                        <span id="testimonialSub" class="text-xs uppercase tracking-widest text-white block mb-1">—
-                            PYARE MIYAN ZARIWALA</span>
-                        <span id="testimonialRole" class="text-xs text-gray-400 font-normal">Fashion & Traditional
-                            Textile Craft</span>
-                    </div>
-
-                    <div id="testimonialBadgeContainer"
-                        class="w-28 h-28 rounded-full border border-white/20 bg-black/40 flex items-center justify-center p-3 shadow-2xl relative overflow-hidden">
-                        <img id="testimonialBadgeImg" src="assets/images/pm-logo.webp" alt="Badge"
-                            class="w-full h-full object-contain">
-                    </div>
-
-                    <div class="flex items-center space-x-2 pt-4">
-                        <button onclick="manualSwitch(0)" id="tDot-0"
-                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(1)" id="tDot-1"
-                            class="w-6 h-2 rounded-full bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(2)" id="tDot-2"
-                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(3)" id="tDot-3"
-                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(4)" id="tDot-4"
-                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(5)" id="tDot-5"
-                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                        <button onclick="manualSwitch(6)" id="tDot-6"
-                            class="w-2 h-2 rounded-full bg-white/40 hover:bg-white transition-all cursor-pointer"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script>
+        // Testimonials (single source of truth — 7 entries matching the 7 dots)
         const testimonialData = [
             {
                 text: "K&S Desk delivered a rock-solid system architecture for our operations. Their technical depth and execution speed are unmatched.",
@@ -1463,343 +1404,8 @@
             switchTestimonial(index);
             autoSlideInterval = setInterval(nextSlide, 4500);
         }
-    </script>
 
-
-
-
-    <!-- Footer -->
-    <footer class="relative z-10 bg-black border-t border-white/10 pt-20 pb-12 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-xl glass-btn flex items-center justify-center shadow-lg">
-                            <svg viewBox="0 0 32 32" class="w-5 h-5 text-white fill-current"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 6H14V10H10V22H14V26H6V6Z" opacity="0.9" />
-                                <path d="M18 6H26V10H22V14H26V18H22V22H26V26H18V6Z" />
-                            </svg>
-                        </div>
-                        <span class="font-display font-bold text-xl tracking-wider text-white uppercase">K&S Info
-                            Desk</span>
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm font-light">Senior-engineered software
-                        applications, modern websites, custom admin dashboards, and turn-key digital marketing
-                        solutions.</p>
-                    <div class="pt-2 space-y-1 text-sm text-gray-300">
-                        <div>✉ Email: <a href="mailto:kashafshoukat27@gmail.com"
-                                class="hover:underline">kashafshoukat27@gmail.com</a></div>
-                        <div>📞 Phone: <a href="tel:+923087441026" class="hover:underline">+92 (308) 7441026</a></div>
-                    </div>
-                </div>
-                <div class="lg:col-span-3 space-y-4">
-                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Navigation</h4>
-                    <ul class="space-y-2.5 text-sm text-gray-400">
-                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="services.html" class="hover:text-white transition-colors">Our Top Services</a></li>
-                        <li><a href="projects.html" class="hover:text-white transition-colors">See Our Work</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition-colors">Connect to Grow</a></li>
-                    </ul>
-                </div>
-                <div class="lg:col-span-4 space-y-4">
-                    <h4 class="font-display font-semibold text-white tracking-wider uppercase text-sm">Direct Contact
-                    </h4>
-                    <p class="text-gray-400 text-xs sm:text-sm font-light">Have an existing site or new system in mind?
-                        Talk directly with our lead software team.</p>
-                    <div class="pt-2">
-                        <a href="contact.html"
-                            class="glass-btn px-6 py-3 rounded-xl text-xs text-white font-medium inline-block">Schedule
-                            Engineering Call</a>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 space-y-4 sm:space-y-0">
-                <p>&copy; 2026 K&S Info Desk | Senior Software Engineering & Digital Growth</p>
-                <div class="flex space-x-6">
-                    <a href="contact.html" class="hover:text-gray-300 transition-colors">Privacy Policy</a>
-                    <a href="contact.html" class="hover:text-gray-300 transition-colors">Terms & Conditions</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- JavaScript Bundle -->
-    <script>
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        function toggleMenu() {
-            const isOpen = mobileMenu.classList.contains('translate-y-0');
-
-            if (!isOpen) {
-                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-
-                mobileLinks.forEach((link, index) => {
-                    setTimeout(() => {
-                        link.classList.remove('translate-y-6', 'opacity-0');
-                        link.classList.add('translate-y-0', 'opacity-100');
-                    }, 120 + (index * 90));
-                });
-            } else {
-                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-
-                mobileLinks.forEach((link) => {
-                    link.classList.remove('translate-y-0', 'opacity-100');
-                    link.classList.add('translate-y-6', 'opacity-0');
-                });
-            }
-        }
-
-        menuBtn.addEventListener('click', toggleMenu);
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
-    </script>
-
-    <script>
-
-        // Philosophy Canvas
-        const phiCanvas = document.getElementById('philosophyCanvas');
-        const phiCtx = phiCanvas.getContext('2d');
-        let pWidth, pHeight;
-        function resizePhi() {
-            pWidth = phiCanvas.width = phiCanvas.parentElement.clientWidth;
-            pHeight = phiCanvas.height = phiCanvas.parentElement.clientHeight;
-        }
-        window.addEventListener('resize', resizePhi);
-        resizePhi();
-        let t = 0;
-        function animatePhilosophy() {
-            phiCtx.clearRect(0, 0, pWidth, pHeight);
-            phiCtx.save();
-            phiCtx.translate(pWidth / 2, pHeight / 2);
-            phiCtx.beginPath();
-            phiCtx.strokeStyle = 'rgba(245, 185, 40, 0.35)';
-            phiCtx.lineWidth = 2.5;
-            const scale = Math.min(pWidth, 500) / 3.5;
-            for (let i = 0; i < Math.PI * 2; i += 0.02) {
-                const angle = i + t;
-                const denom = 1 + Math.sin(angle) * Math.sin(angle);
-                const x = (scale * Math.cos(angle)) / denom;
-                const y = (scale * Math.sin(angle) * Math.cos(angle)) / denom;
-                if (i === 0) phiCtx.moveTo(x, y); else phiCtx.lineTo(x, y);
-            }
-            phiCtx.stroke();
-            phiCtx.restore();
-            t += 0.008;
-            requestAnimationFrame(animatePhilosophy);
-        }
-        animatePhilosophy();
-
-        // Parallax Effect
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            document.querySelectorAll('.parallax-card').forEach(card => {
-                const speed = parseFloat(card.getAttribute('data-speed')) || 0.05;
-                const offset = (scrollY - card.offsetTop + 400) * speed;
-                card.style.transform = `translateY(${offset}px)`;
-            });
-        });
-
-
-
-        // Contact Modal Control
-        function openContactModal() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeContactModal() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'auto';
-        }
-
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            const successMsg = document.getElementById('formSuccessMsg');
-            successMsg.classList.remove('hidden');
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-                document.getElementById('contactForm').reset();
-                closeContactModal();
-            }, 3000);
-        }
-
-        // Projects Modal Control
-        function openProjectsModal() {
-            const modal = document.getElementById('projectsModal');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeProjectsModal() {
-            const modal = document.getElementById('projectsModal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Services Modal Control
-        function openServicesModal() {
-            const modal = document.getElementById('servicesModal');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeServicesModal() {
-            const modal = document.getElementById('servicesModal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            document.body.style.overflow = 'auto';
-        }
-
-        const servicesData = {
-            web: [
-                { tier: "Tier 01", title: "High-Impact Landing Page", desc: "Custom designed, ultra-fast single page web app optimized for conversions, product launches, and brand authority.", features: ["Custom UI/UX Wireframing", "Advanced Smooth Animations", "Mobile & Tablet Responsive", "5-Day Fast Turnaround"], popular: false },
-                { tier: "Tier 02 — Popular", title: "Full Business Ecosystem", desc: "Multi-page corporate website or digital studio platform with integrated case studies, dynamic blogs, and client portals.", features: ["Up to 8 Custom Pages", "CMS Integration & SEO Setup", "Interactive Canvases & Charts", "Priority 24/7 Support"], popular: true },
-                { tier: "Tier 03", title: "Enterprise Web Application", desc: "Fully bespoke web application, interactive platform, or SaaS interface built with custom frontend architecture.", features: ["Unlimited Scalable Pages", "Custom 3D / WebGL Effects", "Secure Backend API Integration", "Dedicated Engineering Team"], popular: false }
-            ],
-            brand: [
-                { tier: "Tier 01", title: "Identity Starter Kit", desc: "Essential brand assets designed to position your early-stage venture with high professionalism.", features: ["Logo Concepts & Guidelines", "Typography & Color Palette", "Social Media Asset Templates", "Brand Book PDF"], popular: false },
-                { tier: "Tier 02 — Popular", title: "Complete Brand Re-Architecture", desc: "A comprehensive brand overhaul for scaling businesses ready to dominate their market niche.", features: ["Deep Brand Positioning Strategy", "Comprehensive Visual Identity System", "Custom Iconography & Illustrations", "Full Stationery & Pitch Deck Suite"], popular: true },
-                { tier: "Tier 03", title: "Global Enterprise Branding", desc: "International-grade brand architecture for established firms undergoing transition or market expansion.", features: ["Multi-Brand Subsystem Architecture", "Custom Typography Development", "Global Trademark Guidelines", "Ongoing Brand Governance"], popular: false }
-            ],
-            growth: [
-                { tier: "Tier 01", title: "Social Accelerator", desc: "Consistent, high-aesthetic content creation and management to keep your social channels active and engaging.", features: ["12 Custom Posts / Month", "Reels & Shorts Strategy", "Caption Copywriting & Hashtags", "Monthly Growth Analytics"], popular: false },
-                { tier: "Tier 02 — Popular", title: "Revenue Growth Suite", desc: "Full-funnel digital presence management combining social media, paid ads, and conversion optimization.", features: ["Full Content Production", "Paid Ad Campaign Management", "Lead Funnel Optimization", "Weekly Performance Reports"], popular: true },
-                { tier: "Tier 03", title: "Dominance CMO Partner", desc: "End-to-end outsourced marketing leadership and execution for rapid market scaling.", features: ["Dedicated Growth Team", "Omnichannel Ad Scaling", "Influencer Partnerships", "Daily Strategy Iterations"], popular: false }
-            ]
-        };
-
-        function switchServiceTab(category) {
-            ['web', 'brand', 'growth'].forEach(cat => {
-                const btn = document.getElementById(`srvTab-${cat}`);
-                if (cat === category) {
-                    btn.className = "srv-tab px-6 py-3 rounded-full text-xs sm:text-sm font-medium border border-white/50 bg-white/10 text-white-400 transition-all";
-                } else {
-                    btn.className = "srv-tab px-6 py-3 rounded-full text-xs sm:text-sm font-medium border border-white/10 bg-black/40 text-gray-400 hover:text-white transition-all";
-                }
-            });
-
-            const container = document.getElementById('serviceDetailContent');
-            container.style.opacity = '0';
-            setTimeout(() => {
-                const items = servicesData[category];
-                container.innerHTML = items.map(item => `
-                    <div class="studio-card rounded-2xl p-8 flex flex-col justify-between ${item.popular ? 'border-white/40 shadow-[0_0_30px_rgba(245,185,40,0.15)]' : ''}">
-                        <div>
-                            <span class="text-xs font-semibold text-white-400 uppercase tracking-widest block mb-2">${item.tier}</span>
-                            <h3 class="font-display font-bold text-xl text-white mb-3">${item.title}</h3>
-                            <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 font-light">${item.desc}</p>
-                            <ul class="space-y-2 text-xs text-gray-300 mb-8">
-                                ${item.features.map(f => `<li class="flex items-center gap-2">✓ ${f}</li>`).join('')}
-                            </ul>
-                        </div>
-                        <a href="#contact" onclick="closeServicesModal()" class="glass-btn w-full py-3 rounded-xl text-center text-xs font-medium ${item.popular ? 'text-white-400 border-white/40 bg-white/10 hover:bg-white/20' : 'text-white hover:border-white/40'} transition-all">Select Tier →</a>
-                    </div>
-                `).join('');
-                container.style.opacity = '1';
-            }, 150);
-        }
-
-        // Process Tabs
-        const processData = [
-            { number: "1.", title: "Discovery", desc: "We start by learning your world — how your business works, what you're aiming for, and what your audience actually needs.", image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" },
-            { number: "2.", title: "Strategy", desc: "We translate insights into a concrete blueprint. Every feature and design direction is planned to maximize engagement.", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" },
-            { number: "3.", title: "Creation", desc: "Our design and engineering teams bring the vision to life with immaculate attention to detail and smooth interactions.", image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80" },
-            { number: "4.", title: "Launch & Beyond", desc: "We deploy your digital experience seamlessly, perform rigorous testing, and provide ongoing optimization.", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" }
-        ];
-        function switchTab(index) {
-            for (let i = 0; i < 4; i++) {
-                const btn = document.getElementById(`tab-${i}`);
-                if (i === index) btn.className = "process-tab text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all border border-white/50 bg-white/10 text-white-400";
-                else btn.className = "process-tab text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all border border-transparent text-gray-400 hover:text-white hover:bg-white/5";
-            }
-            const data = processData[index];
-            document.getElementById('processNumber').innerText = data.number;
-            document.getElementById('processTitle').innerText = data.title;
-            document.getElementById('processDesc').innerText = data.desc;
-            const imgEl = document.getElementById('processImage');
-            imgEl.style.opacity = '0';
-            setTimeout(() => { imgEl.src = data.image; imgEl.style.opacity = '1'; }, 150);
-        }
-
-        // Growth Chart initialization
-        const ctxGrowth = document.getElementById('growthChart').getContext('2d');
-        new Chart(ctxGrowth, {
-            type: 'line',
-            data: {
-                labels: ['Month 1', 'Month 3', 'Month 6', 'Month 9', 'Month 12'],
-                datasets: [
-                    {
-                        label: 'Revenue Growth with K&S info Desk',
-                        data: [120, 240, 480, 780, 1250],
-                        borderColor: '#f5b928',
-                        backgroundColor: 'rgba(245, 185, 40, 0.1)',
-                        fill: true,
-                        tension: 0.4,
-                        borderWidth: 3,
-                        pointBackgroundColor: '#f5b928',
-                        pointBorderColor: '#ffffff',
-                        pointRadius: 5
-                    },
-                    {
-                        label: 'Standard Baseline Growth',
-                        data: [100, 115, 130, 145, 160],
-                        borderColor: 'rgba(255, 255, 255, 0.3)',
-                        borderDash: [5, 5],
-                        borderWidth: 2,
-                        fill: false,
-                        tension: 0.4,
-                        pointRadius: 0
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: { color: '#d1d5db', font: { family: 'Inter', size: 11 } }
-                    }
-                },
-                scales: {
-                    x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } },
-                    y: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#9ca3af' } }
-                }
-            }
-        });
-
-        // Testimonials
-        const testimonialsData = [
-            { text: "\"K&S info Desk understood exactly what a design school's website should communicate — creativity, clarity, and confidence. They delivered a platform that looks great and functions smoothly.\"", sub: "— HSOD MANAGEMENT", role: "Architecture & Education", badge: "HSOD" },
-            { text: "\"Working with K&S info Desk transformed our digital footprint completely. The sleek aesthetics and smooth animations gave our studio the exact edge we needed.\"", sub: "— PHANTOM PRO STUDIO", role: "Automotive & Design", badge: "PHANTOM" },
-            { text: "\"The team's ability to translate complex brand requirements into an intuitive web interface was phenomenal. Our conversion rates jumped immediately after launch.\"", sub: "— ALPHA FITNESS", role: "Wellness & Performance", badge: "AH" }
-        ];
-        function switchTestimonial(index) {
-            for (let i = 0; i < 3; i++) {
-                const dot = document.getElementById(`tDot-${i}`);
-                if (i === index) dot.className = "w-6 h-1.5 rounded-full bg-white transition-all";
-                else dot.className = "w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all";
-            }
-            const data = testimonialsData[index];
-            const textEl = document.getElementById('testimonialText');
-            textEl.style.opacity = '0';
-            setTimeout(() => {
-                textEl.innerText = data.text;
-                document.getElementById('testimonialSub').innerText = data.sub;
-                document.getElementById('testimonialRole').innerText = data.role;
-                document.getElementById('testimonialBadge').innerText = data.badge;
-                textEl.style.opacity = '1';
-            }, 150);
-        }
-    </script>
-    <script>
+        // Scroll reveal + projects slider
         document.addEventListener("DOMContentLoaded", function () {
             const observerOptions = {
                 root: null,
@@ -1819,34 +1425,14 @@
             document.querySelectorAll('.reveal-section').forEach(section => {
                 observer.observe(section);
             });
-            // Function to handle smooth scrolling for the mobile projects slider
-            function scrollProjects(direction) {
-                const slider = document.getElementById('projectsSlider');
-                if (!slider) return;
-
-                // Determine scroll amount based on the first card's width + gap, or fallback to 320px
-                const card = slider.querySelector('.studio-card');
-                const scrollAmount = card ? card.offsetWidth + 20 : 320;
-
-                if (direction === 'left') {
-                    slider.scrollBy({
-                        left: -scrollAmount,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    slider.scrollBy({
-                        left: scrollAmount,
-                        behavior: 'smooth'
-                    });
-                }
-            }
         });
-    </script>
-    <!-- JavaScript for Slider Scroll -->
-    <script>
+
+        // Projects slider scroll
         function scrollProjects(direction) {
             const container = document.getElementById('projectsSlider');
-            const scrollAmount = 280; // Scroll by fixed card width length
+            if (!container) return;
+            const card = container.querySelector('.studio-card');
+            const scrollAmount = card ? card.offsetWidth + 20 : 320;
             if (direction === 'left') {
                 container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             } else {
